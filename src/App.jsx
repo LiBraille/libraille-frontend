@@ -1,5 +1,6 @@
 import Home from './pages/Home'
-import GlueDots from './GlueDots'
+import GlueDots from './components/GlueDots/GlueDots'
+import Footer from './components/footer/Footer'
 import './App.css'
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         cursorPull={100}         // Força de atração para o mouse
         cursorSwell={0.6}        // Quanto elas incham perto do mouse (0.6 = 60% maiores)
       />
+      <Footer/>
     </>
   )
 }
