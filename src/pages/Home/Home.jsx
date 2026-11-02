@@ -1,6 +1,7 @@
 import ScrambledText from '../../components/ScrambleText/ScrambledText';
 import NavBar from '../../components/navbar/Navbar';
 import Hero from '../../components/Hero/Hero';
+import CallToAction from '../../components/CallToAction/CallToAction';
 
 export default function Home() {
     return (
@@ -40,6 +41,7 @@ export default function Home() {
                 </ScrambledText>
                 </div>
             </main>
+            <CallToAction/>
         </>
     );
 }
