@@ -101,8 +101,8 @@ header #navbar{
 
 #login-register {
   --clr-font-main: hsla(0 0% 20% / 100);
-  --btn-bg-1: rgb(116, 88, 13);
-  --btn-bg-2: rgb(165, 148, 0);
+  --btn-bg-1: rgb(114, 79, 2);
+  --btn-bg-2: #D9B03F;
   --btn-bg-color: hsla(360 100% 100% / 1);
   --radii: 0.5em;
     color: #FDFBF7;

@@ -1,9 +1,15 @@
+.hero-background {
+    position: relative;
+    overflow: hidden;
+    background: #0b0738;
+    background: linear-gradient(0deg, rgb(5, 2, 39) 0%, rgba(253, 187, 45, 0) 100%);
+}
+
 .hero-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: #0b0738;
-    background: linear-gradient(0deg, rgb(5, 2, 39) 0%, rgba(253, 187, 45, 0) 100%);
+    margin-top: 5rem;
 }
 
 .hero-title {
@@ -15,7 +21,7 @@
     display: flex;
     flex-direction: column;
     max-width: max-content;
-    margin: 4rem 2rem;
+    margin: 0 2rem 4rem;
 }
 
 .hero-paragraph {
@@ -32,8 +38,8 @@
 
 .hero-button {
   --clr-font-main: hsla(0 0% 20% / 100);
-  --btn-bg-1: rgb(116, 88, 13);
-  --btn-bg-2: rgb(165, 148, 0);
+  --btn-bg-1: rgb(114, 79, 2);
+  --btn-bg-2: #D9B03F;
   --btn-bg-color: hsla(360 100% 100% / 1);
   --radii: 0.5em;
     color: #FDFBF7;
