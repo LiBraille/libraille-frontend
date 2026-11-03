@@ -1,0 +1,456 @@
+/* ==========================================================================
+   TELA DE AUTENTICAÇÃO - MODO ESCURO (LIBRAILLE)
+   ========================================================================== */
+
+.pagina-autenticacao {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #0B1325;
+  color: #F8FAFC;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Painel Esquerdo (Decorativo com padrão Braille)
+   -------------------------------------------------------------------------- */
+.painel-lateral-esquerdo {
+  position: relative;
+  width: 60%;
+  height: 100vh;
+  background-color: #070D1B;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 44px;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1;
+}
+
+/* Botão Voltar */
+.botao-voltar {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0D172C;
+  border: none;
+  color: #F1F5F9;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 5;
+}
+
+.botao-voltar:hover {
+  background-color: #111d39;
+  transform: translateX(-3px);
+}
+
+.icone-voltar {
+  width: 18px;
+  height: 18px;
+}
+
+/* Matriz de pontos Braille */
+.matriz-pontos-braille {
+  position: absolute;
+  top: 130px;
+  left: 60px;
+  display: flex;
+  gap: 24px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.coluna-pontos {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.coluna-deslocada {
+  margin-top: 26px;
+}
+
+.ponto-braille {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.ponto-azul { background-color: #1A315C; }
+.ponto-indigo { background-color: #243D73; }
+.ponto-isolado {
+  position: absolute;
+  top: 110px;
+  left: 105px;
+  background-color: #1E335C;
+}
+
+.pontos-inferiores {
+  display: flex;
+  gap: 18px;
+  opacity: 0.4;
+  padding-left: 15px;
+}
+
+.ponto-opaco {
+  background-color: #1A315C;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+/* Logo Central (logo2.png) */
+.container-emblema-central {
+  position: relative;
+  top: 17%;
+  right: 0;
+  left: 29%;
+  transform: translate(50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.imagem-emblema {
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.55));
+}
+
+/* --------------------------------------------------------------------------
+   Painel Direito (Card e Formulário)
+   -------------------------------------------------------------------------- */
+.painel-formulario-direito {
+  position: relative;
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: clamp(28px, 5.5vh, 60px);
+  padding-left: 20px;
+  padding-right: 20px;
+  background: radial-gradient(
+  circle at 65% 25%,
+  rgba(255, 255, 255, 0.06) 0%,
+  #0E182E 40%,
+  #0B1325 80%
+);
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.card-formulario {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Logo LiBraille do Topo */
+.cabecalho-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.imagem-logo-topo {
+  max-height: 68px;
+  width: auto;
+  object-fit: contain;
+}
+
+.container-abas {
+    position: relative;
+  display: flex;
+  border-bottom: 2px solid #1C2B47;
+  margin-bottom: 40px;
+}
+
+.botao-aba {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #7A8CA3;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.botao-aba:hover {
+  color: #CBD5E1;
+}
+
+.botao-aba.aba-ativa {
+  color: #FFFFFF;
+}
+
+.indicador-aba {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #E5A93C;
+  border-radius: 35%;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.indicador-aba.posicao-login {
+  transform: translateX(0%);
+}
+
+.indicador-aba.posicao-cadastro {
+  transform: translateX(100%);
+}
+
+/* ==========================================================================
+   ESTRUTURA BASE (PADRÃO PARA CADASTRO)
+   ========================================================================== */
+.formulario-autenticacao {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rotulo-campo {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #E2E8F0;
+}
+
+.campo-entrada {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #101B2E;
+  border: 1px solid #233452;
+  border-radius: 8px;
+  padding: 12.5px 16px;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-entrada::placeholder {
+  color: #5D708B;
+}
+
+.campo-entrada:focus {
+  border-color: #E5A93C;
+  box-shadow: 0 0 0 1px #E5A93C;
+}
+
+.container-input-senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.campo-com-icone {
+  padding-right: 44px;
+}
+
+.botao-alternar-senha {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #7A8CA3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.botao-alternar-senha:hover {
+  color: #E5A93C;
+}
+
+.icone-senha {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.container-esqueci-senha {
+  text-align: right;
+  margin-top: 4px;
+  padding-bottom: 65px;
+}
+
+.link-esqueci-senha {
+  font-size: 0.82rem;
+  color: #889BB2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-esqueci-senha:hover {
+  color: #E5A93C;
+}
+
+.botao-principal-acao {
+  width: 100%;
+  margin-top: 14px;
+  background-color: #E5A93C;
+  color: #070D1B;
+  border: none;
+  border-radius: 8px;
+  padding: 13.5px;
+  font-size: 17px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.botao-principal-acao:hover {
+  background-color: #F1B74C;
+}
+
+.botao-principal-acao:active {
+  transform: scale(0.99);
+}
+
+.linha-divisoria {
+  width: 100%;
+  height: 1px;
+  background-color: #1A2840;
+  margin: 16px 0 12px 0;
+}
+
+.container-botoes-sociais {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 20px;
+}
+
+.botao-social {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #0E1729;
+  border: 1px solid #233452;
+  border-radius: 8px;
+  padding: 11.5px 16px;
+  color: #F1F5F9;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.botao-social:hover {
+  background-color: #15223A;
+  border-color: #384F78;
+}
+
+.icone-social {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   AJUSTES DA PARTE "FAZER LOGIN"
+   ========================================================================== */
+
+.formulario-autenticacao.modo-login {
+  gap: 22px;
+}
+
+.formulario-autenticacao.modo-login .grupo-campo {
+  gap: 6px;
+}
+
+.formulario-autenticacao.modo-login .container-esqueci-senha {
+  margin-top: 8px;
+}
+
+.formulario-autenticacao.modo-login .botao-principal-acao {
+  margin-top: 14px;
+  padding: 14.5px;
+}
+
+.card-formulario.card-login .linha-divisoria {
+  margin: 28px 0 22px 0;
+}
+
+.card-formulario.card-login .container-botoes-sociais {
+  gap: 14px;
+}
+
+.card-formulario.card-login .botao-social {
+  padding: 13px 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsividade
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .pagina-autenticacao {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .painel-lateral-esquerdo {
+    width: 100%;
+    height: auto;
+    min-height: 140px;
+    padding: 20px;
+  }
+
+  .container-emblema-central {
+    display: none;
+  }
+
+  .painel-formulario-direito {
+    width: 100%;
+    height: auto;
+    padding: 36px 20px;
+  }
+}
+
+/* Animação suave de login para cadastro e vice-versa */
+@keyframes transicaoSuaveFormulario {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animar-formulario {
+  animation: transicaoSuaveFormulario 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

@@ -3,7 +3,7 @@ import moonIcon from '../../assets/icons8-lua.png'
 import sunIcon from '../../assets/icons8-sol.png'
 import './navbar.css'
 
-function NavBar() {
+function NavBar({onIrParaLogin}) {
     return (
         <>
             <header>
@@ -24,8 +24,8 @@ function NavBar() {
                             <img src={sunIcon} alt="Icone de sol para o modo claro" />
                         </button>
                         </div>
-                        <button id="login-register" aria-label="Login/Cadastro">
-                            <a href="">Login/Cadastro</a>
+                        <button id="login-register" aria-label="Faça Login ou Cadastro" onClick={onIrParaLogin} type="button">
+                            Login/Cadastro
                         </button>
                         </div>
                 </nav>
