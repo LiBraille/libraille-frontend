@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef } from "react";
+import "./gluedots.css";
 
 /**
  * GlueDots — v3
@@ -256,7 +257,6 @@ dots = [];
           width: "100%",
           height: "100%",
           opacity,
-          filter: merge ? `url(#${filterId})` : "none",
           cursor: rippleOnPress || cursorInteraction ? "pointer" : "default"
         }}
       />
