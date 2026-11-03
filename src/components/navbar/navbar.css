@@ -15,13 +15,12 @@ header{
 header #navbar{
     display: flex;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     justify-content: space-around;
 }
 
 #logo{
-    width: 10rem;
-    height: auto;
+    width: 14rem;
 }
 
 .nav-links{
@@ -45,6 +44,7 @@ header #navbar{
 
 .nav-buttons{
     display: flex;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -65,7 +65,7 @@ header #navbar{
     padding: 0.5rem;
 
     &:hover{
-        background-color: #1d2b4b;
+        background-color: #213155;
         border-radius: 50%;
     }
 }
@@ -83,7 +83,7 @@ header #navbar{
     padding: 0.5rem;
 
     &:hover{
-        background-color: var(--hover-color);
+        background-color: #213155;
         border-radius: 50%;
     }
 }
@@ -93,21 +93,50 @@ header #navbar{
     height: 1.8rem;
 }
 
-#login-register{
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-
-    &:hover{
-        background-color: #b38f2e;
-    }
-}
-
 #login-register a{
     text-decoration: none;
     color: var(--secondary-color);
+}
+
+#login-register {
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: rgb(114, 79, 2);
+  --btn-bg-2: #D9B03F;
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 0.5em;
+    color: #FDFBF7;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+  cursor: pointer;
+  min-width: 120px;
+  min-height: 44px;
+  font-size: var(--size, 1rem);
+  font-weight: 500;
+  transition: 0.8s;
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+}
+
+#login-register:hover {
+  background-position: right top;
+}
+
+#login-register:is(:focus, :focus-visible, :active) {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--btn-bg-color),
+    0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #login-register {
+    transition: linear;
+  }
 }
