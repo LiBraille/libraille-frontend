@@ -9,15 +9,15 @@ import "./gluedots.css";
  *  - Props: cursorInteraction, cursorRadius, cursorPull, cursorSwell.
  */
 export default function GlueDots({
-  columns = 14,
-  rows = 9,
-  fill = true,
-  spacing = 56,
-  cellSpacing = 40,
-  inset = 0,
-  dotRadius = 12,
-  blur = 8,
-  contrast = 28,
+  columns = 14, //colunas
+  rows = 9, //linhas
+  fill = true, // Distribui as bolinhas por toda a tela
+  spacing = 56, // Distância interna entre os pinos da mesma célula
+  cellSpacing = 40, // Distância entre as células (a cada 2 colunas, adiciona-se o espaçamento extra)
+  inset = 0, // Margem interna para as bolinhas não tocarem a borda
+  dotRadius = 12, // Tamanho de cada bolinha
+  blur = 8, // Desfoque do efeito de "cola" (quanto maior, mais borrado)
+  contrast = 50, // Contraste do efeito de "cola" (quanto maior, mais forte)
   merge = true,
   color = "#ffffff",
   backgroundColor = "#0a0a0a",
@@ -252,9 +252,8 @@ dots = [];
         onPointerLeave={handlePointerLeave}
         aria-hidden="true"
         style={{
-          position: "absolute",
           inset: 0,
-          width: "100%",
+          width: "90%",
           height: "100%",
           opacity,
           cursor: rippleOnPress || cursorInteraction ? "pointer" : "default"

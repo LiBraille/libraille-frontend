@@ -6,7 +6,7 @@
 }
 
 header{
-    background-color: rgba(23, 28, 58, 0.384);
+    background-color: #171c3a62;
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 0 1rem;
@@ -20,7 +20,7 @@ header #navbar{
 }
 
 #logo{
-    width: 14rem;
+    width: 10rem;
 }
 
 .nav-links{
@@ -39,7 +39,7 @@ header #navbar{
 .nav-link{
     text-decoration: none;
     color: var(--secondary-color);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .nav-buttons{
@@ -58,21 +58,22 @@ header #navbar{
 }
 
 #dark-mode{
-    background-color: transparent;
+    background-color: #3f0157;
     border: none;
     cursor: pointer;
     color: var(--secondary-color);
     padding: 0.5rem;
+    border-radius: 50%;
 
     &:hover{
-        background-color: #213155;
-        border-radius: 50%;
+        background-color: #2b3e6b;
+        
     }
 }
 
 #dark-mode img{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
 }
 
 #light-mode{
@@ -89,8 +90,8 @@ header #navbar{
 }
 
 #light-mode img{
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 #login-register a{
