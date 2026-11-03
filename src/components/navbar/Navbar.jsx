@@ -24,7 +24,7 @@ function NavBar() {
                             <img src={sunIcon} alt="Icone de sol para o modo claro" />
                         </button>
                         </div>
-                        <button id="login-register" aria-label="Login/Cadastro">
+                        <button id="login-register" aria-label="Faça Login ou Cadastro" onClick={"../../pages/Login/Auth.jsx"}>
                             <a href="">Login/Cadastro</a>
                         </button>
                         </div>
