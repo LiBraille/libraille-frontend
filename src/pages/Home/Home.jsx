@@ -8,10 +8,10 @@ import CallToAction from '../../components/CallToAction/CallToAction';
 import PhotoCircles from '../../components/PhotoCircles/PhotoCircles';
 import Footer from '../../components/footer/Footer';
 
-export default function Home() {
+export default function Home({ onIrParaLogin }) {
     return (
         <>
-            <NavBar />
+            <NavBar onIrParaLogin={onIrParaLogin}/>
             <main className="container" id="home" aria-label="Página inicial do site">
             <Hero />
             <GlueDots
