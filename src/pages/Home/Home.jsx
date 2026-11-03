@@ -39,6 +39,8 @@ export default function Home() {
             <DeviceSection />
             <Faq />
             </main>
+            <CallToAction/>
+            <PhotoCircles/>
         </>
     );
 }
