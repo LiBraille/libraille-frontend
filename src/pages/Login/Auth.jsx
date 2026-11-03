@@ -6,7 +6,7 @@ import logoDarkMode from "../../assets/logo-dark-mode.png";
 import logoCentral from "../../assets/logo2.png";
 import iconeApple from "../../assets/apple.svg";
 
-export default function Auth() {
+export default function Auth({onVoltar}) {
   const [estaNoLogin, setEstaNoLogin] = useState(true);
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
@@ -18,7 +18,7 @@ export default function Auth() {
         <button
           type="button"
           className="botao-voltar"
-          onClick={() => window.history.back()}
+          onClick={onVoltar || (() => window.history.back())}
         >
           <svg
             className="icone-voltar"

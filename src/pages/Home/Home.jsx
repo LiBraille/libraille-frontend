@@ -2,10 +2,10 @@ import NavBar from '../../components/navbar/Navbar';
 import Hero from '../../components/Hero/Hero';
 import './home.css';
 
-export default function Home() {
+export default function Home({ onIrParaLogin }) {
     return (
         <>
-            <NavBar />
+            <NavBar onIrParaLogin={onIrParaLogin} />
             <Hero />
         
         </>
