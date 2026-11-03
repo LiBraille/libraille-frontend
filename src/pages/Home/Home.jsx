@@ -4,6 +4,8 @@ import './home.css';
 import DeviceSection from '../../components/DeviceSection/DeviceSection';
 import GlueDots from '../../components/GlueDots/GlueDots';
 import Faq from '../../components/Faq/Faq';
+import CallToAction from '../../components/CallToAction/CallToAction';
+import PhotoCircles from '../../components/PhotoCircles/PhotoCircles';
 
 export default function Home() {
     return (
@@ -38,9 +40,9 @@ export default function Home() {
             />
             <DeviceSection />
             <Faq />
+            <CallToAction />
+            <PhotoCircles />
             </main>
-            <CallToAction/>
-            <PhotoCircles/>
         </>
     );
 }
