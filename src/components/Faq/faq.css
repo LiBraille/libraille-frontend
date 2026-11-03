@@ -1,0 +1,115 @@
+.faq-section {
+  width: 100%;
+  padding: 6rem 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.faq-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.faq-subtitle {
+  color: #a1a1aa;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 1.25rem 0.5rem;
+  text-align: left;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.faq-question-btn:hover {
+  color: #d4d4d8;
+}
+
+/* --- Ícone animado (+) para (×) via CSS --- */
+.faq-icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Linha horizontal do sinal de mais */
+.faq-icon::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+}
+
+/* Linha vertical do sinal de mais */
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 14px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Quando o item está aberto, o ícone roda 45° transformando-se num X */
+.faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Transição suave de altura da resposta usando CSS Grid */
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease-in-out;
+}
+
+.faq-answer-wrapper.is-open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+}
+
+/* Caixa interna arredondada da resposta */
+.faq-answer-box {
+  margin: 0 0.5rem 1.25rem 0.5rem;
+  padding: 1.25rem;
+  background-color: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

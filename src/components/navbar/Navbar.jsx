@@ -17,12 +17,13 @@ function NavBar() {
                         </ul>
                         <div className="nav-buttons">
                             <div className="dark-light-mode-container">
-                        <button id="dark-mode" aria-label="Alternar para modo escuro">
+                                
+                        {/* <button id="dark-mode" aria-label="Alternar para modo escuro">
                             <img src={moonIcon} alt="Icone de lua para o modo escuro" />
                         </button>
                         <button id="light-mode" aria-label="Alternar para modo claro">
                             <img src={sunIcon} alt="Icone de sol para o modo claro" />
-                        </button>
+                        </button> */}
                         </div>
                         <button id="login-register" aria-label="Login/Cadastro">
                             <a href="">Login/Cadastro</a>

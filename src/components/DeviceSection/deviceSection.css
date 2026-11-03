@@ -1,16 +1,17 @@
 .device {
-    --gold: #C59B27;
+    --accent-color: #C59B27;
     display: flex;
     align-items: center;
-    font-family: Roboto, sans-serif;
+    padding: 5rem 0;
 }
 
 .device__product {
-    border: solid 4px var(--gold);
+    border: solid 4px ;
+    border-image: linear-gradient(to right, rgb(20, 0, 73), rgb(97, 8, 57)) 1;
     border-left: none;
-    padding: 20px 20px 20px 20px;
+    padding: 1.2rem;
     border-radius: 0 30px 30px 0;
-    width: 30%;
+    width: 35%;
 
 }
 
@@ -31,7 +32,7 @@
 .device__description {
     margin: 0;
     font-size: 20px;
-    max-width: 70ch;
+    width: 530px;
 }
 
 .device__button {
@@ -47,6 +48,11 @@
     font-weight: bold;
     cursor: pointer;
 
+}
+
+.device__button a{
+    text-decoration: none;
+    color: #fdfbf7;
 }
 
 .device__button img {
