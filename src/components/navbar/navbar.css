@@ -15,13 +15,12 @@ header{
 header #navbar{
     display: flex;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     justify-content: space-around;
 }
 
 #logo{
-    width: 10rem;
-    height: auto;
+    width: 14rem;
 }
 
 .nav-links{
