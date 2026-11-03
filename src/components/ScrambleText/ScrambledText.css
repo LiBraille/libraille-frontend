@@ -1,9 +1,11 @@
 .scrambled-text {
-  margin: 7vw;
   max-width: 800px;
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif;
   font-size: clamp(14px, 4vw, 32px);
+  
 }
+
+
 
 .scrambled-text-sr {
   position: absolute;
