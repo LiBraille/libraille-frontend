@@ -6,6 +6,7 @@ import GlueDots from '../../components/GlueDots/GlueDots';
 import Faq from '../../components/Faq/Faq';
 import CallToAction from '../../components/CallToAction/CallToAction';
 import PhotoCircles from '../../components/PhotoCircles/PhotoCircles';
+import Footer from '../../components/footer/Footer';
 
 export default function Home() {
     return (
@@ -43,6 +44,7 @@ export default function Home() {
             <CallToAction />
             <PhotoCircles />
             </main>
+            <Footer />
         </>
     );
 }

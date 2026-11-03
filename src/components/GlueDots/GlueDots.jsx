@@ -252,9 +252,8 @@ dots = [];
         onPointerLeave={handlePointerLeave}
         aria-hidden="true"
         style={{
-          position: "absolute",
           inset: 0,
-          width: "100%",
+          width: "90%",
           height: "100%",
           opacity,
           cursor: rippleOnPress || cursorInteraction ? "pointer" : "default"
