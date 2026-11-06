@@ -1,0 +1,95 @@
+/* .photo-circles{
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.photos-container{
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.photo-1{
+    width: 45%;
+    height: auto;
+    left: -20%;
+    bottom: 0;    
+}
+
+.photo-2{
+    width: 49%;
+    height: auto;
+    left: 25%;
+    top:-25px;
+}
+
+.photo-3{
+    width: 37%;
+    height: auto;
+    left: 75%;
+    bottom: 5%;
+}
+
+.photo-4{
+    width: 30%;
+    height:auto;
+    right: -45%;
+    bottom: 15%;
+    top: 15px;
+}
+
+.decorative-circle{
+    position:absolute;
+    display: block;
+    border-radius: 50%;
+}
+
+.circle-1{
+    width: 80px;
+    height: 80px;
+    left: -60px;
+    top: 15px;
+    background-color: #6f87a9;
+    top: -20px;
+}
+
+.circle-2{
+    width: 75px;
+    height: 75px;
+    right: 0;
+    top: -50px;
+    background-color: #334155;
+}
+
+.circle-3{
+    width: 50px;
+    height: 50px;
+    left: 55%;
+    bottom: 0;
+    background-color: #475569;
+}
+
+.photo{
+    position: absolute;
+    display:block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media (max-height: 600px){
+    .photos-container{
+        height: 230px;
+    }
+} */
+
+.photo-circles {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+}

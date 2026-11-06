@@ -3,6 +3,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root{
+    --primary-color: #0F172A;
+    --secondary-color: #FDFBF7;
+    --accent-color: #D9B03F;
+    --hover-color: #334155;
 }
 
 body{

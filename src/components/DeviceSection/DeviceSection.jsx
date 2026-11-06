@@ -1,6 +1,6 @@
 import './deviceSection.css'
-import Arrom from '../../assets/IconArromE.png'
-import Product from '../../assets/ImageproductE.png'
+import Arrow from '../../assets/IconArrowDarkMode.png'
+import Product from '../../assets/ImageproductDarkMode.png'
 
 
 function DeviceSection() {
@@ -19,8 +19,8 @@ function DeviceSection() {
                 </p>
 
                 <button className="device__button" type="button">
-                    Conheça o produto
-                    <img src={Arrom} alt="" />
+                    <a href="">Conheça o produto</a>
+                    <img src={Arrow} alt="" />
                 </button>
             </div>
         </section>
