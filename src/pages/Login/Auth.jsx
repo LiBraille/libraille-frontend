@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./auth.css";
 
 // Imagens, logos e Icones
@@ -6,7 +6,7 @@ import logoDarkMode from "../../assets/logo-dark-mode.png";
 import logoCentral from "../../assets/logo2.png";
 import iconeApple from "../../assets/apple.svg";
 
-export default function Auth({onVoltar}) {
+export default function Auth({ onVoltar }) {
   const [estaNoLogin, setEstaNoLogin] = useState(true);
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
