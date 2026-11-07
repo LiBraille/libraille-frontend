@@ -172,10 +172,9 @@ export default function HeroWithGlueDots() {
       </div>
 
       {/* Conteúdo da Hero */}
-      <div className="hero-background">
-//             <section className="flex min-h-screen items-center justify-center p-24 hero-section">
-//                 <div className='hero-texts'>
-//                     <ScrambledText
+      <div className="hero-background">             <section className="flex min-h-screen items-center justify-center p-24 hero-section">
+                 <div className='hero-texts'>
+                     <ScrambledText
                         className="scrambled-text-demo hero-title"
                         effect="scramble"
                         radius={100}
