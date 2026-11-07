@@ -1,12 +1,9 @@
-import Footer from "../../components/footer/Footer";
-import NavBar from "../../components/navbar/Navbar";
+
 
 function About(){
     return(
         <>
-        <NavBar />
-
-        <Footer />
+        <h1>teste</h1>
         </>
     )
 }

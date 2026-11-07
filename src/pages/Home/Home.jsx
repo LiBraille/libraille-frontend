@@ -1,17 +1,15 @@
-import NavBar from '../../components/navbar/Navbar';
-import Hero from '../../components/Hero/Hero';
-import './home.css';
-import DeviceSection from '../../components/DeviceSection/DeviceSection';
-import GlueDots from '../../components/GlueDots/GlueDots';
-import Faq from '../../components/Faq/Faq';
-import CallToAction from '../../components/CallToAction/CallToAction';
-import PhotoCircles from '../../components/PhotoCircles/PhotoCircles';
-import Footer from '../../components/footer/Footer';
+import Hero from '../../components/Hero/Hero'
+import './home.css'
+import DeviceSection from '../../components/DeviceSection/DeviceSection'
+import GlueDots from '../../components/GlueDots/GlueDots'
+import Faq from '../../components/Faq/Faq'
+import CallToAction from '../../components/CallToAction/CallToAction'
+import PhotoCircles from '../../components/PhotoCircles/PhotoCircles'
+import Footer from '../../components/footer/Footer'
 
-export default function Home({ onIrParaLogin }) {
+export default function Home() {
     return (
         <>
-            <NavBar onIrParaLogin={onIrParaLogin}/>
             <main className="container" id="home" aria-label="Página inicial do site">
             <Hero />
             <GlueDots
