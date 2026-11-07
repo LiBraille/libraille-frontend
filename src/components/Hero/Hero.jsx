@@ -1,59 +1,7 @@
 import Button from "../button/Button"
 import ScrambledText from '../../components/ScrambleText/ScrambledText';
-// import './hero.css';
-
-// function Hero() {
-//     return (
-//         <>
-//         <div className="hero-background">
-//             <section className="flex min-h-screen items-center justify-center p-24 hero-section">
-//                 <div className='hero-texts'>
-//                     <ScrambledText
-//                         className="scrambled-text-demo hero-title"
-//                         effect="scramble"
-//                         radius={100}
-//                         strength={1}
-//                         trail={0.6}
-//                         duration={1.2}
-//                         speed={0.5}
-//                         scrambleChars=".:"
-//                         clickBurst
-//                         intro
-//                     >
-//                         Histórias que ganham relevo
-
-//                     </ScrambledText>
-//                     <ScrambledText
-//                         className="scrambled-text-demo hero-paragraph"
-//                         effect="scramble"
-//                         radius={100}
-//                         strength={1}
-//                         trail={0.6}
-//                         duration={1.2}
-//                         speed={0.5}
-//                         scrambleChars=".:"
-//                         clickBurst
-//                         intro
-//                     >
-//                         Transforme livros em experiências de leitura tátil com o LiBraille
-//                     </ScrambledText>
-//                 </div>
-//                 <Button id="hero-button" aria-label="Botão para conhecer sobre o produto e equipe LiBraille">
-//                     <a href="">Saiba mais</a>
-//                 </Button>
-//             </section>
-            
-
-//             </div>
-//         </>
-//     )
-// }
-
-// export default Hero
-
-// Ajuste o caminho da importação de acordo com a sua estrutura de pastas
-
-import React, { useEffect, useRef } from 'react';
+import './hero.css';
+import React, { useEffect, useRef } from 'react'
 
 export default function HeroWithGlueDots() {
   const canvasRef = useRef(null);
@@ -106,7 +54,7 @@ export default function HeroWithGlueDots() {
       // Desenha o ponto do cursor
       ctx.beginPath();
       ctx.arc(mouseDot.x, mouseDot.y, mouseDot.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#3b82f6'; // Cor dos pontos (ex: azul/primary)
+      ctx.fillStyle = '#5e008a'; // Cor dos pontos (ex: azul/primary)
       ctx.fill();
 
       // Atualiza e desenha os pontos flutuantes
@@ -129,7 +77,7 @@ export default function HeroWithGlueDots() {
 
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#3b82f6';
+        ctx.fillStyle = '#5e008a';
         ctx.fill();
       });
 
@@ -146,7 +94,7 @@ export default function HeroWithGlueDots() {
   }, []);
 
   return (
-    <section style={styles.section}>
+    <section style={styles.section} className="glue-dots-section">
       {/* Filtro SVG oculto responsável pelo efeito "viscoso/glue" */}
       <svg style={{ display: 'none' }}>
         <defs>
@@ -167,12 +115,13 @@ export default function HeroWithGlueDots() {
       </svg>
 
       {/* Canvas com a aplicação do filtro "goo" */}
-      <div style={styles.canvasContainer}>
-        <canvas ref={canvasRef} style={styles.canvas} />
+      <div style={styles.canvasContainer} className="canvas-container">
+        <canvas ref={canvasRef} style={styles.canvas} className="canvas" />
       </div>
 
       {/* Conteúdo da Hero */}
-      <div className="hero-background">             <section className="flex min-h-screen items-center justify-center p-24 hero-section">
+      <div className="hero-background">             
+        <section className="flex min-h-screen items-center justify-center p-24 hero-section">
                  <div className='hero-texts'>
                      <ScrambledText
                         className="scrambled-text-demo hero-title"
@@ -208,8 +157,6 @@ export default function HeroWithGlueDots() {
                     <a href="">Saiba mais</a>
                 </Button>
             </section>
-            
-
             </div>
     </section>
   );
@@ -217,29 +164,6 @@ export default function HeroWithGlueDots() {
 
 // Estilos em Objeto JS (dispensa Tailwind ou CSS externo)
 const styles = {
-  section: {
-    position: 'relative',
-    minHeight: '80vh',
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#0f172a',
-    overflow: 'hidden',
-    fontFamily: 'system-ui, sans-serif',
-    color: '#ffffff',
-  },
-  canvasContainer: {
-    position: 'absolute',
-    inset: 0,
-    filter: 'url(#goo)', // Aplica o efeito pegajoso nos elementos do canvas
-    opacity: 0.7,
-  },
-  canvas: {
-    width: '100%',
-    height: '100%',
-    display: 'block',
-  },
   content: {
     position: 'relative',
     zIndex: 10,
@@ -249,32 +173,10 @@ const styles = {
   },
   badge: {
     background: 'rgba(59, 130, 246, 0.2)',
-    color: '#60a5fa',
+    color: '#4f0074',
     padding: '6px 16px',
     borderRadius: '20px',
     fontSize: '14px',
     fontWeight: '600',
-  },
-  title: {
-    fontSize: '3rem',
-    fontWeight: '800',
-    marginTop: '20px',
-    marginBottom: '16px',
-    lineHeight: '1.2',
-  },
-  description: {
-    fontSize: '1.125rem',
-    color: '#94a3b8',
-    marginBottom: '32px',
-  },
-  primaryBtn: {
-    backgroundColor: '#3b82f6',
-    color: '#fff',
-    border: 'none',
-    padding: '12px 28px',
-    borderRadius: '8px',
-    fontSize: '16px',
-    fontWeight: '600',
-    cursor: 'pointer',
   },
 };

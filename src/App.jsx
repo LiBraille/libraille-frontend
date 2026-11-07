@@ -7,6 +7,7 @@ import NavBar from './components/navbar/Navbar'
 import Contact from './pages/Contact/Contact'
 import Product from './pages/Product/Product'
 import Auth from './pages/Login/Auth'
+import './App.css'
 function App() {
   // Descomentei o estado caso você vá usar a tela de login separada das rotas
   const [telaAtual, setTelaAtual] = useState('home')
@@ -20,7 +21,7 @@ function App() {
   {/* Passamos a função de ir para o login para a NavBar aqui: */}
   <NavBar onIrParaLogin={() => setTelaAtual('login')} /> 
   
-  <main style={{ padding: '20px' }}>
+  <main className='container'>
     <Routes>
       {/* Removido o onIrParaLogin daqui, pois agora ele pertence à NavBar */}
       <Route path="/" element={<Home />} /> 
