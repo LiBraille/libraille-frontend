@@ -2,6 +2,7 @@ import logo from '../../assets/logo-dark-mode.png'
 import moonIcon from '../../assets/icons8-lua.png'
 import sunIcon from '../../assets/icons8-sol.png'
 import './navbar.css'
+import About from '../../pages/About/About'
 
 function NavBar({onIrParaLogin}) {
     return (
@@ -11,7 +12,7 @@ function NavBar({onIrParaLogin}) {
                     <img src={logo} alt="Logo da empresa Libraille" aria-label="Logo da empresa Libraille" id="logo"/>
                     <ul className="nav-links">
                         <li><a href="" className="nav-link" id='home-page'>Início</a></li>
-                        <li><a href="" className="nav-link">Sobre</a></li>
+                        <li><a href={ About } className="nav-link">Sobre</a></li>
                         <li><a href="" className="nav-link">Produto</a></li>
                         <li><a href="" className="nav-link">Contato</a></li>
                         </ul>
