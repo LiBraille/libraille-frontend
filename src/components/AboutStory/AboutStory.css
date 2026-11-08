@@ -1,0 +1,36 @@
+.About-story {
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 50px; 
+    color: #3b1428; 
+    text-align: left; 
+}
+
+.About-story .text-content {
+    flex: 1; 
+}
+
+.About-story img {
+    width: 45%; 
+    border-radius: 20px; 
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.About-story h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2b0d1c;
+}
+
+.About-story p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 400; 
+    margin-bottom: 20px;
+}

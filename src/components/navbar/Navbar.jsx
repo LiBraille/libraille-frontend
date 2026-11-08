@@ -11,7 +11,7 @@ function NavBar({onIrParaLogin}) {
                     <img src={logo} alt="Logo da empresa Libraille" aria-label="Logo da empresa Libraille" id="logo"/>
                     <ul className="nav-links">
                         <li><a href="" className="nav-link" id='home-page'>Início</a></li>
-                        <li><a href="" className="nav-link">Sobre</a></li>
+                        <a href="" className="nav-link">Sobre</a>
                         <li><a href="" className="nav-link">Produto</a></li>
                         <li><a href="" className="nav-link">Contato</a></li>
                         </ul>
