@@ -1,9 +1,13 @@
+import './product.css'
+import HowToUse from "../../components/HowToUse/HowToUse"
+
 function Product() {
   return (
-    <div>
-      <h1>Produto</h1>
-      <p>Esta é a página do produto.</p>
-    </div>
+    <>
+      <h2>Conhecendo o dispositivo</h2>
+      <iframe src="" frameborder="1"></iframe>
+      <HowToUse />
+    </>
   )
 }
 

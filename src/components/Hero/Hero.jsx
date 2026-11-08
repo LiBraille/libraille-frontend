@@ -32,7 +32,7 @@ export default function HeroWithGlueDots() {
     window.addEventListener('mousemove', handleMouseMove);
 
     // Criar vários pontos (dots)
-    const numDots = 25;
+    const numDots = 40;
     const dots = Array.from({ length: numDots }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,

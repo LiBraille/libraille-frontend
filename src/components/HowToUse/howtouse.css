@@ -1,0 +1,24 @@
+
+
+.tutorial-cards{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 1rem;
+}
+
+.tutorial-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(44, 1, 68);
+    padding: 1rem;
+    gap: 10px;
+    text-align: center;
+    border-radius: 1rem;
+    color: #fdfbf7;
+}
+
+.tutorial-card h4{
+    font-size: 1.2rem;
+}
