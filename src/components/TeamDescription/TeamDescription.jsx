@@ -23,7 +23,7 @@ function TeamDescription() {
 
 
     return (
-        <div className="team-description">
+        <section className="team-description">
             <h2>Conheça nossa equipe</h2>
             <section className="active-team-member">
                 <img src={membroAtivo.foto} alt={membroAtivo.nome} />
@@ -36,7 +36,6 @@ function TeamDescription() {
                     ))}
                     </div>
                 </div>
-                <p>{membroAtivo.descricao}</p>
                 <div className="social-media">
                     <a href={membroAtivo.redesSociais.linkedin} target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -52,6 +51,8 @@ function TeamDescription() {
                         </svg>
                     </a>
                 </div>
+                <p>{membroAtivo.descricao}</p>
+                
                 <div className="navigation-buttons">
                     <button onClick={membroAnterior}>Anterior</button>
                     <button onClick={proximoMembro}>Próximo</button>
@@ -68,7 +69,7 @@ function TeamDescription() {
                     />
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
 
