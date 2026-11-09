@@ -49,6 +49,13 @@
     height: 300px;
 }
 
+.tutorial-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #4e0177;
+}
+
 .tutorial-card h4{
     font-size: 1.2rem;
 }
