@@ -1,11 +1,12 @@
+import "./About.css";
+import AboutLibraille from "../../components/AboutLibraille/AboutLibraille";
+import Navbar from "../../components/navbar/Navbar";
 
-
-function About(){
+export default function About(){
     return(
-        <>
-        <h1>teste</h1>
-        </>
-    )
+        <main className="about-page">
+         <AboutLibraille /> 
+         <Navbar />
+        </main>
+    );
 }
-
-export default About

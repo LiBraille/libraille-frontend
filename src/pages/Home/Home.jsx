@@ -6,6 +6,7 @@ import CallToAction from '../../components/CallToAction/CallToAction'
 import PhotoCircles from '../../components/PhotoCircles/PhotoCircles'
 import Footer from '../../components/footer/Footer'
 
+
 export default function Home() {
     return (
         <>
