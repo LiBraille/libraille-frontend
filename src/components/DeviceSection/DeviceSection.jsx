@@ -9,7 +9,7 @@ function DeviceSection() {
             <img
                 className="device__product" 
                 src={Product} 
-                alt="Dispositivo cúbico azul-escuro de cantos arredondados, destacando na topo uma célula com seis orifícios organizados em duas colunas verticais de três furos e, na parte inferior frontal, uma porta de entrada USB-C sobre fundo branco."
+                alt="Dispositivo cúbico de cantos arredondados, destacando na topo uma célula com seis orifícios organizados em duas colunas verticais de três furos e, na parte inferior frontal, uma porta de entrada USB-C sobre fundo branco."
             />
             <div className='device__content'>
                 <h3 className='device__title'>Dispositivo LiBraille</h3>
