@@ -1,0 +1,74 @@
+.pillars-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    padding: 60px 40px;
+}
+
+.pillar-card {
+    flex: 1;
+    max-width: 280px;
+    min-height: 340px;
+    background-color: #364d6b;
+    border-radius: 16px;
+    padding: 35px 22px;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    color: #ffffff;
+}
+
+.pillar-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 18px;
+}
+
+.pillar-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.pillar-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+    color: #ffffff;
+}
+
+.pillar-card ul {
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ffffff;
+    align-self: flex-start;
+}
+
+.pillar-card li {
+    list-style: disc;
+}
+
+@media (max-width: 768px) {
+    .pillars-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .pillar-card {
+        width: 100%;
+        max-width: 340px;
+        min-height: auto;
+    }
+}
