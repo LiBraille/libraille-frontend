@@ -1,9 +1,10 @@
+import TeamDescription from "../../components/TeamDescription/TeamDescription"
 
 
 function About(){
     return(
         <>
-        <h1>teste</h1>
+        <TeamDescription />
         </>
     )
 }
