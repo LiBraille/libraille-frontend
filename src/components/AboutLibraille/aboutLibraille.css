@@ -1,0 +1,222 @@
+:root{
+    --azul: #0F172A;
+    --roxo: #3f0157;
+    --dourado:#D9B03F;
+    --branco: #FDFBF7;
+    --cinza: #AAB1C2;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.about-libraille{
+    width: 100%;
+    min-height: 100vh;
+    padding: 70px 20px;
+    background: var(--azul);
+    color: var(--branco);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.about-container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+.about-container h2{
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    margin: 0 0 20px;
+    color: var(--branco); 
+}
+
+.about-container h2 span{
+    color: var(--dourado);
+}
+
+.about-container p{
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--cinza);
+    margin: 0;
+} 
+
+.timeline{
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-track{
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 50%;
+    width: 3px;
+    transform: translateX(-50%);
+    background: rgba(217, 176, 63, 0.18);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.timeline-fill{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--progress);
+    background: var(--dourado);
+    box-shadow: 0 0 15px rgba(217, 176, 63, 0.5);
+    transition: heigth 0.12s linear;
+}
+
+.timeline-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 230px;
+}
+
+.timeline-dot{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--azul);
+    border: 3px solid rgba(217, 176, 63, 0.5);
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.timeline-dot.active{
+    background: var(--dourado);
+    border-color: var(--dourado);
+    box-shadow: 0 0 20px rgba(217, 176, 63, 0.5);
+}
+
+.timeline-card{
+    position: relative;
+    width: 42%;
+    min-height: 155px;
+    padding: 28px;
+    border: 1px solid rbga(217, 176, 63, 0.16);
+    border-radius: 14px;
+    background: linear-gradient(155deg, rgba(40, 1, 66, 0.38), rgba(15, 23, 42, 0.96));
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.timeline-card:hover{
+    transform: translateY(-5px);
+    border-color: rgba(217, 176, 63, 0.6);
+    background: rgba(40, 1, 66, 0.35);
+}
+
+.timeline-item.left .timeline-card{
+    margin-right: auto;
+    text-align: right;
+}
+
+.timeline-item.right .timeline-card{
+    margin-left: auto;
+    text-align: left;
+}
+
+.timeline-number{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--dourado);
+    margin-bottom: 14px;
+}
+
+.timeline-card h3{
+    color: var(--branco);
+    font-size: 23px;
+    margin: 0 0 12px;
+}
+
+.timeline-card p{
+    color: var(--cinza);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.card-decoration{
+    position: absolute;
+    bottom: 0;
+    width: 45px;
+    height: 3px;
+    background: var(--dourado);
+    opacity: 0.8;
+}
+
+.timeline-item.left .card-decoration{
+    right: 28px;
+}
+
+.timeline-item.right .card-decoration{
+    left: 28px;
+}
+
+@media (max-width: 650px){
+    .about-libraille{
+        padding: 75px 20px;
+    }
+
+    .timeline{
+        padding-left: 45px;
+    }
+
+    .timeline-track{
+        left: 12px;
+    }
+
+    .timeline-dot{
+        left: 12px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .timeline-item{
+        min-height: 190px;
+    }
+
+    .timeline-card{
+        width: 100%;
+        min-height: 145px;
+        padding: 23px;
+        text-align: left !important;
+        margin: 0 !important;
+    }
+
+    .timeline-item.left .card-decoration{
+        left: 23px;
+        right: auto;
+    }
+
+    .timeline-item.right .card-decoration{
+        left: 23px;
+    }
+
+    .timeline-card h3{
+        font-size: 20px;
+    }
+
+    .timeline-card p{
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .timelinefill, .timeline-dot, .timeline-card{
+        transition: none;
+    }
+}
