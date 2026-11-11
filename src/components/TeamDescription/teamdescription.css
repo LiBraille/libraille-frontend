@@ -5,7 +5,6 @@
     justify-content: center;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .team-description h2 {
@@ -29,6 +28,7 @@
     padding: 10px;
     margin: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 80%;
 }
 
 .active-team-member:hover {
@@ -36,11 +36,17 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.active-team-member img {
+    width: 20%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .member-info{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 20px;
 }
 
 .member-header{
@@ -55,10 +61,15 @@
     gap: 2rem;
 }
 
-.member-name-and-social p{
-    margin-top: 5px;
-    font-size: 0.9rem;
+.member-name-and-social h3{
+    font-size: 1.8rem;
     color: #fdfbf7;
+}
+
+
+.member-header p{
+    font-size: 0.8rem;
+    color: #c5c5c5;
 }
 
 .social-media{
@@ -66,6 +77,12 @@
     gap: 10px;
     
 
+}
+
+.social-media-icon{
+    width: 24px;
+    height: 24px;
+    color: #fdfbf7;
 }
 
 .stack{

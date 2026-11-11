@@ -38,10 +38,10 @@ export const members = [
     {
         id: 4,
         nome: 'Maria Eduarda',
-        cargo: 'Desenvolvedora Front-End, UX/UI Designer e Marketing',
+        cargo: 'Front-End | UI/UX Design | Marketing',
         foto: '../../src/assets/maria-foto.png',
         stack: ['HTML', 'CSS', 'React', 'JavaScript', 'Python'],
-        descricao: 'Desenvolvedora Front-End com foco em criar interfaces modernas e atraentes.',
+        descricao: 'Responsável pelo desenvolvimento Front-End, design de interfaces e estratégias de marketing.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/mariaeduardalimadasilva/',
             github: 'https://github.com/MariaEduarda907'

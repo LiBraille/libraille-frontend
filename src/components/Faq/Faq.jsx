@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./faq.css";
+import { useState } from "react"
+import "./faq.css"
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
