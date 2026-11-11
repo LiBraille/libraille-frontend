@@ -1,6 +1,8 @@
 import { useState } from "react"
 import teamMembers from "../../data/teamMembers"
 import './teamdescription.css'
+import { renderizarIconeStack } from "../../utils/stacksIcons"
+import { FaArrowLeft, FaArrowRight  } from "react-icons/fa";
 
 
 function TeamDescription() {
@@ -9,16 +11,10 @@ function TeamDescription() {
 
     function proximoMembro() {
         setIndiceAtual((prevIndice) => (prevIndice + 1) % teamMembers.length) //prevIndice é o índice atual, e usamos o operador módulo para garantir que ele volte ao início quando atingir o final da lista
-        if (indiceAtual === teamMembers.length - 1) {
-            setIndiceAtual(0)
-        }
     }
 
     function membroAnterior() {
         setIndiceAtual((prevIndice) => (prevIndice - 1 + teamMembers.length) % teamMembers.length)
-        if (indiceAtual === 0) {
-            setIndiceAtual(teamMembers.length - 1)
-        }
     }
 
 
@@ -53,15 +49,17 @@ function TeamDescription() {
                     </header>
                     <p>{membroAtivo.descricao}</p>
                     <div className="stack">
-                        {membroAtivo.stack.map((tecnologia, index) => (
-                            <span key={index}>{tecnologia}</span>
-                        ))}
-                    </div>
+                    {membroAtivo.stack.map((tecnologia, index) => (
+                        <span key={index} className="stack-icon">
+                            {renderizarIconeStack(tecnologia)}
+                        </span>
+                    ))}
+                </div>
 
                 </div>
                 <div className="navigation-buttons">
-                    <button onClick={membroAnterior}>Anterior</button>
-                    <button onClick={proximoMembro}>Próximo</button>
+                    <button onClick={membroAnterior} className="nav-btn"> <FaArrowLeft /></button>
+                    <button onClick={proximoMembro} className="nav-btn"> <FaArrowRight /></button>
                 </div>
                 </div>
             </section>

@@ -14,8 +14,6 @@
     width: 100%;
     min-height: 100vh;
     padding: 70px 20px;
-    background: var(--azul);
-    color: var(--branco);
     font-family: Arial, sans-serif;
     overflow: hidden;
 }
