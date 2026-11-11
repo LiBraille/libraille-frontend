@@ -16,9 +16,7 @@
 
 .team-description p {
     font-size: 1rem;
-    color: #333;
-    text-align: center;
-    max-width: 600px;
+    color: #c5c5c5;
 }
 
 .active-team-member {
@@ -26,7 +24,7 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    border: 2px solid #D9B03F;
+    background-color: #2f0447;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
@@ -42,6 +40,49 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
+}
+
+.member-header{
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name-and-social{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.member-name-and-social p{
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #fdfbf7;
+}
+
+.social-media{
+    display: flex;
+    gap: 10px;
+    
+
+}
+
+.stack{
+    display: flex;
+    gap: 10px;
+}
+
+.member-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.navigation-buttons{
+    display: flex;
+    gap: 10px;
 }
 
 .thumbnails-container {
@@ -50,10 +91,10 @@
     margin-top: 20px;
 }
 
-/* .thumbnail.active{
-    border: 2px solid #D9B03F;
-    border-radius: 5px;
-} */
+.thumbnail.active{
+    border: 2px solid #50007e;
+    border-radius: 50%;
+}
 
 .thumbnail {
     width: 60px;

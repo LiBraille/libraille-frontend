@@ -5,14 +5,14 @@
     --hover-color: #334155;
 }
 
-header {
+#main-header {
     background-color: #171c3a62;
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 0 1rem;
 }
 
-header #navbar {
+#main-header #navbar {
     display: flex;
     align-items: center;
     padding: 0.8rem 0;
