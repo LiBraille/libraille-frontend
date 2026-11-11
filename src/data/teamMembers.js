@@ -14,10 +14,10 @@ export const members = [
     {
         id: 2,
         nome: 'Lucas Moreira',
-        cargo: 'Scrum Master, Desenvolvedor Back-End e Banco de Dados',
+        cargo: 'Scrum Master, Desenvolvedor Full-Stack',
         foto: '../../src/assets/lucas-foto.png',
-        stack: ['React', 'JavaScript', 'Python', 'MySQL'],
-        descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
+        stack: ['React', 'C++', 'Python', 'PostgreSQL'],
+        descricao: 'Desenvolvedor Full-Stack com foco em criar soluções escaláveis e eficientes.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/lucasmns7/',
             github: 'https://github.com/LucMNS'
@@ -86,9 +86,9 @@ export const members = [
     {
         id: 8,
         nome: 'Guilherme Miranda',
-        cargo: 'Desenvolvedor Back-End',
+        cargo: 'Desenvolvedor Full-Stack',
         foto: '../../src/assets/guilherme-foto.png',
-        stack: ['React', 'JavaScript', 'Python', 'MySQL'],
+        stack: ['React', 'JavaScript', 'Python', 'PostgreSQL'],
         descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/guilhermemiranda0/',
