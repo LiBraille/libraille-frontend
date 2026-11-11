@@ -1,10 +1,10 @@
-function Contact() {
+import "./Contact.css";
+import ContactForm from "../../components/ContactForm/Contactform";
+
+export default function Contact() {
   return (
-    <div>
-      <h1>Contato</h1>
-      <p>Esta é a página de contato.</p>
-    </div>
+    <main className="contact-page">
+      <ContactForm/>
+    </main>
   );
 }
-
-export default Contact
