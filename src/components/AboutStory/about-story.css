@@ -1,0 +1,39 @@
+.about-us{
+    padding: 50px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 50px; 
+    text-align: left; 
+    margin-top: 2rem;
+}
+
+.about-us-text{
+    max-width: 600px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.about-us-text h1{
+    font-size: 3em; 
+}
+
+.about-us-text span{
+    color: #D9B03F; 
+}
+
+.about-us-text p{
+    font-size: 1.2em; 
+    line-height: 1.6; 
+    color: #d9d9d9;
+}
+
+.team-photo {
+    width: 500px; 
+    height: auto; 
+    border-radius: 10px; 
+    object-fit: cover; 
+}
+

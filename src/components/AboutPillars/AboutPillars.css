@@ -1,0 +1,43 @@
+.pillars-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+    color: #fdfbf7;
+    flex-wrap: wrap;
+}
+
+.mvv-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    max-width: 300px;
+    background-color: #50007e29;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #50007e;
+    height: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mvv-card ul{
+    list-style: none;
+    
+
+}
+
+.mvv-card svg{
+    width: 50px;
+    height: 50px;
+    color: #fdfbf7;
+}
+
+.mvv-card h3{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #D9B03F;
+}

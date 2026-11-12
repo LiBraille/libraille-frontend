@@ -42,12 +42,14 @@
     padding: 0;
     background: none;
     border: none;
-    color: var(--gold);
     font-size: 20px ;
     font-family: inherit;
     font-weight: bold;
     cursor: pointer;
 
+    &:hover {
+        border-bottom: 2px solid var(--accent-color);
+    }
 }
 
 .device__button a{

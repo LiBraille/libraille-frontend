@@ -6,7 +6,7 @@ import './navbar.css'
 
 function NavBar({ onIrParaLogin }) {
     return (
-        <header>
+        <header id="main-header" aria-label="Cabeçalho do site">
             <nav id="navbar" aria-label="Barra de navegação do site">
                 {/* Envolvemos o logo em um Link para que ele também volte para o Início */}
                 <Link to="/">

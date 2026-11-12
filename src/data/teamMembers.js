@@ -2,7 +2,7 @@ export const members = [
     {
     id: 1,
     nome: 'Evandro Silva',
-    cargo: 'Project Owner, Modelador de Protótipo e Financeiro',
+    cargo: 'Project Owner | Modelagem de Protótipo | Financeiro',
     foto: '../../src/assets/evandro-foto.png',
     stack: ['React', 'JavaScript', 'CSS', 'HTML'],
     descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
@@ -14,10 +14,10 @@ export const members = [
     {
         id: 2,
         nome: 'Lucas Moreira',
-        cargo: 'Scrum Master, Desenvolvedor Back-End e Banco de Dados',
+        cargo: 'Scrum Master | Full-Stack',
         foto: '../../src/assets/lucas-foto.png',
-        stack: ['React', 'JavaScript', 'Python', 'MySQL'],
-        descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
+        stack: ['React', 'C++', 'Python', 'postgresql'],
+        descricao: 'Desenvolvedor Full-Stack com foco em criar soluções escaláveis e eficientes.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/lucasmns7/',
             github: 'https://github.com/LucMNS'
@@ -38,10 +38,10 @@ export const members = [
     {
         id: 4,
         nome: 'Maria Eduarda',
-        cargo: 'Desenvolvedora Front-End, UX/UI Designer e Marketing',
+        cargo: 'Front-End | UI/UX Design | Marketing',
         foto: '../../src/assets/maria-foto.png',
         stack: ['HTML', 'CSS', 'React', 'JavaScript', 'Python'],
-        descricao: 'Desenvolvedora Front-End com foco em criar interfaces modernas e atraentes.',
+        descricao: 'Responsável pelo desenvolvimento Front-End, design de interfaces e estratégias de marketing.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/mariaeduardalimadasilva/',
             github: 'https://github.com/MariaEduarda907'
@@ -50,7 +50,7 @@ export const members = [
     {
         id: 5,
         nome: 'Giovanna Macedo',
-        cargo: 'Desenvolvedora Front-End, UX/UI Designer e Marketing',
+        cargo: 'Front-End | UI/UX Design | Marketing',
         foto: '../../src/assets/giovanna-foto.png',
         stack: ['React', 'JavaScript', 'Python', 'MySQL'],
         descricao: 'Desenvolvedora Front-End com foco em criar interfaces modernas e atraentes.',
@@ -62,7 +62,7 @@ export const members = [
     {
         id: 6,
         nome: 'Leticia Vitória',
-        cargo: 'Desenvolvedora Front-End e Vendas',
+        cargo: 'Front-End | Vendas',
         foto: '../../src/assets/leticia-foto.png',
         stack: ['React', 'JavaScript', 'Python', 'MySQL'],
         descricao: 'Desenvolvedora Front-End com foco em criar interfaces modernas e atraentes.',
@@ -74,7 +74,7 @@ export const members = [
     {
         id: 7,
         nome: 'Victor Leonardo',
-        cargo: 'Desenvolvedor Back-End e Social Media',
+        cargo: 'Back-End | IA',
         foto: '../../src/assets/victor-foto.png',
         stack: ['React', 'JavaScript', 'Python', 'MySQL'],
         descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
@@ -86,9 +86,9 @@ export const members = [
     {
         id: 8,
         nome: 'Guilherme Miranda',
-        cargo: 'Desenvolvedor Back-End',
+        cargo: 'Full-Stack',
         foto: '../../src/assets/guilherme-foto.png',
-        stack: ['React', 'JavaScript', 'Python', 'MySQL'],
+        stack: ['React', 'JavaScript', 'Python', 'postgresql'],
         descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/guilhermemiranda0/',
