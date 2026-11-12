@@ -15,6 +15,7 @@ function TeamDescription() {
 
     function membroAnterior() {
         setIndiceAtual((prevIndice) => (prevIndice - 1 + teamMembers.length) % teamMembers.length)
+        //exibe o membro anterior, e se estiver no primeiro membro, volta para o último
     }
 
 
