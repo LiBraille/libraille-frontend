@@ -27,8 +27,7 @@ export default function ContactForm(){
 
                     <div className="contact-details">
                         <div className="contact-detail">
-                            <div className="contact-icon">@</div>
-
+                            <div className="form-icon">@</div>
                             <div>
                                 <h3>Email</h3>
 
@@ -38,7 +37,7 @@ export default function ContactForm(){
                     </div>
 
                     <div className="contact-detail">
-                        <div className="contact-icon">↗</div>
+                        <div className="form-icon">↗</div>
                         <div>
                             <h3>Atendimento</h3>
                             <p>Envie sua mensagem pelo formulário.</p>

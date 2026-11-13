@@ -1,24 +1,86 @@
+.how-to-use-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem;
+    gap: 1rem;
+}
 
+.how-to-use-section h3{
+    font-size: 2rem;
+    text-align: center;
+    color: #D9B03F;
+}
+
+.how-to-use-section h4{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
 .tutorial-cards{
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     gap: 2rem;
+    padding: 1rem;
     margin: 1rem;
+}
+
+.tutorial-cards .arrow-icon{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    align-self: center;
+    color: #D9B03F;
 }
 
 .tutorial-card{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(44, 1, 68);
-    padding: 1rem;
-    gap: 10px;
+    background-color: #2d01442d;
+    border: 2px solid #2c0144;
+    padding: 2rem;
+    gap: 1rem;
     text-align: center;
     border-radius: 1rem;
     color: #fdfbf7;
+    height: 300px;
+}
+
+.tutorial-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #4e0177;
 }
 
 .tutorial-card h4{
     font-size: 1.2rem;
+}
+
+.tutorial-card-icons{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+#tutorial-video-btn{
+    background-color: #D9B03F;
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#tutorial-video-btn svg{
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+
 }

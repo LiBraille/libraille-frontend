@@ -4,14 +4,13 @@ import DeviceSection from '../../components/DeviceSection/DeviceSection'
 import Faq from '../../components/Faq/Faq'
 import CallToAction from '../../components/CallToAction/CallToAction'
 import PhotoCircles from '../../components/PhotoCircles/PhotoCircles'
-import Footer from '../../components/footer/Footer'
+import Footer from '../../components/Footer/Footer'
 
 
 export default function Home() {
     return (
         <>
             <Hero />
-            
             <DeviceSection />
             <Faq />
             <CallToAction />
