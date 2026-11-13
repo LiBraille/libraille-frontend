@@ -1,48 +1,73 @@
-:root {
-    --primary-color: #0F172A;
-    --secondary-color: #FDFBF7;
-    --accent-color: #D9B03F;
-    --hover-color: #334155;
+/* Trava o scroll quando o menu mobile está aberto */
+body.menu-open {
+    overflow: hidden;
 }
 
 #main-header {
-    background-color: #171c3a62;
-    padding: 1rem 0;
+    position: relative;
+    z-index: 100;
+    background-color: var(--header-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 0 1rem;
+    backdrop-filter: blur(8px);
 }
 
 #main-header #navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0.8rem 0;
-    justify-content: space-around;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.logo-link {
+    display: inline-flex;
 }
 
 #logo {
     width: 10rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-left: 1rem;
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
-    justify-content: space-between;
 }
-
-/* #home-page{
-    font-weight: bold;
-    text-decoration: underline;
-    color: var(--accent-color);
-} */
 
 .nav-link {
     text-decoration: none;
-    color: var(--secondary-color);
+    color: var(--text-main);
     font-size: 1.2rem;
+    padding: 0.25rem 0;
 
     &:hover {
-        color: #D9B03F;
+        color: var(--accent-text);
+    }
+
+    /* Classe adicionada automaticamente pelo NavLink na rota atual */
+    &.active {
+        color: var(--accent-text);
+        font-weight: bold;
+        text-decoration: underline;
+        text-underline-offset: 0.3em;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent-text);
+        outline-offset: 4px;
+        border-radius: 4px;
     }
 }
 
@@ -56,30 +81,12 @@
     display: flex;
     gap: 0.9rem;
     align-items: center;
-    background-color: #14203d;
+    background-color: var(--toggle-bg);
     border-radius: 2rem;
     padding: 0.2rem 0.5rem;
 }
 
-#dark-mode {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: var(--secondary-color);
-    padding: 0.5rem;
-    border-radius: 50%;
-
-    &:hover {
-        background-color: #3f0157;
-
-    }
-}
-
-#dark-mode img {
-    width: 1.3rem;
-    height: 1.3rem;
-}
-
+#dark-mode,
 #light-mode {
     background-color: transparent;
     border: none;
@@ -87,11 +94,31 @@
     color: var(--secondary-color);
     padding: 0.5rem;
     border-radius: 50%;
+    display: inline-flex;
 
     &:hover {
-        background-color: #3f0157;
-
+        background-color: var(--toggle-active);
     }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent-color);
+    }
+
+    /* botão do tema ativo fica destacado */
+    &[aria-pressed="true"] {
+        background-color: var(--toggle-active);
+        box-shadow: 0 0 0 1px var(--accent-color);
+    }
+}
+
+#dark-mode img,
+#light-mode img {
+    filter: var(--icon-filter);
+}
+
+#dark-mode img {
+    width: 1.3rem;
+    height: 1.3rem;
 }
 
 #light-mode img {
@@ -99,25 +126,18 @@
     height: 1.5rem;
 }
 
-#login-register a {
-    text-decoration: none;
-    color: var(--secondary-color);
-}
-
 #login-register {
-    --clr-font-main: hsla(0 0% 20% / 100);
     --btn-bg-1: rgb(114, 79, 2);
     --btn-bg-2: #D9B03F;
     --btn-bg-color: hsla(360 100% 100% / 1);
     --radii: 0.5em;
     color: #FDFBF7;
     padding: 0.5rem 1rem;
-    font-size: 1.2rem;
     outline: none;
     cursor: pointer;
     min-width: 120px;
     min-height: 44px;
-    font-size: var(--size, 1rem);
+    font-size: 1.1rem;
     font-weight: 500;
     transition: 0.8s;
     background-size: 280% auto;
@@ -133,7 +153,7 @@
     background-position: right top;
 }
 
-#login-register:is(:focus, :focus-visible, :active) {
+#login-register:is(:focus-visible, :active) {
     outline: none;
     box-shadow:
         0 0 0 3px var(--btn-bg-color),
@@ -142,6 +162,117 @@
 
 @media (prefers-reduced-motion: reduce) {
     #login-register {
-        transition: linear;
+        transition: none;
+    }
+
+    .nav-menu {
+        transition: none !important;
+    }
+}
+
+/* ---------- Botão hambúrguer (escondido no desktop) ---------- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+
+    &:focus-visible {
+        outline: 2px solid var(--accent-color);
+    }
+}
+
+.menu-toggle-bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação do hambúrguer virando "X" */
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    #logo {
+        width: 8rem;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem 2rem;
+        background-color: var(--menu-bg);
+        box-shadow: 0 8px 16px var(--shadow-color);
+        max-height: calc(100dvh - var(--header-height));
+        overflow-y: auto;
+
+        /* Estado fechado: invisível e fora do alcance do teclado */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-0.5rem);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+
+    .nav-menu.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem 0.5rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .dark-light-mode-container {
+        justify-content: center;
+        align-self: center;
+    }
+
+    #login-register {
+        width: 100%;
     }
 }

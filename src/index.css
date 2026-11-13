@@ -7,15 +7,53 @@
   text-decoration: none;
 }
 
-:root{
-    --primary-color: #0F172A;
-    --secondary-color: #FDFBF7;
+/* Tema escuro (padrão) */
+:root,
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg-page: #0F172A;
+    --bg-surface: #14203d;
+    --text-main: #FDFBF7;
+    --text-muted: #cbd5e1;
+    --accent-color: #D9B03F;        /* destaque como cor de elemento */
+    --accent-text: #D9B03F;         /* destaque como cor de texto */
+    --header-bg: #171c3a62;
+    --menu-bg: #0F172A;
+    --toggle-bg: #14203d;
+    --toggle-hover: #3f0157;
+    --toggle-active: #334155;
+    --border-subtle: rgba(253, 251, 247, 0.12);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --icon-filter: none;
+}
+
+/* Tema claro */
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    --bg-page: #FDFBF7;
+    --bg-surface: #F1ECE0;
+    --text-main: #0F172A;
+    --text-muted: #475569;
     --accent-color: #D9B03F;
-    --hover-color: #334155;
+    --accent-text: #8a6500;         /* dourado mais escuro: contraste AA sobre fundo claro */
+    --header-bg: rgba(253, 251, 247, 0.85);
+    --menu-bg: #FDFBF7;
+    --toggle-bg: #E8E1D0;
+    --toggle-hover: #d8cfb8;
+    --toggle-active: #FDFBF7;
+    --border-subtle: rgba(15, 23, 42, 0.12);
+    --shadow-color: rgba(15, 23, 42, 0.15);
+    --icon-filter: invert(1);       /* ajuste se seus ícones já forem escuros */
 }
 
-body{
-  color: #FDFBF7;
-  background-color: #0F172A;
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    body { transition: none; }
+}
