@@ -76,3 +76,28 @@
     background-color: #1D3557;
     
 }
+
+@media (max-width: 768px) {
+    .call-to-action {
+        padding: 40px 15px;
+        gap: 25px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-content p {
+        font-size: 0.95rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cta-buttons button {
+        width: 100%;
+        max-width: 250px;
+    }
+}

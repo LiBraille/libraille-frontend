@@ -41,3 +41,14 @@
     font-weight: bold;
     color: #D9B03F;
 }
+
+@media (max-width: 768px) {
+    .pillars-container{
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .mvv-card{
+        height: auto;
+    }
+}

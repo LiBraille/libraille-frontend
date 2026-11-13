@@ -3,7 +3,7 @@ export const members = [
     id: 1,
     nome: 'Evandro Silva',
     cargo: 'Project Owner | Modelagem de Protótipo | Financeiro',
-    foto: '../../src/assets/evandro-foto.png',
+    foto: '../../src/assets/evandro-foto.jpeg',
     stack: ['React', 'JavaScript', 'CSS', 'HTML'],
     descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
     redesSociais:{
@@ -15,7 +15,7 @@ export const members = [
         id: 2,
         nome: 'Lucas Moreira',
         cargo: 'Scrum Master | Full-Stack',
-        foto: '../../src/assets/lucas-foto.png',
+        foto: '../../src/assets/lucas-foto.jpeg',
         stack: ['React', 'C++', 'Python', 'postgresql'],
         descricao: 'Desenvolvedor Full-Stack com foco em criar soluções escaláveis e eficientes.',
         redesSociais:{
@@ -39,7 +39,7 @@ export const members = [
         id: 4,
         nome: 'Maria Eduarda',
         cargo: 'Front-End | UI/UX Design | Marketing',
-        foto: '../../src/assets/maria-foto.png',
+        foto: '../../src/assets/maria-foto.jpg',
         stack: ['HTML', 'CSS', 'React', 'JavaScript', 'Python'],
         descricao: 'Responsável pelo desenvolvimento Front-End, design de interfaces e estratégias de marketing.',
         redesSociais:{
@@ -51,7 +51,7 @@ export const members = [
         id: 5,
         nome: 'Giovanna Macedo',
         cargo: 'Front-End | UI/UX Design | Marketing',
-        foto: '../../src/assets/giovanna-foto.png',
+        foto: '../../src/assets/giovanna-foto1.jpeg',
         stack: ['React', 'JavaScript', 'Python', 'MySQL'],
         descricao: 'Desenvolvedora Front-End com foco em criar interfaces modernas e atraentes.',
         redesSociais:{
