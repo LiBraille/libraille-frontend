@@ -1,7 +1,7 @@
 import './AboutPillars.css'
 import Eye from '../../assets/eye.png'
 import compass from '../../assets/compass.png'
-import Love from '../../assets/love.png'
+import Love from '../../assets/Love.png'
 
 function AboutPillars() {
     return (
