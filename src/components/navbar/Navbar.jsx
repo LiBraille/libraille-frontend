@@ -11,6 +11,20 @@ function NavBar({ onIrParaLogin }) {
                 {/* Envolvemos o logo em um Link para que ele também volte para o Início */}
                 <Link to="/">
                     <img src={logo} alt="Logo da empresa Libraille" aria-label="Logo da empresa Libraille" id="logo"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <ul className="nav-links">
+                        <li><a href="" className="nav-link" id='home-page'>Início</a></li>
+                        <a href="" className="nav-link">Sobre</a>
+                        <li><a href="" className="nav-link">Produto</a></li>
+                        <li><a href="" className="nav-link">Contato</a></li>
+                        </ul>
+                        <div className="nav-buttons">
+                            <div className="dark-light-mode-container">
+                        <button id="dark-mode" aria-label="Alternar para modo escuro">
+=======
+>>>>>>> fc268e428735450090d53b700244be862d96ebf4
                 </Link>
                 
                 <ul className="nav-links">
@@ -24,6 +38,10 @@ function NavBar({ onIrParaLogin }) {
                 <div className="nav-buttons">
                     <div className="dark-light-mode-container">
                         <button id="dark-mode" aria-label="Botão para alternar para modo escuro">
+<<<<<<< HEAD
+=======
+>>>>>>> dev
+>>>>>>> fc268e428735450090d53b700244be862d96ebf4
                             <img src={moonIcon} alt="Icone de lua para o modo escuro" />
                         </button>
                         <button id="light-mode" aria-label="Botão para alternar para modo claro">

@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import React, { useState } from 'react';
+import Home from './pages/Home/Home';
+import Auth from './pages/Login/Auth';
+
+
+=======
+>>>>>>> fc268e428735450090d53b700244be862d96ebf4
 import React, { useState } from 'react'
 // Mudança importante: importamos BrowserRouter em vez de Router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' 
@@ -8,6 +18,10 @@ import Contact from './pages/Contact/Contact'
 import Product from './pages/Product/Product'
 import Auth from './pages/Login/Auth'
 import './App.css'
+<<<<<<< HEAD
+=======
+>>>>>>> dev
+>>>>>>> fc268e428735450090d53b700244be862d96ebf4
 function App() {
   // Descomentei o estado caso você vá usar a tela de login separada das rotas
   const [telaAtual, setTelaAtual] = useState('home')
@@ -16,6 +30,13 @@ function App() {
     return <Auth onVoltar={() => setTelaAtual('home')} />
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+  return <Home onIrParaLogin={() => setTelaAtual('login')} />;
+=======
+>>>>>>> fc268e428735450090d53b700244be862d96ebf4
   return (
     <Router>
   {/* Passamos a função de ir para o login para a NavBar aqui: */}
@@ -32,6 +53,10 @@ function App() {
   </main>
 </Router>
   );
+<<<<<<< HEAD
+=======
+>>>>>>> dev
+>>>>>>> fc268e428735450090d53b700244be862d96ebf4
 }
 
 export default App;
