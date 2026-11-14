@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import './aboutLibraille.css';
 
 const items = [
@@ -24,13 +24,13 @@ const items = [
     },
 ];
 
-
 export default function AboutLibraille() {
     const timelineRef = useRef(null);
-    const [progress, setProgress] =
-    useState(0);
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
+        let animationFrameId = null;
+
         const updateProgress = () => {
             if (!timelineRef.current) return;
 
@@ -38,45 +38,57 @@ export default function AboutLibraille() {
             const trigger = window.innerHeight * 0.58;
             const start = rect.top + 60;
             const end = rect.bottom - 60;
+            const distance = end - start;
+
+            // Proteção contra divisão por zero ou elementos ainda não renderizados
+            if (distance <= 0) return;
 
             const value = Math.max(
                 0,
-                Math.min(1, (trigger - start) / (end - start))
+                Math.min(1, (trigger - start) / distance)
             );
 
             setProgress(value);
         };
 
-        updateProgress();
-        window.addEventListener("scroll", updateProgress, {
-            passive: true,
-        });
+        const handleScrollOrResize = () => {
+            // Sincroniza a atualização com o ciclo de renderização da tela
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            animationFrameId = requestAnimationFrame(updateProgress);
+        };
 
-        window.addEventListener("resize", updateProgress);
+        updateProgress();
+
+        window.addEventListener("scroll", handleScrollOrResize, { passive: true });
+        window.addEventListener("resize", handleScrollOrResize);
 
         return () => {
-            window.removeEventListener("scroll", updateProgress);
-            window.removeEventListener("resize", updateProgress);
+            window.removeEventListener("scroll", handleScrollOrResize);
+            window.removeEventListener("resize", handleScrollOrResize);
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
         };
     }, []);
 
     return (
-        <section className="about-libraille">
-            <div className="about-container">
-
+        <section className="about-timeline-section">
+            <div className="about-timeline-container">
                 <h2>POR QUE <span>LIBRAILLE?</span></h2>
-                <p>Mais do que tecnologia,
-                    acreditamos em criar possibilidades,
+                <p>
+                    Mais do que tecnologia, acreditamos em criar possibilidades,
                     promover independência e tornar a leitura acessível a todos.
                 </p>
             </div>
 
             <div 
-            className="timeline"
-            ref={timelineRef}
-            style={{
-                "--progress": `${progress * 100}%`,
-            }}
+                className="timeline"
+                ref={timelineRef}
+                style={{
+                    "--progress": `${progress * 100}%`,
+                }}
             >
                 <div className="timeline-track">
                     <div className="timeline-fill" />
@@ -86,24 +98,20 @@ export default function AboutLibraille() {
                     const active = progress >= index / (items.length - 1);
 
                     return (
-                        <article key={item.number} className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}>
-
-                        <div className={`timeline-dot ${ active ? "active" : " " }`}/>
-                        <div className="timeline-card">
-
-                            <span className="timeline-number">{item.number}</span>
-
-                            <h3>{item.title}</h3>
-
-                            <p>{item.description}</p>
-                            <div className="card-decoration" />
-                        </div>
-                    </article>
-                );
-            })}
-            
+                        <article 
+                            key={item.number} 
+                            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
+                        >
+                            <div className={`timeline-dot ${active ? "active" : ""}`} />
+                            <div className="timeline-card">
+                                <span className="timeline-number">{item.number}</span>
+                                <h3>{item.title}</h3>
+                                <p>{item.description}</p>
+                            </div>
+                        </article>
+                    );
+                })}
             </div>
         </section>
     );
-  
 }

@@ -115,3 +115,21 @@
   height: 100%;
   display: block;
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .hero-texts {
+    margin: 0 1rem 2rem;
+  }
+
+  .hero-button {
+    margin: 0 2rem 2rem;
+    width: auto;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+  }
+}

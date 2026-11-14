@@ -42,12 +42,15 @@
     padding: 0;
     background: none;
     border: none;
-    color: var(--gold);
-    font-size: 20px ;
+    font-size: 1rem;
     font-family: inherit;
     font-weight: bold;
     cursor: pointer;
 
+    &:hover {
+        border-bottom: 2px solid var(--accent-color);
+        transition: border-bottom 0.5s;
+    }
 }
 
 .device__button a{
@@ -58,4 +61,28 @@
 .device__button img {
     width: 30px;
     height: 30px;
+}
+
+@media (max-width: 768px) {
+    .device {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    .device__product {
+        width: 80%;
+        border: none;
+    }
+
+    .device__content {
+        margin-left: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .device__description {
+        width: 100%;
+        font-weight: 300;
+    }
 }

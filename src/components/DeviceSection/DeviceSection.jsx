@@ -1,6 +1,11 @@
 import './deviceSection.css'
 import Arrow from '../../assets/IconArrowDarkMode.png'
 import Product from '../../assets/ImageproductDarkMode.png'
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 
 function DeviceSection() {

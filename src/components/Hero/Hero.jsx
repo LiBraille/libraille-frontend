@@ -1,4 +1,3 @@
-import Button from "../button/Button"
 import ScrambledText from '../../components/ScrambleText/ScrambledText';
 import './hero.css';
 import React, { useEffect, useRef } from 'react'
@@ -153,9 +152,9 @@ export default function HeroWithGlueDots() {
                         Transforme livros em experiências de leitura tátil com o LiBraille
                     </ScrambledText>
                 </div>
-                <Button id="hero-button" aria-label="Botão para conhecer sobre o produto e equipe LiBraille">
+                <button className="hero-button" id="hero-button" aria-label="Botão para conhecer sobre o produto e equipe LiBraille">
                     <a href="">Saiba mais</a>
-                </Button>
+                </button>
             </section>
             </div>
     </section>
