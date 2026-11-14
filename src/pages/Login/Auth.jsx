@@ -4,7 +4,6 @@ import "./auth.css";
 // Imagens, logos e Icones
 import logoDarkMode from "../../assets/logo-dark-mode.png";
 import logoCentral from "../../assets/logo2.png";
-import iconeApple from "../../assets/apple.svg";
 
 export default function Auth({onVoltar}) {
   const [estaNoLogin, setEstaNoLogin] = useState(true);
@@ -264,7 +263,6 @@ export default function Auth({onVoltar}) {
             </button>
 
             <button type="button" className="botao-social">
-              <img src={iconeApple} alt="Apple" className="icone-social" />
               <span>Continue com Apple</span>
             </button>
           </div>

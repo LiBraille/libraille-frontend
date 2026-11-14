@@ -1,6 +1,5 @@
 import './product.css'
 import HowToUse from "../../components/HowToUse/HowToUse"
-import ClientReview from '../../components/ClientsAvaliation/ClientReview'
 import Footer from '../../components/Footer/Footer'
 
 function Product() {
@@ -11,7 +10,10 @@ function Product() {
       <iframe src="" frameborder="1" aria-label='Imagem/Vídeo de demonstração do produto'></iframe>
     </section>
       <HowToUse />
-      <ClientReview />
+      <section className='convert-link'>
+        <h2>Quer converter seus arquivos para Braille?</h2>
+        <a href="/convert">Clique aqui</a>
+      </section>
       <Footer />
     </>
   )
