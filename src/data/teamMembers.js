@@ -23,18 +23,18 @@ export const members = [
             github: 'https://github.com/LucMNS'
         }
     },
-    // {
-    //     id: 3,
-    //     nome: 'Geovanna',
-    //     cargo: 'Documentarista',
-    //     foto: '',
-    //     stack: [],
-    //     descricao: '',
-    //     redesSociais:{
-    //         linkedin: '',
-    //         github: ''
-    //     }
-    // },
+    {
+        id: 3,
+        nome: 'Geovanna',
+        cargo: 'Documentarista',
+        foto: '../../src/assets/geovanna-foto.jpeg',
+        stack: [],
+        descricao: 'Responsável por documentar o projeto, garantindo que todas as informações estejam organizadas e acessíveis.',
+        redesSociais:{
+            linkedin: '',
+            github: ''
+        }
+    },
     {
         id: 4,
         nome: 'Maria Eduarda',
