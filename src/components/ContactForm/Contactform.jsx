@@ -28,7 +28,6 @@ export default function ContactForm(){
                     <div className="contact-details">
                         <div className="contact-detail">
                             <div className="form-icon">@</div>
-
                             <div>
                                 <h3>Email</h3>
 
