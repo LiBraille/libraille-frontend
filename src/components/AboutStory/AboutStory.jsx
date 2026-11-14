@@ -1,6 +1,6 @@
 
 import './AboutStory.css'
-import FotoProa from '../../assets/FotoPROA.png'
+import FotoProa from '../../assets/PROA.png'
 
 function AboutStory() {
     return (
