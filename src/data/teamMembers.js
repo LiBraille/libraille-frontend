@@ -63,7 +63,7 @@ export const members = [
         id: 6,
         nome: 'Leticia Vitória',
         cargo: 'Front-End | Vendas',
-        foto: '../../src/assets/leticia-foto.png',
+        foto: '../../src/assets/leticia-foto.jpeg',
         stack: ['React', 'JavaScript', 'Python', 'MySQL'],
         descricao: 'Desenvolvedora Front-End com foco em criar interfaces modernas e atraentes.',
         redesSociais:{
@@ -87,7 +87,7 @@ export const members = [
         id: 8,
         nome: 'Guilherme Miranda',
         cargo: 'Full-Stack',
-        foto: '../../src/assets/guilherme-foto.png',
+        foto: '../../src/assets/guilherme-foto.jpeg',
         stack: ['React', 'JavaScript', 'Python', 'postgresql'],
         descricao: 'Desenvolvedor Back-End com foco em criar soluções escaláveis e eficientes.',
         redesSociais:{
