@@ -1,17 +1,11 @@
 .contact-form-section{
-    --azul: #0F172A;
-    --roxo: #3f0157;
-    --dourado: #D9B03F;
-    --branco: #FDFBF7;
-    --cinza: #AAB1C2;
-
     width: 100%;
     padding: 70px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--azul);
-    color: var(--branco);
+    background: var(--bg-surface);
+    color: var(--text-main);
     font-family: Arial, sans-serif;
 }
 
@@ -21,10 +15,10 @@
     min-height: 520px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    background: #172238;
-    border: 1px solid rgba(217, 176, 63, 0.2);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 22px;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 45px var(--shadow-color);
     overflow: hidden;
 }
 
@@ -35,11 +29,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 1px solid rgba(217, 176, 63, 0.25);
+    border-right: 1px solid var(--border-subtle);
 }
 
 .contact-label{
-    color: var(--dourado);
+    color: var(--accent-color);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -50,18 +44,18 @@
     font-size: clamp(30px,4vw, 42px);
     line-height: 1.2;
     margin: 0 0 22px;
-    color: var(--branco);
+    color: var(--text-main);
 }
 
 .contact-info h1 span{
-    color: var(--dourado);
+    color: var(--accent-color);
 }
 
 .contact-description{
     max-width: 430px;
     font-size: 15px;
     line-height: 1.8;
-    color: var(--cinza);
+    color: var(--text-muted);
     margin-bottom: 45px;
 }
 
@@ -86,22 +80,22 @@
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    background: var(--roxo);
-    border: 1px solid rgba(217, 176, 63, 0.4);
-    color: var(--dourado);
+    background: var(--toggle-hover);
+    border: 1px solid var(border-subtle);
+    color: var(--accent-color);
     font-size: 20px;
     font-weight: bold;
 }
 
 .contact-detail h3{
-    color: var(--branco);
+    color: var(--text-main);
     font-size: 15px;
     margin: 0 0 7px;
 }
 
 .contact-detail p, .contact-detail a{
     display: block;
-    color: var(--cinza);
+    color: var(--text-muted);
     font-size: 13px;
     margin: 7px 0 0;
     text-decoration: none;
@@ -109,7 +103,7 @@
 }
 
 .contact-detail a:hover{
-    color: var(--dourado);
+    color: var(--accent-color);
 }
 
 .contact-form-container{
@@ -127,13 +121,13 @@
 
 .form-heading h2{
     font-size: 15px;
-    color: var(--branco);
+    color: var(--text-main);
     margin: 0 0 10px;
 }
 
 
 .form-heading p{
-    color: var(--cinza);
+    color: var(--text-muted);
     font-size: 14px;
     margin: 0;
 }
@@ -155,7 +149,7 @@
 }
 
 .form-group label{
-    color: var(--branco);
+    color: var(--text-main);
     font-size: 13px;
     font-weight: 600;
 }
@@ -165,10 +159,10 @@
     min-width: 0;
     display: block;
     padding: 14px 16px;
-    background: var(--azul);
+    background: var(--bg-page);
     border-radius: 11px;
-    color: var(--branco);
-    border: 1px solid rbga(170, 177, 194, 0.5);
+    color: var(--text-main);
+    border: 1px solid var(--border-subtle);
     font-family: inherit;
     font-size: 13px;
     outline: none;
@@ -189,8 +183,8 @@
 }
 
 .form-group input:focus, .form-group textarea:focus{
-    border-color: var(--dourado);
-    box-shadow: 0 0 0 3px rgba(217, 176, 63, 0.12);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px var(--shadow-color);
 }
 
 .contact-form-container, .contact-form, .form-group{
@@ -205,9 +199,9 @@
     justify-content: center;
     gap: 15px;
     padding: 14px 22px;
-    background: var(--roxo);
+    background: var(--toggle-hover);
     border-radius: 10px;
-    color: var(--branco);
+    color: var(--text-main);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -215,19 +209,19 @@
 }
 
 .contact-button span{
-    color: var(--dourado);
+    color: var(--accent-color);
     font-size: 20px;
     font-weight: bold;
 }
 
 .contact-button:hover{
-    background: var(--dourado);
-    color: var(--azul);
+    background: var(--accent-color);
+    color: var(--bg-page);
     transform: translateY(-2px);
 }
 
 .contact-button:hover span{
-    color: var(--azul);
+    color: var(--bg-page);
 }
 
 @media (max-width: 850px){
@@ -237,7 +231,7 @@
 
     .contact-info{
         border-right: none;
-        border-bottom: 1px solid rgba(217, 176, 63, 0.25);
+        border-bottom: 1px solid var(--border-subtle);
         padding: 45px 35px;
     }
 
