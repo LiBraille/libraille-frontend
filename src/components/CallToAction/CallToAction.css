@@ -1,103 +1,113 @@
 .call-to-action {
     width: 100%;
-    min-height: 420px;
     padding: 50px 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     gap: 35px;
-    color: #FDFBF7;
-    text-align: center;
+    color: var(--text-main);
+    
 }
 
 .cta-content{
     width:100%;
-    max-width: 800px;
+    max-width: 64rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--border-color);
+    padding: 40px 30px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-align: center;
 }
 
-.cta-content h2{
-    color:#FDFBF7;
-    font-size: 2.2rem;
+.cta-title{
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
     line-height: 1.25;
     font-weight: 700;
     margin-bottom: 20px;
+    text-wrap: balance;
 }
 
-.cta-content p{
+.cta-text{
+    max-width: 38rem;
     margin: 0 auto 30px;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.6;
-    color: #E2E8F0;
+    color: var(--text-muted);
 }
 
 .cta-buttons{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;
-    margin-top: 12px;
+    gap: 1rem;
 }
 
-.cta-buttons button{
-    padding: 12px 22px;
-    border-radius: 8px;
-    font-size: 0.95rem;
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 12rem;
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, 
-    transform 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+                transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#cta-primary{
-    background-color: #C59B27;
-    color: #0F172A;
-    border: 2px solid #C59B27;
+.cta-button--primary {
+    --btn-bg-1: #dbb03f;
+    --btn-bg-2: #724f02;
+    --btn-focus-ring: var(--bg-page);
+    background-size: 280% auto;
+    background-image: linear-gradient( 325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90% );
+    box-shadow: 0 0 20px rgba(217, 176, 63, 0.45), inset 4px 4px 8px rgba(189, 146, 3, 0.5), inset -4px -4px 8px rgba(216, 196, 19, 0.35);
+    transition: background-position 0.8s;
+    color: var(--text-main);
 }
 
-#cta-primary:hover{
-    background-color: #0F172A;
-    color: #C59B27;
-    transform: translateY(-2px);
+.cta-button--primary:hover {
+    /* box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-color) 45%, transparent); */
+        background-position: right top;
 }
 
-#cta-secondary{
-    background-color: #0F172A;
-    color: #FDFBF7;
-    border: 2px solid #FDFBF7;
+.cta-button--secondary {
+    background-color: transparent;
+    border: 2px solid var(--border-button);
+    color: var(--text-main);
 }
 
-#cta-secondary:hover{
-    background-color: #1D3557;
-    
+
+.cta-button--secondary:hover {
+    background-color: var(--secondary-accent-color);
+    color: var(--text-main);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cta-button {
+        transition: none;
+    }
+
+    .cta-button--primary:hover {
+        transform: none;
+    }
 }
 
 @media (max-width: 768px) {
-    .call-to-action {
-        padding: 40px 15px;
-        gap: 25px;
-    }
-
-    .cta-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .cta-content p {
-        font-size: 0.95rem;
-    }
-
     .cta-buttons {
         flex-direction: column;
-        gap: 15px;
+        width: 100%;
     }
 
-    .cta-buttons button {
+    .cta-button {
         width: 100%;
-        max-width: 250px;
+        max-width: 20rem;
     }
 }

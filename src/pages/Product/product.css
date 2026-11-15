@@ -18,3 +18,10 @@ iframe{
     border: 1px solid #D9B03F;
     border-radius: 1rem;
 }
+
+.product-section img{
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #D9B03F;
+    border-radius: 1rem;
+}

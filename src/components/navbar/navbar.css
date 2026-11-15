@@ -135,8 +135,8 @@ body.menu-open {
     padding: 0.5rem 1rem;
     outline: none;
     cursor: pointer;
-    min-width: 120px;
-    min-height: 44px;
+    min-width: 100px;
+    min-height: 36px;
     font-size: 1.1rem;
     font-weight: 500;
     transition: 0.8s;
@@ -146,11 +146,12 @@ body.menu-open {
             var(--btn-bg-1) 55%,
             var(--btn-bg-2) 90%);
     border: none;
+    box-shadow: 0 0 20px rgba(217, 176, 63, 0.45), inset 4px 4px 8px rgba(189, 146, 3, 0.5), inset -4px -4px 8px rgba(216, 196, 19, 0.35);
     border-radius: var(--radii);
 }
 
 #login-register:hover {
-    background-position: right top;
+        background-position: right top;
 }
 
 #login-register:is(:focus-visible, :active) {

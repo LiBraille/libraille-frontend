@@ -6,14 +6,11 @@
     --cinza: #AAB1C2;
 }
 
-*{
-    box-sizing: border-box;
-}
-
 .about-timeline-section{
     width: 100%;
     padding: 70px 50px;
     overflow: hidden;
+    text-align: center;
 }
 
 .about-timeline-container{

@@ -16,7 +16,7 @@ function HowToUse() {
                             </g>
                         </svg>
                         <h4>1. Envie o arquivo</h4>
-                        <p>Faça o upload do seu livro em fomato digital ou PDF de forma simples e rápida</p>
+                        <p>Faça o upload do seu arquivo em fomato TXT ou EPUB, de forma simples e rápida</p>
                     </div>
                     <svg className='arrow-icon' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
                         <path d="M0 0h16v16H0z" fill="none" />
