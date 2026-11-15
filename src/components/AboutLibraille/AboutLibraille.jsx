@@ -76,7 +76,7 @@ export default function AboutLibraille() {
     return (
         <section className="about-timeline-section">
             <div className="about-timeline-container">
-                <h2>POR QUE <span>LIBRAILLE?</span></h2>
+                <h2>Nossos <span>Valores</span></h2>
                 <p>
                     Mais do que tecnologia, acreditamos em criar possibilidades,
                     promover independência e tornar a leitura acessível a todos.

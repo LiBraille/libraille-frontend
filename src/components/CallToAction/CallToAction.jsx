@@ -1,17 +1,22 @@
-import './CallToAction.css';
+import './CallToAction.css'
+import { Link } from 'react-router-dom'
+
 
 function CallToAction(){
     return(
         <section className="call-to-action">
             <div className="cta-content">
-                <h2>Pronto para dar relevo
-                às suas histórias?</h2>
+                <h2 className="cta-title">Doe para quem precisa</h2>
 
-                <p>Crie seu cadastro gratuito na plataforma ou entre em contato com a nossa equipe para parcerias ou dúvidas.</p>
+                <p className="cta-text">Contribua com a causa e ajude quem mais precisa. Doe um dispositivo e ajude a transformar vidas.</p>
 
                 <div className="cta-buttons">
-                    <button id="cta-primary">Criar conta gratuita</button>
-                    <button id="cta-secondary"> Falar com a equipe</button>
+                     <Link to="/doacao" className="cta-button cta-button--primary">
+                            Fazer doação
+                        </Link>
+                        <Link to="/contato" className="cta-button cta-button--secondary">
+                            Falar com a equipe
+                        </Link>
                 </div>
             </div>
         </section>

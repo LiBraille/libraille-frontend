@@ -1,0 +1,183 @@
+.braille-cell-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.braille-cell {
+    width: 100%;
+    max-width: 30rem;
+    padding: 1.25rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.25rem;
+    text-align: left;
+}
+
+.braille-cell__title {
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+}
+
+.braille-cell__body {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* ---------- Grade de pontos (2 x 3) ---------- */
+.braille-cell__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2.75rem);
+    grid-auto-rows: 2.75rem;
+    gap: 0.35rem;
+    padding: 0.6rem;
+    background-color: color-mix(in srgb, var(--bg-page) 70%, var(--bg-surface));
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    flex-shrink: 0;
+}
+
+/* O botão tem 44px (bom alvo de toque); o "pino" visual é menor */
+.braille-dot {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.braille-dot__pin {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    /* Estado baixo: parece um furo no dispositivo */
+    background-color: var(--bg-page);
+    box-shadow: inset 0 2px 4px var(--shadow-color), 0 0 0 1px var(--border-subtle);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.braille-dot:hover .braille-dot__pin {
+    box-shadow: inset 0 2px 4px var(--shadow-color), 0 0 0 2px var(--accent-color);
+}
+
+/* Estado levantado: pino dourado com brilho */
+.braille-dot[aria-pressed="true"] .braille-dot__pin {
+    background: radial-gradient(circle at 35% 30%, #f3d676 0%, var(--accent-color) 55%, #8a6500 100%);
+    box-shadow: 0 3px 6px var(--shadow-color), 0 0 14px color-mix(in srgb, var(--accent-color) 60%, transparent);
+    transform: scale(1.08);
+}
+
+.braille-dot:focus-visible {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+}
+
+/* ---------- Resultado ---------- */
+.braille-cell__result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 5rem;
+    margin-inline: auto;
+    color: var(--text-main);
+}
+
+.braille-cell__letter {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-text);
+}
+
+.braille-cell__glyph {
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--text-muted);
+}
+
+.braille-cell__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Ações ---------- */
+.braille-cell__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.braille-cell__action {
+    min-height: 44px;
+    padding: 0.5rem 1.1rem;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.braille-cell__action:hover:not(:disabled) {
+    border-color: var(--border-button);
+}
+
+.braille-cell__action--primary {
+    color: #FDFBF7;
+    background-color: #3f01577a;
+    border-color: transparent;
+}
+
+.braille-cell__action--primary:hover:not(:disabled) {
+    background-color: var(--secondary-accent-color);
+}
+
+.braille-cell__action:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.braille-cell__action:focus-visible {
+    outline: 2px solid var(--border-color);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .braille-dot__pin,
+    .braille-cell__action {
+        transition: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .braille-cell__body {
+        flex-direction: column;
+    }
+
+    .braille-cell__actions {
+        justify-content: center;
+    }
+}
