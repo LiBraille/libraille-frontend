@@ -13,7 +13,7 @@ export default function Home() {
         <>
             <Hero />
             <DeviceSection />
-            <BrailleCell className="device__reveal" />
+            {/* <BrailleCell className="device__reveal" /> */}
             <Faq />
             <CallToAction />
             <PhotoCircles />

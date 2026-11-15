@@ -79,9 +79,9 @@ export default function BrailleCell({ className = '' }) {
             <h3 id="braille-cell-titulo">Experimente!</h3>
             <p>Pressione os pontos para formar letras.</p>
         <div className={`braille-cell ${className}`}>
-            <p id="braille-cell-titulo" className="braille-cell__title">
+            {/* <p id="braille-cell-titulo" className="braille-cell__title">
                 Experimente: toque nos pontos
-            </p>
+            </p> */}
 
             <div className="braille-cell__body">
                 <div

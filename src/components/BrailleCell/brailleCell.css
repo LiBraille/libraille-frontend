@@ -142,17 +142,17 @@
 }
 
 .braille-cell__action:hover:not(:disabled) {
-    border-color: var(--accent-color);
+    border-color: var(--border-button);
 }
 
 .braille-cell__action--primary {
     color: #FDFBF7;
-    background-color: #724f02;
+    background-color: #3f01577a;
     border-color: transparent;
 }
 
 .braille-cell__action--primary:hover:not(:disabled) {
-    background-color: #8a6100;
+    background-color: var(--secondary-accent-color);
 }
 
 .braille-cell__action:disabled {
@@ -161,7 +161,7 @@
 }
 
 .braille-cell__action:focus-visible {
-    outline: 2px solid var(--accent-text);
+    outline: 2px solid var(--border-color);
     outline-offset: 2px;
 }
 

@@ -7,8 +7,8 @@ import './footer.css'
 
 const redes_sociais = [
     { nome: 'GitHub', url: 'https://github.com/', Icone: FaGithub },
-    { nome: 'LinkedIn', url: 'https://www.linkedin.com/', Icone: FaLinkedin },
-    { nome: 'Instagram', url: 'https://www.instagram.com/', Icone: FaInstagram },
+    { nome: 'LinkedIn', url: 'https://www.linkedin.com/company/libraille-projeto/', Icone: FaLinkedin },
+    { nome: 'Instagram', url: 'https://www.instagram.com/projeto.libraille/', Icone: FaInstagram },
 ]
 
 const colunas = [

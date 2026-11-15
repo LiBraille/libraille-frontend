@@ -75,20 +75,6 @@ function DeviceSection() {
     return (
         <section ref={sectionRef} className="device" aria-labelledby="device-titulo">
                 
-            <div className="device__inner">
-                <figure className="device__media">
-                    <div className="device__halo" aria-hidden="true"></div>
-                    <div className="device__frame">
-                        <img
-                            className="device__product"
-                            src={Product}
-                            alt="Dispositivo cúbico de cantos arredondados, com uma cela de seis orifícios no topo, organizados em duas colunas de três, e uma porta USB-C na parte inferior frontal."
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </div>
-                </figure>
-
                 <div className="device__content">
                     <h2 id="device-titulo" className="device__title device__reveal">
                             Dispositivo LiBraille
@@ -104,6 +90,22 @@ function DeviceSection() {
                         <FaArrowRightLong />
                     </Link>
                 </div>
+            <div className="device__inner">
+                <figure className="device__media">
+                    <div className="device__halo" aria-hidden="true"></div>
+                    <div className="device__frame">
+                        <img
+                            className="device__product"
+                            src={Product}
+                            alt="Dispositivo cúbico de cantos arredondados, com uma cela de seis orifícios no topo, organizados em duas colunas de três, e uma porta USB-C na parte inferior frontal."
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </figure>
+                <BrailleCell className="device__reveal" />
+
+                
             </div>
         </section>
     )
