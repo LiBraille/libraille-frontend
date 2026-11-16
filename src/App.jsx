@@ -7,7 +7,7 @@ import Product from './pages/Product/Product'
 import Auth from './pages/Login/Auth'
 import Converter from './pages/Converter/Converter'
 import NavBar from './components/navbar/Navbar'
-import Footer from './components/Footer/Footer'
+import Footer from './components/footer/Footer'
 import ScrollToHash from './components/ScrollToHash'
 import Termos from "./components/TermosDeUso/Termos";
 import Privacidade from "./components/PoliticaPrivacidade/Politica";
