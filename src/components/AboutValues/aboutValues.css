@@ -1,0 +1,178 @@
+.values {
+    width: 100%;
+    padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+    overflow: hidden;
+}
+
+/* ---------- Introdução ---------- */
+.values-intro {
+    max-width: 48rem;
+    margin: 0 auto clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+}
+
+.values-title {
+    margin-bottom: 1.25rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-main);
+    text-wrap: balance;
+}
+
+.values-title span {
+    color: var(--accent-text);
+}
+
+.values-lead {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.8;
+    color: var(--text-muted);
+    text-wrap: balance;
+}
+
+/* ---------- Linha do tempo ---------- */
+.values-timeline {
+    --progress: 0%;
+    position: relative;
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+.values-track {
+    position: absolute;
+    top: 3rem;
+    bottom: 3rem;
+    left: 50%;
+    width: 3px;
+    translate: -50% 0;
+    background: color-mix(in srgb, var(--accent-color) 22%, transparent);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.values-fill {
+    width: 100%;
+    height: var(--progress);
+    background: var(--accent-color);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent-color) 60%, transparent);
+}
+
+.values-list {
+    position: relative;
+}
+
+.values-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 14rem;
+}
+
+.values-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: 1.5rem;
+    height: 1.5rem;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: var(--bg-page);
+    border: 3px solid color-mix(in srgb, var(--accent-color) 55%, transparent);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.values-dot.is-active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--accent-color) 60%, transparent);
+}
+
+/* ---------- Cartões ---------- */
+.values-card {
+    width: 42%;
+    padding: 1.75rem;
+    background:
+        linear-gradient(155deg,
+            color-mix(in srgb, var(--secondary-accent-color) 60%, transparent) 0%,
+            transparent 100%),
+        var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.values-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.values-item.is-left .values-card {
+    margin-right: auto;
+    text-align: right;
+}
+
+.values-item.is-right .values-card {
+    margin-left: auto;
+    text-align: left;
+}
+
+.values-number {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent-text);
+}
+
+.values-card h3 {
+    margin-bottom: 0.6rem;
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    color: var(--text-main);
+}
+
+.values-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .values-dot,
+    .values-card {
+        transition: none;
+    }
+
+    .values-card:hover {
+        transform: none;
+    }
+}
+
+/* ---------- Mobile: linha à esquerda, cartões à direita ---------- */
+@media (max-width: 650px) {
+    .values-timeline {
+        padding-left: 2.5rem;
+    }
+
+    .values-track {
+        left: 0.75rem;
+    }
+
+    .values-dot {
+        left: -1.75rem;      /* alinha com a linha, que está fora do padding */
+    }
+
+    .values-item {
+        min-height: 11rem;
+    }
+
+    .values-card,
+    .values-item.is-left .values-card,
+    .values-item.is-right .values-card {
+        width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+}

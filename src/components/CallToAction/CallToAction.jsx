@@ -1,21 +1,27 @@
-import './CallToAction.css';
+import './CallToAction.css'
+import { Link } from 'react-router-dom'
+import Reveal from '../Reveal/Reveal'
+
 
 function CallToAction(){
     return(
         <section className="call-to-action">
-            <div className="cta-content">
-                <h2>Pronto para dar relevo
-                às suas histórias?</h2>
+            <Reveal as="div" className="cta-content" data-surface="dark">
+                <h2 className="cta-title">Doe para quem precisa</h2>
 
-                <p>Crie seu cadastro gratuito na plataforma ou entre em contato com a nossa equipe para parcerias ou dúvidas.</p>
+                <p className="cta-text">Contribua com a causa e ajude quem mais precisa. Doe um dispositivo e ajude a transformar vidas.</p>
 
                 <div className="cta-buttons">
-                    <button id="cta-primary">Criar conta gratuita</button>
-                    <button id="cta-secondary"> Falar com a equipe</button>
+                     <Link to="/produto" className="cta-button cta-button--primary">
+                            Fazer doação
+                        </Link>
+                        <Link to="/contato" className="cta-button cta-button--secondary">
+                            Falar com a equipe
+                        </Link>
                 </div>
-            </div>
+            </Reveal>
         </section>
     );
 }
 
-export default CallToAction;
+export default CallToAction
