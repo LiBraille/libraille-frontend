@@ -89,6 +89,8 @@
 }
 
 .hero-paragraph {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
   line-height: 1.5;
   text-align: center;
   text-wrap: balance;
