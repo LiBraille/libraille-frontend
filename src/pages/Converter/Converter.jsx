@@ -8,9 +8,10 @@ function Converter(){
         <UploadBook />
         <FileStatus />
         <SyncedBooks
-                books={books}
-                onTransfer={handleTransfer}
-                onDelete={handleDelete}/>
+                // books={books}
+                // onTransfer={handleTransfer}
+                // onDelete={handleDelete}
+                />
         </>
     )
 }
