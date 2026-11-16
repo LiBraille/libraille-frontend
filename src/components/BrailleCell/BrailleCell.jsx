@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import './brailleCell.css'
-import { section } from 'motion/react-client'
 
 // Alfabeto braille: números = pontos levantados (1-2-3 na coluna esquerda, 4-5-6 na direita)
 const ALFABETO = {
@@ -75,7 +74,7 @@ export default function BrailleCell({ className = '' }) {
             : 'Combinação sem letra correspondente'
 
     return (
-        <section className={`braille-cell-section`} aria-labelledby="braille-cell-titulo">
+        <section className={`braille-cell-section ${className}`} aria-labelledby="braille-cell-titulo">
             <h3 id="braille-cell-titulo">Experimente!</h3>
             <p>Pressione os pontos para formar letras.</p>
         <div className={`braille-cell ${className}`}>

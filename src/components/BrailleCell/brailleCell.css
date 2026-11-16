@@ -11,7 +11,7 @@
     width: 100%;
     max-width: 30rem;
     padding: 1.25rem;
-    background-color: var(--bg-surface);
+    background-color: var(--bg-surface-2);
     border: 1px solid var(--border-subtle);
     border-radius: 1.25rem;
     text-align: left;
@@ -147,12 +147,11 @@
 
 .braille-cell__action--primary {
     color: #FDFBF7;
-    background-color: #3f01577a;
-    border-color: transparent;
+    background-color: #5b1a85;
 }
 
 .braille-cell__action--primary:hover:not(:disabled) {
-    background-color: var(--secondary-accent-color);
+    background-color: #3f0157;
 }
 
 .braille-cell__action:disabled {
@@ -161,7 +160,7 @@
 }
 
 .braille-cell__action:focus-visible {
-    outline: 2px solid var(--border-color);
+    outline: 2px solid var(--accent-text);   
     outline-offset: 2px;
 }
 

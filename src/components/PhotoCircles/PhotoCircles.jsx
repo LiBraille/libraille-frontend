@@ -1,14 +1,18 @@
-import './PhotoCircles.css';
-import CircleImages from '../../assets/CircleImages.png';
-
-
+import ScrollTrigger from '../ScrollTrigger'
+import CircleImages from '../../assets/CircleImages.png'
+import './PhotoCircles.css'
 
 function PhotoCircles() {
     return (
-        <>
-        <img src={CircleImages} alt="Circulos de diferentes tamanhos que contém imagens de pessoas cegas" className="photo-circles"/>
-        </>
-    );
+        <ScrollTrigger as="figure" variant="scale" className="photo-circles">
+            <img
+                src={CircleImages}
+                alt="Colagem de círculos com retratos sorridentes de um menino, um senhor e duas jovens, entre círculos coloridos."
+                loading="lazy"
+                decoding="async"
+            />
+        </ScrollTrigger>
+    )
 }
 
 export default PhotoCircles
