@@ -6,6 +6,9 @@ import Contact from './pages/Contact/Contact'
 import Product from './pages/Product/Product'
 import Auth from './pages/Login/Auth'
 import Converter from './pages/Converter/Converter'
+import NavBar from './components/navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import ScrollToHash from './components/ScrollToHash'
 import './App.css'
 
 function App() {
@@ -29,7 +32,6 @@ function App() {
           <Route path="/conversor" element={<Converter />} />
         </Routes>
       </main>
-
       <Footer />
       <ScrollToHash />
     </Router>
