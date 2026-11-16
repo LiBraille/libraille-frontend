@@ -47,7 +47,8 @@ body.menu-open {
 .nav-link {
     text-decoration: none;
     color: var(--text-main);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
     padding: 0.25rem 0;
 
     &:hover {
@@ -133,9 +134,9 @@ body.menu-open {
     padding: 0.5rem 1rem;
     outline: none;
     cursor: pointer;
-    min-width: 100px;
-    min-height: 36px;
-    font-size: 1.1rem;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: 1.2rem;
     font-weight: 500;
     transition: 0.8s;
     background-size: 280% auto;
