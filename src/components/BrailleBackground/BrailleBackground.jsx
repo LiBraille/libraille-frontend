@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
+import './brailleBackground.css'
 
 const DOT_GAP = 10          // distância entre pontos dentro da cela
-const CELL_PAD_X = 24       // espaço horizontal entre celas
-const CELL_PAD_Y = 22       // espaço vertical entre celas
+const CELL_PAD_X = 40       // espaço horizontal entre celas antes 24
+const CELL_PAD_Y = 38       // espaço vertical entre celas antes 22
 const POINTER_RADIUS = 110  // alcance do mouse/toque
 const AMBIENT_INTERVAL = 140 // ms entre mudanças espontâneas
 

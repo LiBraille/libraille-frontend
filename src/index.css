@@ -46,14 +46,14 @@
 
     --bg-page: #FDFBF7;
     --bg-surface: #FFFCF5;
-    --bg-surface-2: #F1E9D6;
+    --bg-surface-2: #EEE6F6; 
     --card-bg: #FFFCF5;
     --text-main: #0F172A;
     --text-muted: #44516A;
     --text-subtle: #5B6577;
     --accent-color: #D9B03F;
     --accent-text: #7A5800;             /* dourado escuro, contraste AA sobre creme */
-    --secondary-accent-color: #E2D3F1;  /* lavanda (caixa de resposta do FAQ, círculo da seta) */
+    --secondary-accent-color: #E2D3F1;  /* lavanda (caixa de resposta do FAQ, círculo da seta)*/
     --header-bg: #fdfbf7;
     --menu-bg: #F6F0E3;
     --toggle-bg: #E6DCC5;
@@ -109,4 +109,68 @@ section[id] { scroll-margin-top: 5rem; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     body { transition: none; }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 44px;
+    padding: 0.7rem 1.5rem;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-position 0.8s ease, background-color 0.3s ease;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.btn--primary {
+    --btn-bg-1: #dbb03f;
+    --btn-bg-2: #724f02;
+    color: #FDFBF7;
+    background-size: 280% auto;
+    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+    box-shadow: 0 0 20px rgba(217, 176, 63, 0.45),
+                inset 4px 4px 8px rgba(189, 146, 3, 0.5),
+                inset -4px -4px 8px rgba(216, 196, 19, 0.35);
+}
+
+.btn--primary:hover { background-position: right top; }
+
+.btn--ghost {
+    color: var(--text-main);
+    background-color: transparent;
+    border-color: var(--border-button);
+}
+
+.btn--ghost:hover { background-color: var(--secondary-accent-color); }
+
+@media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+}
+
+.page-glow {
+    /* tokens dos brilhos (padrão: escuro) */
+    --glow-purple: rgba(124, 0, 181, 0.2);
+    --glow-gold: rgba(217, 176, 63, 0.08);
+
+    position: relative;
+    overflow-x: clip;   /* clip, e não hidden, para não interferir no ScrollTrigger */
+    background-image:
+        radial-gradient(42rem 32rem at 100% 0%,   var(--glow-purple), transparent 70%),
+        radial-gradient(38rem 30rem at 0%   38%,  var(--glow-gold),   transparent 70%),
+        radial-gradient(42rem 32rem at 100% 78%,  var(--glow-purple), transparent 70%);
+}
+
+:root[data-theme="light"] .page-glow {
+    --glow-purple: rgba(124, 0, 181, 0.11);
+    --glow-gold: rgba(217, 176, 63, 0.2);
 }

@@ -2,7 +2,7 @@ import { useId } from 'react'
 import { Link } from 'react-router-dom'
 import { FaInstagram, FaLinkedin, FaGithub, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
-import Reveal from '../ScrollTrigger'
+import Reveal from '../Reveal/Reveal'
 import logo from '../../assets/logo.png'
 import './footer.css'
 

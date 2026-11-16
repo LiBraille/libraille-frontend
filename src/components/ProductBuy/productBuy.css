@@ -1,0 +1,127 @@
+.buy {
+    padding: clamp(2.5rem, 8vw, 5rem) 1rem;
+}
+
+.buy-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 3.5rem);
+    color: var(--text-main);
+    background: var(--cta-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+.buy-title {
+    margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+.buy-lead {
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.buy-list {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.buy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--text-main);
+}
+
+.buy-list svg {
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    color: var(--accent-color);
+}
+
+.buy-aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;         
+    gap: 1.5rem;
+    padding-left: clamp(1.5rem, 4vw, 3rem);
+    border-left: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+.buy-note {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    text-wrap: balance;
+}
+
+
+.buy-actions {
+    display: flex;
+    flex-wrap: wrap;              
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+}
+
+
+.buy-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;            
+    font-weight: 600;
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.buy-link:hover {
+    color: #c09a32;
+}
+
+.buy-link:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .buy-card {
+        grid-template-columns: 1fr;
+        padding: 1.75rem 1.25rem;
+    }
+
+    .buy-aside {
+        align-self: auto;
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+    }
+
+    .buy-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .buy-actions .btn {
+        width: 100%;
+        max-width: 20rem;     
+    }
+}

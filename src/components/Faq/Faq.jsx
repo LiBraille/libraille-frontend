@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import Reveal from '../ScrollTrigger'
+import Reveal from '../Reveal/Reveal'
 import './faq.css'
 
 const faqs = [
