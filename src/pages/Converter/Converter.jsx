@@ -1,4 +1,4 @@
-function Convert(){
+function Converter(){
     return(
         <>
         <>
@@ -7,4 +7,4 @@ function Convert(){
     )
 }
 
-export default Convert
+export default Converter
