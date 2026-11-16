@@ -1,0 +1,114 @@
+.steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+    text-align: center;
+}
+
+.steps-title {
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    color: var(--text-main);
+}
+
+.steps-title span { color: var(--accent-text); }
+
+.steps-lead {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+}
+
+.steps-list {
+    --gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gap);
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem 1.25rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    transition: translate 0.3s ease, border-color 0.3s ease;
+}
+
+.step:hover {
+    translate: 0 -5px;
+    border-color: var(--border-button);
+}
+
+.step-number {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-text);
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+}
+
+.step-icon {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    background-color: var(--secondary-accent-color);
+    border-radius: 50%;
+}
+
+.step-title {
+    font-size: 1.15rem;
+    color: var(--text-main);
+}
+
+.step-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+/* Setas entre os cartões (só no desktop; o texto vazio depois da barra as esconde de leitores de tela) */
+@media (min-width: 1001px) {
+    .step:not(:last-child)::after {
+        content: '\2192' / '';
+        position: absolute;
+        top: 50%;
+        right: calc(var(--gap) / -2);
+        translate: 50% -50%;
+        font-size: 1.75rem;
+        color: var(--accent-text);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .step { transition: none; }
+    .step:hover { translate: none; }
+}
+
+@media (max-width: 1000px) {
+    .steps-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+    .steps-list { grid-template-columns: 1fr; }
+}

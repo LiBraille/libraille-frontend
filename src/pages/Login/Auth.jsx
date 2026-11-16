@@ -3,7 +3,7 @@ import "./auth.css";
 
 // Imagens, logos e Icones
 import logoDarkMode from "../../assets/logo-dark-mode.png";
-import logoCentral from "../../assets/logo2.png";
+import logoCentral from "../../assets/logo.png";
 
 export default function Auth({onVoltar}) {
   const [estaNoLogin, setEstaNoLogin] = useState(true);

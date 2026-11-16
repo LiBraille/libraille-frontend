@@ -1,181 +1,50 @@
-import ScrambledText from '../../components/ScrambleText/ScrambledText';
-import './hero.css';
-import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import ScrambledText from '../../components/ScrambleText/ScrambledText'
+import BrailleBackground from '../BrailleBackground/BrailleBackground'
+import './hero.css'
+
+const titulo = 'Histórias que ganham relevo'
+const subtitulo = 'Transforme livros em experiências de leitura tátil com o LiBraille'
+
+const scrambleProps = {
+  effect: 'scramble',
+  radius: 100,
+  strength: 1,
+  trail: 0.6,
+  duration: 1.2,
+  speed: 0.5,
+  scrambleChars: '.:',
+  clickBurst: true,
+  intro: true,
+}
 
 export default function HeroWithGlueDots() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    let animationFrameId;
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
-
-    // Ajusta o tamanho do canvas ao redimensionar a janela
-    const handleResize = () => {
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Posição do mouse
-    const mouse = { x: width / 2, y: height / 2 };
-    const handleMouseMove = (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-
-    // Criar vários pontos (dots)
-    const numDots = 40;
-    const dots = Array.from({ length: numDots }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 1.5,
-      vy: (Math.random() - 0.5) * 1.5,
-      radius: Math.random() * 12 + 16,
-    }));
-
-    // Adiciona o ponto do mouse
-    const mouseDot = { x: mouse.x, y: mouse.y, radius: 35 };
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      // Suaviza a atração do mouse
-      mouseDot.x += (mouse.x - mouseDot.x) * 0.1;
-      mouseDot.y += (mouse.y - mouseDot.y) * 0.1;
-
-      // Desenha o ponto do cursor
-      ctx.beginPath();
-      ctx.arc(mouseDot.x, mouseDot.y, mouseDot.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#5e008a'; // Cor dos pontos (ex: azul/primary)
-      ctx.fill();
-
-      // Atualiza e desenha os pontos flutuantes
-      dots.forEach((dot) => {
-        dot.x += dot.vx;
-        dot.y += dot.vy;
-
-        // Rebater nas bordas
-        if (dot.x < dot.radius || dot.x > width - dot.radius) dot.vx *= -1;
-        if (dot.y < dot.radius || dot.y > height - dot.radius) dot.vy *= -1;
-
-        // Leve atração ao mouse se estiver perto
-        const dx = mouseDot.x - dot.x;
-        const dy = mouseDot.y - dot.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
-          dot.x += dx * 0.01;
-          dot.y += dy * 0.01;
-        }
-
-        ctx.beginPath();
-        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#5e008a';
-        ctx.fill();
-      });
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
-    <section style={styles.section} className="glue-dots-section">
-      {/* Filtro SVG oculto responsável pelo efeito "viscoso/glue" */}
-      <svg style={{ display: 'none' }}>
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  
-                      0 1 0 0 0  
-                      0 0 1 0 0  
-                      0 0 0 19 -9"
-              result="goo"
-            />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-          </filter>
-        </defs>
-      </svg>
+    <section className="hero-section" aria-labelledby="hero-titulo">
+      {/* Para testar sem o fundo braille, basta remover esta linha */}
+      {/* <BrailleBackground /> */}
+      <div className="hero-content">
+        <div className="hero-texts">
+          {/* Texto real para leitores de tela e SEO */}
+          <h1 id="hero-titulo" className="sr-only">{titulo}</h1>
+          <p className="sr-only">{subtitulo}</p>
 
-      {/* Canvas com a aplicação do filtro "goo" */}
-      <div style={styles.canvasContainer} className="canvas-container">
-        <canvas ref={canvasRef} style={styles.canvas} className="canvas" />
+          {/* Versão visual animada: escondida dos leitores de tela */}
+          <div aria-hidden="true">
+            <ScrambledText className="scrambled-text-demo hero-title" {...scrambleProps}>
+              {titulo}
+            </ScrambledText>
+            <ScrambledText className="scrambled-text-demo hero-paragraph" {...scrambleProps}>
+              {subtitulo}
+            </ScrambledText>
+          </div>
+        </div>
+
+        <Link to="/sobre" className="hero-button">
+          Saiba mais
+          <span className="sr-only"> sobre o produto e a equipe LiBraille</span>
+        </Link>
       </div>
-
-      {/* Conteúdo da Hero */}
-      <div className="hero-background">             
-        <section className="flex min-h-screen items-center justify-center p-24 hero-section">
-                 <div className='hero-texts'>
-                     <ScrambledText
-                        className="scrambled-text-demo hero-title"
-                        effect="scramble"
-                        radius={100}
-                        strength={1}
-                        trail={0.6}
-                        duration={1.2}
-                        speed={0.5}
-                        scrambleChars=".:"
-                        clickBurst
-                        intro
-                    >
-                        Histórias que ganham relevo
-
-                    </ScrambledText>
-                    <ScrambledText
-                        className="scrambled-text-demo hero-paragraph"
-                        effect="scramble"
-                        radius={100}
-                        strength={1}
-                        trail={0.6}
-                        duration={1.2}
-                        speed={0.5}
-                        scrambleChars=".:"
-                        clickBurst
-                        intro
-                    >
-                        Transforme livros em experiências de leitura tátil com o LiBraille
-                    </ScrambledText>
-                </div>
-                <button className="hero-button" id="hero-button" aria-label="Botão para conhecer sobre o produto e equipe LiBraille">
-                    <a href="">Saiba mais</a>
-                </button>
-            </section>
-            </div>
     </section>
   );
 }
-
-// Estilos em Objeto JS (dispensa Tailwind ou CSS externo)
-const styles = {
-  content: {
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '700px',
-    textAlign: 'center',
-    padding: '0 20px',
-  },
-  badge: {
-    background: 'rgba(59, 130, 246, 0.2)',
-    color: '#4f0074',
-    padding: '6px 16px',
-    borderRadius: '20px',
-    fontSize: '14px',
-    fontWeight: '600',
-  },
-};

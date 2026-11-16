@@ -4,7 +4,6 @@ import DeviceSection from '../../components/DeviceSection/DeviceSection'
 import Faq from '../../components/Faq/Faq'
 import CallToAction from '../../components/CallToAction/CallToAction'
 import PhotoCircles from '../../components/PhotoCircles/PhotoCircles'
-import Footer from '../../components/Footer/Footer'
 
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
             <Faq />
             <CallToAction />
             <PhotoCircles />
-            <Footer />
         </>
-    );
+    )
 }

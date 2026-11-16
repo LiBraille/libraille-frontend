@@ -63,6 +63,7 @@ function NavBar({ onIrParaLogin }) {
                         <li><NavLink to="/sobre" className="nav-link">Sobre</NavLink></li>
                         <li><NavLink to="/produto" className="nav-link">Produto</NavLink></li>
                         <li><NavLink to="/contato" className="nav-link">Contato</NavLink></li>
+                        <li><NavLink to="/conversor" className="nav-link">Conversor</NavLink></li>
                     </ul>
 
                     <div className="nav-buttons">
@@ -76,7 +77,7 @@ function NavBar({ onIrParaLogin }) {
                         </div>
 
                         <button type="button" id="login-register" onClick={onIrParaLogin}>
-                            Login/Cadastro
+                            Login
                         </button>
                     </div>
                 </div>

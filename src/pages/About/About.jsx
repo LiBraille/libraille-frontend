@@ -1,18 +1,16 @@
-import TeamDescription from "../../components/TeamDescription/TeamDescription"
-import "./About.css";
-import AboutLibraille from "../../components/AboutLibraille/AboutLibraille"
-import AboutPillars from "../../components/AboutPillars/AboutPillars";
-import AboutStory from "../../components/AboutStory/AboutStory";
-import Footer from "../../components/Footer/Footer";
+import AboutPurpose from '../../components/AboutPurpose/AboutPurpose'
+import AboutStory from '../../components/AboutStory/AboutStory'
+import AboutValues from '../../components/AboutValues/AboutValues'
+import TeamDescription from '../../components/TeamDescription/TeamDescription'
+import './About.css'
 
-export default function About(){
-    return(
-        <>
-        <AboutStory />
-        <AboutPillars />
-         <AboutLibraille /> 
-         <TeamDescription />
-         <Footer />
-         </>
+export default function About() {
+    return (
+        <div className="page-glow">
+            <AboutStory />
+            <AboutPurpose />
+            <AboutValues />
+            <TeamDescription />
+        </div>
     )
 }
