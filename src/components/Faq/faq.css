@@ -119,10 +119,6 @@
     line-height: 1.6;
 }
 
-.faq-answer-box p {
-    margin: 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
     .faq-answer-wrapper,
     .faq-icon,

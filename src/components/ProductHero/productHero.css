@@ -1,0 +1,108 @@
+.product-hero {
+    --braille-active: 217 176 63;
+    --braille-idle: 253 251 247;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+}
+
+:root[data-theme="light"] .product-hero {
+    --braille-active: 122 88 0;
+    --braille-idle: 15 23 42;
+}
+
+.product-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 4rem);
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.product-hero__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.product-hero__title {
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.product-hero__title span { color: var(--accent-text); }
+
+.product-hero__lead {
+    max-width: 36rem;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.product-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.product-hero__media {
+    position: relative;
+    margin: 0;
+}
+
+.product-hero__halo {
+    position: absolute;
+    inset: -10%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color) 35%, transparent) 0%, transparent 65%);
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.product-hero__frame {
+    position: relative;
+    padding: clamp(1rem, 3vw, 2rem);
+    /* background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px var(--shadow-color); */
+}
+
+.product-hero__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.product-hero__play {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    translate: -50% 0;
+    white-space: nowrap;
+}
+
+/*Mobile*/
+@media (max-width: 768px) {
+    .product-hero__inner { grid-template-columns: 1fr; }
+
+    .product-hero__text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-hero__actions { justify-content: center; }
+
+    .product-hero__media {
+        max-width: 24rem;
+        margin: 0 auto;
+    }
+}

@@ -1,5 +1,11 @@
 .photo-circles {
-    position: relative;
-    max-width: 100%;
-    margin: 2rem;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) 1rem;
+}
+
+.photo-circles img {
+    display: block;
+    width: 100%;
+    height: auto;
 }

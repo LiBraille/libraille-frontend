@@ -1,0 +1,28 @@
+.reveal {
+    opacity: 0;
+    transition:
+        opacity 0.7s ease,
+        translate 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        scale 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal--up    { translate: 0 2rem; }
+.reveal--left  { translate: -2.5rem 0; }
+.reveal--right { translate: 2.5rem 0; }
+.reveal--scale { scale: 0.92; }
+
+.reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        translate: none;
+        scale: none;
+        transition: none;
+    }
+}

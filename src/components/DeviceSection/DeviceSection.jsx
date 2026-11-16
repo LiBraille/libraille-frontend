@@ -3,29 +3,13 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import Arrow from '../../assets/IconArrowDarkMode.png'
 import Product from '../../assets/ImageproductDarkMode.png'
-import '../BrailleCell/BrailleCell'
 import './deviceSection.css'
 import { FaArrowRightLong } from "react-icons/fa6";
 import BrailleCell from '../BrailleCell/BrailleCell'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const DESTAQUES = [
-    {
-        titulo: 'Pinos eletromecânicos',
-        texto: 'Seis pinos por cela que sobem e descem para formar cada caractere em braille.',
-    },
-    {
-        titulo: 'Alta resposta',
-        texto: 'Movimento rápido dos pinos para acompanhar o ritmo da sua leitura.',
-    },
-    {
-        titulo: 'Conexão USB-C',
-        texto: 'Conecte o dispositivo e leia qualquer conteúdo digital, sem depender de livros impressos em braille.',
-    },
-]
 
 function DeviceSection() {
     const sectionRef = useRef(null)
@@ -74,7 +58,6 @@ function DeviceSection() {
 
     return (
         <section ref={sectionRef} className="device" aria-labelledby="device-titulo">
-                
                 <div className="device__content">
                     <h2 id="device-titulo" className="device__title device__reveal">
                             Dispositivo LiBraille
@@ -82,11 +65,8 @@ function DeviceSection() {
                         <p className="device__description device__reveal">
                         Desenvolvido para conectar leitores com deficiência visual a conteúdos digitais por meio de pinos eletromecânicos de alta resposta.
                     </p>
-                    
-                    
                     <Link to="/produto" className="device__button device__reveal">
                         Conheça o produto
-                        {/* <img src={Arrow} alt="" aria-hidden="true" /> */}
                         <FaArrowRightLong />
                     </Link>
                 </div>
@@ -112,39 +92,3 @@ function DeviceSection() {
 }
 
 export default DeviceSection
-
-// import './deviceSection.css'
-// import Arrow from '../../assets/IconArrowDarkMode.png'
-// import Product from '../../assets/ImageproductDarkMode.png'
-// import { gsap } from "gsap"
-// import { ScrollTrigger } from "gsap/ScrollTrigger"
-// import { useGSAP } from '@gsap/react'
-
-// gsap.registerPlugin(ScrollTrigger, useGSAP)
-
-
-// function DeviceSection() {
-//     return (
-//         <section className="device">
-//             <img
-//                 className="device__product"
-//                 src={Product}
-//                 alt="Dispositivo cúbico de cantos arredondados, destacando na topo uma célula com seis orifícios organizados em duas colunas verticais de três furos e, na parte inferior frontal, uma porta de entrada USB-C sobre fundo branco."
-//             />
-//             <div className='device__content'>
-//                 <h3 className='device__title'>Dispositivo LiBraille</h3>
-
-//                 <p className='device__description'>
-//                     Desenvolvido para conectar leitores a qualquer conteúdo digital por meio de pinos eletromecânicos de alta resposta.
-//                 </p>
-
-//                 <button className="device__button" type="button">
-//                     <a href="">Conheça o produto</a>
-//                     <img src={Arrow} alt="" />
-//                 </button>
-//             </div>
-//         </section>
-//     )
-// }
-
-// export default DeviceSection
