@@ -69,4 +69,4 @@ function UploadBook() {
   );
 }
 
-export default UploadBook;
+export default UploadBook

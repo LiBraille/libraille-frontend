@@ -12,7 +12,7 @@ function Product() {
       <HowToUse />
       <section className='convert-link'>
         <h2>Quer converter seus arquivos para Braille?</h2>
-        <a href="/convert">Clique aqui</a>
+        <a href="/conversor">Clique aqui</a>
       </section>
       <Footer />
     </>

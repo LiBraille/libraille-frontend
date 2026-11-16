@@ -25,4 +25,4 @@ function FileStatus() {
   );
 }
 
-export default FileStatus;
+export default FileStatus
