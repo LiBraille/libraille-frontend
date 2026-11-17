@@ -1,0 +1,16 @@
+.converter-page {
+  --glow-purple: rgba(124, 0, 181, 0.2);
+  --glow-gold: rgba(217, 176, 63, 0.08);
+
+  overflow-x: clip;
+  padding-bottom: 2rem;
+  background-image:
+    radial-gradient(42rem 32rem at 100% 0%,   var(--glow-purple), transparent 70%),
+    radial-gradient(38rem 30rem at 0%   45%,  var(--glow-gold),   transparent 70%),
+    radial-gradient(42rem 32rem at 100% 90%,  var(--glow-purple), transparent 70%);
+}
+
+:root[data-theme="light"] .converter-page {
+  --glow-purple: rgba(124, 0, 181, 0.13);
+  --glow-gold: rgba(217, 176, 63, 0.24);
+}

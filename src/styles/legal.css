@@ -1,0 +1,85 @@
+.legal-page {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vw, 4rem) 1.5rem clamp(2rem, 6vw, 3rem);
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.legal-page h1 {
+  margin-bottom: 0.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  line-height: 1.2;
+  color: var(--text-main);
+  text-wrap: balance;
+}
+
+.legal-date {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+}
+
+.legal-page h2 {
+  margin: 2.5rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  font-size: clamp(1.15rem, 3vw, 1.35rem);
+  color: var(--accent-text);
+  border-bottom: 1px solid var(--border-subtle);
+  scroll-margin-top: 5rem;
+}
+
+.legal-page h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+.legal-page p {
+  margin-bottom: 1rem;
+  /* "justify" cria espaços irregulares entre palavras, que dificultam a leitura (principalmente para quem tem dislexia) */
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.legal-page ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  list-style: disc;
+}
+
+.legal-page li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.25rem;
+}
+
+.legal-page li::marker { color: var(--accent-text); }
+
+.legal-page strong { color: var(--text-main); }
+
+.legal-page a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;   /* e-mails longos não estouram a tela no celular */
+}
+
+.legal-page a:hover { color: var(--text-main); }
+
+.legal-page a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .legal-page { line-height: 1.7; }
+}
+
+/* Marcador de pendência: remova todos antes de publicar */
+.legal-todo {
+  padding: 0.05em 0.35em;
+  font-weight: 600;
+  color: #0F172A;
+  background: #fde68a;
+  border-radius: 0.25rem;
+}

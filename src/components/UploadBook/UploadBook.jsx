@@ -1,72 +1,67 @@
-import { useRef, useState } from 'react';
-import './uploadbook.css';
+import { useRef, useState } from 'react'
+import './uploadbook.css'
 
-function UploadBook() {
-  const inputRef = useRef(null);
-  const [arquivo, setArquivo] = useState(null);
+function UploadBook({ onArquivo, ocupado, erro }) {
+  const inputRef = useRef(null)
+  const [arrastando, setArrastando] = useState(false)
 
-  function validarArquivo(arquivoEscolhido) {
-    if (!arquivoEscolhido) return;
-
-    const nome = arquivoEscolhido.name.toLowerCase();
-
-    if (nome.endsWith('.epub') || nome.endsWith('.txt')) {
-      setArquivo(arquivoEscolhido);
-    } else {
-      alert('Envie apenas arquivos EPUB ou TXT');
-    }
+  const escolher = (e) => {
+    onArquivo(e.target.files[0])
+    e.target.value = ''   // permite escolher o mesmo arquivo de novo
   }
 
-  function escolherArquivo(event) {
-    validarArquivo(event.target.files[0]);
-  }
-
-  function soltarArquivo(event) {
-    event.preventDefault();
-    validarArquivo(event.dataTransfer.files[0]);
-  }
-
-  function arrastarPorCima(event) {
-    event.preventDefault();
+  const soltar = (e) => {
+    e.preventDefault()
+    setArrastando(false)
+    if (!ocupado) onArquivo(e.dataTransfer.files[0])
   }
 
   return (
-    <section className="upload">
-      <h1 className="upload__title">Painel de Conversão e Sincronização</h1>
+    <section className="upload" aria-labelledby="upload-titulo">
+      <h1 id="upload-titulo" className="upload__title">Conversor de livros</h1>
       <p className="upload__text">
-        Envie seus arquivos EPUB ou TXT para converter automaticamente e
-        sincronizar em todos os seus dispositivos de leitura.
+        Envie um arquivo EPUB ou TXT para converter em braille e transferir para o seu dispositivo.
       </p>
 
       <div
-        className="upload__box"
-        onClick={() => inputRef.current.click()}
-        onDragOver={arrastarPorCima}
-        onDrop={soltarArquivo}
+        className={`upload__box ${arrastando ? 'is-drag' : ''}`}
+        onDragOver={(e) => { e.preventDefault(); setArrastando(true) }}
+        onDragLeave={() => setArrastando(false)}
+        onDrop={soltar}
       >
         <input
-          type="file"
           ref={inputRef}
-          onChange={escolherArquivo}
+          type="file"
           accept=".epub,.txt"
+          onChange={escolher}
           hidden
+          tabIndex={-1}
         />
         <h2 className="upload__box-title">Arraste e solte o seu livro aqui</h2>
         <p className="upload__or">ou</p>
-        <button type="button" className="upload__button">
-          Escolher arquivo
+
+        <button
+          type="button"
+          className="btn btn--primary upload__button"
+          disabled={ocupado}
+          onClick={() => inputRef.current.click()}
+        >
+          {ocupado ? 'Convertendo…' : 'Escolher arquivo'}
         </button>
-        <ul className="upload__formats">
+
+        <ul className="upload__formats" aria-label="Formatos aceitos">
           <li>EPUB</li>
           <li>TXT</li>
         </ul>
 
-        {arquivo && (
-          <p className="upload__selected">Selecionado: {arquivo.name}</p>
-        )}
+        <p className="upload__privacy">
+          Não guardamos o seu livro: ele é usado só para a conversão.
+        </p>
       </div>
+
+      {erro && <p className="upload__error" role="alert">{erro}</p>}
     </section>
-  );
+  )
 }
 
 export default UploadBook

@@ -1,67 +1,133 @@
-
 .status {
-    width: min(900px, calc(100% - 48px));
-    box-sizing: border-box;
-    margin: 50px auto;
-    padding: 32px 48px 40px;
-    background: rgba(168, 140, 220, 0.22);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 24px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-  }
-  
-  .status__title {
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 32px;
-  }
-  
-  .status__steps {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .status__step {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-  
-  .status__step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 28px;
-    left: 50%;
-    width: 100%;
-    height: 3px;
-    background: #9a9db0;
-  }
-  
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--secondary-accent-color) 45%, var(--card-bg)) 0%,
+      var(--card-bg) 70%);
+  width: min(56rem, calc(100% - 2rem));
+  margin: 2rem auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+.status__title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.status__file {
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.status__steps {
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+.status__step {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+/* Linha entre as bolinhas */
+.status__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background: var(--border-subtle);
+}
+
+.status__step.is-done:not(:last-child)::after {
+  background: var(--accent-color);
+}
+
+.status__circle {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-surface-2);
+  border: 2px solid var(--border-subtle);
+  border-radius: 50%;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.is-current .status__circle {
+  color: var(--text-main);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent-color) 55%, transparent);
+}
+
+.is-done .status__circle {
+  color: #0F172A;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.status__label {
+  margin: 0;
+  padding: 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.status__bar {
+  display: block;
+  width: 100%;
+  height: 0.75rem;
+  margin-bottom: 1rem;
+  accent-color: var(--accent-color);
+}
+
+.status__message {
+  min-height: 1.5em;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
   .status__circle {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #7c7f93;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
+    transition: none;
   }
-  
-  .status__label {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
+}
+
+/* Mobile: etapas viram uma lista vertical */
+@media (max-width: 600px) {
+  .status__steps {
+    flex-direction: column;
+    gap: 1.25rem;
   }
+
+  .status__step {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .status__step:not(:last-child)::after {
+    display: none;
+  }
+
+  .status__circle {
+    width: 2.75rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+  }
+}

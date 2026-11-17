@@ -1,220 +1,190 @@
-.synced-books-section{
-    width: 100%;
-    padding: 35px 0;
-    color: var(--text-main);
+.synced-books-section {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  color: var(--text-main);
 }
 
-.synced-books-card{
-    width: 100%;
-    padding: 35px;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 22px;
-    box-shadow: 0 10px 30px var(--shadow-color);
-    transition: background 0.3s, color 0.3s;
+.synced-books-card {
+  width: 100%;
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 32px var(--shadow-color);
 }
 
-.synced-books-header{
-    margin-bottom: 28px;
+.synced-books-header { margin-bottom: 1.75rem; }
+
+.synced-books-header h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.6rem);
+  color: var(--text-main);
 }
 
-.synced-books-header h2{
-    margin: 0 0 8px;
-    font-size: 25px;
-    font-weight: 700;
-    color: var(--text-main);
+.synced-books-header p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 
-.synced-books-header p{
-    margin: 0;
-    font-size: 14px;
-    color: var(--text-muted);
+/* ---------- Tabela ---------- */
+.synced-books-table-container {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.synced-books-table-container{
-    width: 100%;
-    overflow-x: auto;
+.synced-books-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
 
-.synced-books-table{
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+.synced-books-table thead th {
+  padding: 1rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.synced-books-table th{
-    padding: 16px 12px;
-    color: var(--text-main);
-    font-size: 14px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-subtle);
+.synced-books-table td,
+.synced-books-table tbody th {
+  padding: 1rem 0.75rem;
+  font-size: 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.synced-books-table td{
-    padding: 17px 12px;
-    font-size: 14px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border-subtle);
+.synced-books-table td { color: var(--text-muted); }
+
+.synced-books-table tbody tr:last-child td,
+.synced-books-table tbody tr:last-child th { border-bottom: none; }
+
+.synced-books-table tbody tr:hover { background: var(--bg-surface-2); }
+
+.book-name {
+  font-weight: 600;
+  color: var(--text-main);
+  overflow-wrap: anywhere;
 }
 
-.synced-books-table tbody tr:last-child td{
-    border-bottom: none;
+/* ---------- Status ---------- */
+.book-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-muted);
 }
 
-.synced-books-table tbody tr:hover{
-    background: var(--bg-page);
+.book-status.ready,
+.book-status.transferred { color: var(--accent-text); }
+
+/* ---------- Ações ---------- */
+.book-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-.book-name{
-    color: var(--text-main) !important;
-    font-weight: 600;
-    overflow-wrap: anywhere;
+.transfer-button {
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;                 /* texto escuro sobre dourado: legível nos dois temas */
+  background: var(--accent-color);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: filter 0.2s ease, translate 0.2s ease;
 }
 
-.book-status{
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
+.transfer-button:hover:not(:disabled) {
+  filter: brightness(0.92);
+  translate: 0 -2px;
 }
 
-.book-status.ready{
-    color: var(--accent-color);
+.transfer-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
-.book-status.ready::first-letter{
-    color: var(--accent-color);
+.transferred-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.6rem;
 }
 
-.book-status.processing{
-    color: var(--text-muted);
+.delete-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--text-muted);
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.book-status.transferred{
-    color: var(--accent-color);
+.delete-button:hover:not(:disabled) {
+  color: var(--accent-text);
+  border-color: var(--accent-color);
 }
 
-.book-status.pending{
-    color: var(--text-muted);
+.delete-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.book-actions{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.synced-books-card button:focus-visible,
+.synced-books-table-container:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
-.transfer-button{
-    background: var(--accent-color);
-    color: var(--accent-text);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
+/* ---------- Estado vazio ---------- */
+.synced-books-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  text-align: center;
+  color: var(--text-muted);
 }
 
-.transfer-button:hover:not(:disabled){
-    filter: brightness(0.92);
-    transform: translateY(-2px);
+.synced-books-empty h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--text-main);
 }
 
-.transfer-button:disabled{
-    opacity: 0.55;
-    cursor: not-allowed;
-    transform: none;
+@media (prefers-reduced-motion: reduce) {
+  .transfer-button,
+  .delete-button { transition: none; }
+
+  .transfer-button:hover:not(:disabled) { translate: none; }
 }
 
-.transferred-button{
-    padding: 10px 20px;
-    background: var(--bg-page);
-    color: var(--text-muted);
-    border: 1px solid var(--border-subtle);
-    border-radius: 9px;
-    cursor: default;
-    font-size: 13px;
-    font-weight: 600;
+/* ---------- Mobile: a tabela rola na horizontal ---------- */
+@media (max-width: 768px) {
+  .synced-books-card { padding: 1.5rem 1rem; }
+  .synced-books-table { min-width: 40rem; }
 }
 
-.delete-button{
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    background: var(--bg-page);
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.delete-button:hover{
-    background: var(--bg-surface);
-    color: var(--accent-color);
-}
-
-.synced-books-empty{
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--text-muted);
-}
-
-.synced-books-empty h3{
-    color: var(--text-main);
-    font-size: 18px;
-    margin: 0 0 8px;
-}
-
-.synced-books-empty p{
-    font-size: 14px;
-    margin: 0;
-}
-
-@media (max-width: 768px){
-    .synced-books-card{
-        padding: 25px 18px;
-    }
-
-    .synced-books-header h2{
-        font-size: 21px;
-    }
-
-    .synced-books-table{
-        min-width: 650px;
-    }
-}
-
-@media (max-width: 480px){
-    .synced-books-card{
-        padding: 22px 15px;
-        border-radius: 16px;
-    }
-}
-
-@media (max-width: 768px){
-    #main-header #navbar{
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .nav-links{
-        flex-direction: column;
-    gap: 1rem;
-    }
-
-    .nav-buttons{
-        flex-direction: column;
-        gap: 1rem;
-    }
+@media (max-width: 480px) {
+  .synced-books-card { border-radius: 1rem; }
 }

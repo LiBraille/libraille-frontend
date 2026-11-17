@@ -42,9 +42,9 @@ function Footer() {
                     <p className="footer-slogan">Histórias que ganham relevo</p>
 
                     <address className="contact-items">
-                        <a href="mailto:contato@libraille.com" className="contact-item">
+                        <a href="mailto:projeto.libraille@gmail.com" className="contact-item">
                             <IoMdMail className="contact-icon" aria-hidden="true" />
-                            <span>contato@libraille.com</span>
+                            <span>projeto.libraille@gmail.com</span>
                         </a>
                         <div className="contact-item">
                             <FaPhoneAlt className="contact-icon" aria-hidden="true" />
