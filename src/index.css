@@ -174,3 +174,40 @@ section[id] { scroll-margin-top: 5rem; }
     --glow-purple: rgba(124, 0, 181, 0.11);
     --glow-gold: rgba(217, 176, 63, 0.2);
 }
+
+
+
+/*Estilo dos campos de formulário*/
+.field { display: grid; gap: 0.35rem; align-content: start; }
+.field.is-wide { grid-column: 1 / -1; }
+
+.field label { font-size: 0.9rem; font-weight: 600; }
+.field__opt { font-weight: 400; color: var(--text-subtle); }
+
+.field input,
+.field textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.6rem 0.8rem;
+    font: inherit;
+    color: var(--text-main);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+}
+
+.field textarea { resize: vertical; }
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 1px;
+    border-color: var(--accent-color);
+}
+
+.field input[aria-invalid="true"] { border-color: #e5484d; }
+
+.field__error {
+    font-size: 0.85rem;
+    color: #ff8a8f;
+}

@@ -7,7 +7,7 @@ import sunIcon from '../../assets/icons8-sol.png'
 import './navbar.css'
 import { useTheme } from '../../context/ThemeContext'
 
-function NavBar({ onIrParaLogin }) {
+function NavBar() {
     const { theme, setTheme } = useTheme()
     const logo = theme === 'dark' ? logoDark : logoLight
     const [menuAberto, setMenuAberto] = useState(false)
@@ -75,10 +75,7 @@ function NavBar({ onIrParaLogin }) {
                                 <img src={sunIcon} alt="" />
                             </button>
                         </div>
-
-                        <button type="button" id="login-register" onClick={onIrParaLogin}>
-                            Login
-                        </button>
+                        <Link to="/login" id="login-register">Login</Link>
                     </div>
                 </div>
             </nav>

@@ -1,0 +1,22 @@
+.find {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  width: min(56rem, calc(100% - 2rem));
+  margin: 2rem auto 0;
+  padding: 1.5rem clamp(1.25rem, 4vw, 2rem);
+  color: var(--text-main);
+  background: var(--cta-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+.find__title { font-size: 1.2rem; margin-bottom: 0.35rem; }
+.find__text { max-width: 36rem; line-height: 1.6; color: var(--text-muted); }
+
+@media (max-width: 600px) {
+  .find { flex-direction: column; text-align: center; }
+}
