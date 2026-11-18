@@ -33,18 +33,6 @@ export const members = [
         }
     },
     {
-        id: 3,
-        nome: 'Geovanna',
-        cargo: 'Documentarista',
-        foto: geovanna,
-        stack: [],
-        descricao: 'Responsável por documentar o projeto, garantindo que todas as informações estejam organizadas e acessíveis.',
-        redesSociais:{
-            linkedin: 'https://www.linkedin.com/in/geovanna-nogueira-4418b9369/',
-            github: ''
-        }
-    },
-    {
         id: 4,
         nome: 'Maria Eduarda',
         cargo: 'Front-End | UI/UX Design | Marketing',

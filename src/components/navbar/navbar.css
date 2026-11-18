@@ -1,4 +1,8 @@
-/* Trava o scroll quando o menu mobile está aberto */
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+
+/* Trava o scroll da página quando o menu mobile está aberto */
 body.menu-open {
     overflow: hidden;
 }
@@ -30,6 +34,7 @@ body.menu-open {
     height: auto;
 }
 
+/* ---------- Menu (desktop) ---------- */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -54,7 +59,7 @@ body.menu-open {
         color: var(--accent-text);
     }
 
-    /* Classe adicionada automaticamente pelo NavLink na rota atual */
+    /* Classe adicionada automaticamente pelo NavLink na página atual */
     &.active {
         color: var(--accent-text);
         font-weight: bold;
@@ -75,6 +80,7 @@ body.menu-open {
     gap: 1rem;
 }
 
+/* ---------- Botões de tema (lua / sol) ---------- */
 .dark-light-mode-container {
     display: flex;
     gap: 0.9rem;
@@ -89,8 +95,7 @@ body.menu-open {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: var(--secondary-color);
-    padding: 0.5rem;
+    padding: 0.5rem;               /* CORRIGIDO: removida a linha "color: var(--secondary-color)" (variável inexistente) */
     border-radius: 50%;
     display: inline-flex;
 
@@ -98,8 +103,10 @@ body.menu-open {
         background-color: var(--toggle-active);
     }
 
+    /* CORRIGIDO: --accent-text tem contraste melhor no tema claro */
     &:focus-visible {
-        outline: 2px solid var(--accent-color);
+        outline: 2px solid var(--accent-text);
+        outline-offset: 2px;
     }
 
     /* botão do tema ativo fica destacado */
@@ -124,37 +131,42 @@ body.menu-open {
     height: 1.5rem;
 }
 
+/* ---------- Botão de login ---------- */
 #login-register {
     --btn-bg-1: rgb(114, 79, 2);
     --btn-bg-2: #D9B03F;
-    --btn-bg-color: hsla(360 100% 100% / 1);
     --radii: 0.5em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #FDFBF7;
     padding: 0.5rem 1rem;
-    outline: none;
     cursor: pointer;
     min-width: 120px;
-    min-height: 36px;
+    min-height: 44px;              /* CORRIGIDO: era 36px; 44px é o tamanho confortável para toque */
     font-size: 1.1rem;
     font-weight: 500;
-    transition: 0.8s;
+    transition: background-position 0.8s;   /* CORRIGIDO: anima só o brilho, e não tudo */
     background-size: 280% auto;
     background-image: linear-gradient(325deg,
             var(--btn-bg-2) 0%,
             var(--btn-bg-1) 55%,
             var(--btn-bg-2) 90%);
     border: none;
-    box-shadow: 0 0 20px rgba(217, 176, 63, 0.45), inset 4px 4px 8px rgba(189, 146, 3, 0.5), inset -4px -4px 8px rgba(216, 196, 19, 0.35);
+    box-shadow: 0 0 20px rgba(217, 176, 63, 0.45),
+                inset 4px 4px 8px rgba(189, 146, 3, 0.5),
+                inset -4px -4px 8px rgba(216, 196, 19, 0.35);
     border-radius: var(--radii);
 }
 
 #login-register:hover {
-        background-position: right top;
+    background-position: right top;
 }
 
+#login-register:focus-visible {
+    outline: 3px solid var(--accent-text);
+    outline-offset: 3px;
+}
 
 @media (prefers-reduced-motion: reduce) {
     #login-register {
@@ -181,7 +193,8 @@ body.menu-open {
     border-radius: 0.5rem;
 
     &:focus-visible {
-        outline: 2px solid var(--accent-color);
+        outline: 2px solid var(--accent-text);   /* CORRIGIDO: era --accent-color */
+        outline-offset: 2px;
     }
 }
 
@@ -207,6 +220,7 @@ body.menu-open {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+/* ---------- Mobile / Tablet ---------- */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -227,7 +241,8 @@ body.menu-open {
         padding: 1.5rem 1rem 2rem;
         background-color: var(--menu-bg);
         box-shadow: 0 8px 16px var(--shadow-color);
-        max-height: calc(100dvh - var(--header-height));
+        /* CORRIGIDO: o "4.5rem" é o valor padrão caso --header-height não exista */
+        max-height: calc(100dvh - var(--header-height, 4.5rem));
         overflow-y: auto;
 
         /* Estado fechado: invisível e fora do alcance do teclado */

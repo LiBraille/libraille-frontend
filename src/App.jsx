@@ -16,7 +16,6 @@ import NavBar from './components/navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash'
 
-import './App.css'
 import NotFound from './pages/NotFound/NotFound'
 
 // Layout = a "moldura" comum: navbar em cima, conteúdo no meio, footer embaixo.
@@ -24,7 +23,6 @@ import NotFound from './pages/NotFound/NotFound'
 function Layout() {
   return (
     <>
-      <ScrollToHash />
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <NavBar />
       <main id="conteudo" tabIndex={-1}>
@@ -38,6 +36,7 @@ function Layout() {
 function App() {
   return (
     <Router>
+      <ScrollToHash />
       <Routes>
         {/* Páginas COM navbar e footer */}
         <Route element={<Layout />}>
