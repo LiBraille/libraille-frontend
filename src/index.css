@@ -1,3 +1,19 @@
+/* ==========================================================================
+   ÍNDICE
+   1. Reset
+   2. Cores do tema (variáveis)
+   3. Base (html, body, foco)
+   4. Utilitários (.sr-only, .skip-link)
+   5. Botões (.btn)
+   6. Campos de formulário (.field)
+   7. Fundo com brilhos (.page-glow)
+   8. Movimento reduzido
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. RESET: zera os estilos padrão do navegador
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -7,65 +23,86 @@
   text-decoration: none;
 }
 
-/* ===== ESCURO: padrão do site E blocos escuros dentro do tema claro ===== */
+
+/* ==========================================================================
+   2. CORES DO TEMA
+   Em vez de escrever "#0F172A" em cada arquivo, usamos variáveis como
+   var(--bg-page). Quando o tema muda, só o valor da variável muda e o site
+   inteiro acompanha.
+   ========================================================================== */
+
+/* ESCURO: é o padrão do site e também vale para blocos com
+   data-surface="dark" (cartão de doação, footer...) mesmo no tema claro. */
 :root,
 :root[data-theme="dark"],
 [data-surface="dark"] {
     color-scheme: dark;
 
-    --bg-page: #0F172A;
-    --bg-band: rgba(20, 32, 61, 0.45);
-    --bg-surface: #14203d;
-    --bg-surface-2: #1b2a4d;
+    /* Fundos */
+    --bg-page: #0F172A;          /* fundo da página */
+    --bg-surface: #14203d;       /* cartões e campos */
+    --bg-surface-2: #1b2a4d;     /* cartões dentro de cartões */
     --card-bg: rgba(20, 32, 61, 0.4);
-    --text-main: #FDFBF7;
-    --text-muted: #cfcfcf;
-    --text-subtle: #9aa8bd;
-    --accent-color: #D9B03F;
-    --accent-text: #D9B03F;
-    --secondary-accent-color: #3f0157;
-    --border-color: #0f0029;
-    --border-button: #7c00b5;
     --header-bg: #171c3a62;
     --menu-bg: #0F172A;
+    --footer-bg: #080b24;
+    --cta-bg: linear-gradient(135deg, #1b0a3c 0%, #0F172A 100%);
+    --page-bg-image: linear-gradient(180deg, #0F172A 0%, #070a20 55%, #00001a 100%);
+
+    /* Textos */
+    --text-main: #FDFBF7;        /* títulos e texto principal */
+    --text-muted: #cfcfcf;       /* texto secundário */
+    --text-subtle: #9aa8bd;      /* textos de apoio, bem discretos */
+
+    /* Destaques */
+    --accent-color: #D9B03F;     /* dourado como cor de fundo ou borda */
+    --accent-text: #D9B03F;      /* dourado como cor de TEXTO */
+    --secondary-accent-color: #3f0157;
+    --border-button: #7c00b5;
+
+    /* Bordas, sombras e botões do tema */
+    --border-subtle: rgba(253, 251, 247, 0.12);
+    --shadow-color: rgba(0, 0, 0, 0.3);
     --toggle-bg: #14203d;
     --toggle-hover: #3f0157;
     --toggle-active: #334155;
-    --border-subtle: rgba(253, 251, 247, 0.12);
-    --shadow-color: rgba(0, 0, 0, 0.3);
     --icon-filter: none;
-
-    --page-bg-image: linear-gradient(180deg, #0F172A 0%, #070a20 55%, #00001a 100%);
-    --footer-bg: #080b24;
-    --cta-bg: linear-gradient(135deg, #1b0a3c 0%, #0F172A 100%);
 }
 
-/* ===== CLARO ===== */
+/* CLARO: só o que muda em relação ao escuro.
+   O que não aparece aqui (--footer-bg, --cta-bg, --border-button)
+   continua com o valor escuro, de propósito. */
 :root[data-theme="light"] {
     color-scheme: light;
 
-    --bg-page: #FDFBF7;
+    --bg-page: #FDFBF7;          /* para um creme mais quente, teste #F6F0E3 */
     --bg-surface: #FFFCF5;
-    --bg-surface-2: #EEE6F6; 
+    --bg-surface-2: #EEE6F6;
     --card-bg: #FFFCF5;
+    --header-bg: #fdfbf7;
+    --menu-bg: #F6F0E3;
+    --page-bg-image: none;       /* sem degradê no claro */
+
     --text-main: #0F172A;
     --text-muted: #44516A;
     --text-subtle: #5B6577;
+
     --accent-color: #D9B03F;
-    --accent-text: #7A5800;             /* dourado escuro, contraste AA sobre creme */
-    --secondary-accent-color: #E2D3F1;  /* lavanda (caixa de resposta do FAQ, círculo da seta)*/
-    --header-bg: #fdfbf7;
-    --menu-bg: #F6F0E3;
+    --accent-text: #7A5800;      /* dourado escuro: legível sobre o creme */
+    --secondary-accent-color: #E2D3F1;   /* lavanda */
+
+    --border-subtle: rgba(15, 23, 42, 0.14);
+    --shadow-color: rgba(15, 23, 42, 0.12);
     --toggle-bg: #E6DCC5;
     --toggle-hover: #D9CCEA;
     --toggle-active: #FFFCF5;
-    --border-subtle: rgba(15, 23, 42, 0.14);
-    --shadow-color: rgba(15, 23, 42, 0.12);
     --icon-filter: invert(1);
-
-    --page-bg-image: none;              /* sem degradê no claro */
 }
 
+
+/* ==========================================================================
+   3. BASE
+   ========================================================================== */
 body {
     min-height: 100vh;
     background-color: var(--bg-page);
@@ -75,10 +112,24 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Âncoras (#faq) não ficam escondidas atrás do header */
 html { scroll-behavior: smooth; }
+
+/* Links com #id (como /#faq) não ficam escondidos atrás do topo */
 section[id] { scroll-margin-top: 5rem; }
 
+/* Contorno de foco para quem navega com o teclado (Tab).
+   Vale para TODO o site; um componente pode sobrescrever se precisar. */
+:focus-visible {
+    outline: 3px solid var(--accent-text);
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   4. UTILITÁRIOS
+   ========================================================================== */
+
+/* Esconde o texto da tela, mas leitores de tela continuam lendo */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -91,6 +142,7 @@ section[id] { scroll-margin-top: 5rem; }
     border: 0;
 }
 
+/* "Pular para o conteúdo": só aparece quando recebe foco do teclado */
 .skip-link {
     position: absolute;
     top: 0.5rem;
@@ -106,17 +158,17 @@ section[id] { scroll-margin-top: 5rem; }
 
 .skip-link:focus { transform: translateY(0); }
 
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    body { transition: none; }
-}
 
+/* ==========================================================================
+   5. BOTÕES
+   Uso: class="btn btn--primary" (dourado) ou class="btn btn--ghost" (contorno)
+   ========================================================================== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    min-height: 44px;
+    min-height: 44px;            /* tamanho confortável para toque */
     padding: 0.7rem 1.5rem;
     font: inherit;
     font-size: 1rem;
@@ -125,11 +177,6 @@ section[id] { scroll-margin-top: 5rem; }
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-position 0.8s ease, background-color 0.3s ease;
-}
-
-.btn:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 3px;
 }
 
 .btn--primary {
@@ -153,36 +200,17 @@ section[id] { scroll-margin-top: 5rem; }
 
 .btn--ghost:hover { background-color: var(--secondary-accent-color); }
 
-@media (prefers-reduced-motion: reduce) {
-    .btn { transition: none; }
-}
 
-.page-glow {
-    /* tokens dos brilhos (padrão: escuro) */
-    --glow-purple: rgba(124, 0, 181, 0.2);
-    --glow-gold: rgba(217, 176, 63, 0.08);
-
-    position: relative;
-    overflow-x: clip;   /* clip, e não hidden, para não interferir no ScrollTrigger */
-    background-image:
-        radial-gradient(42rem 32rem at 100% 0%,   var(--glow-purple), transparent 70%),
-        radial-gradient(38rem 30rem at 0%   38%,  var(--glow-gold),   transparent 70%),
-        radial-gradient(42rem 32rem at 100% 78%,  var(--glow-purple), transparent 70%);
-}
-
-:root[data-theme="light"] .page-glow {
-    --glow-purple: rgba(124, 0, 181, 0.11);
-    --glow-gold: rgba(217, 176, 63, 0.2);
-}
-
-
-
-/*Estilo dos campos de formulário*/
+/* ==========================================================================
+   6. CAMPOS DE FORMULÁRIO
+   Uso: <div class="field"><label>...</label><input /></div>
+   ========================================================================== */
 .field { display: grid; gap: 0.35rem; align-content: start; }
 .field.is-wide { grid-column: 1 / -1; }
 
 .field label { font-size: 0.9rem; font-weight: 600; }
 .field__opt { font-weight: 400; color: var(--text-subtle); }
+.field__help { font-size: 0.85rem; color: var(--text-subtle); }
 
 .field input,
 .field textarea {
@@ -192,7 +220,8 @@ section[id] { scroll-margin-top: 5rem; }
     font: inherit;
     color: var(--text-main);
     background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    /* borda mais forte que --border-subtle: o campo precisa ser bem visível */
+    border: 1px solid color-mix(in srgb, var(--text-main) 35%, transparent);
     border-radius: 0.5rem;
 }
 
@@ -200,14 +229,51 @@ section[id] { scroll-margin-top: 5rem; }
 
 .field input:focus-visible,
 .field textarea:focus-visible {
-    outline: 2px solid var(--accent-color);
+    outline: 2px solid var(--accent-text);
     outline-offset: 1px;
     border-color: var(--accent-color);
 }
 
 .field input[aria-invalid="true"] { border-color: #e5484d; }
 
-.field__error {
-    font-size: 0.85rem;
-    color: #ff8a8f;
+/* Mensagem de erro: rosa claro no escuro, vermelho escuro no claro */
+.field__error { font-size: 0.85rem; color: #ff8a8f; }
+:root[data-theme="light"] .field__error { color: #b42318; }
+
+
+/* ==========================================================================
+   7. FUNDO COM BRILHOS
+   Uso: <div className="page-glow"> ... </div> no começo de cada página.
+   Substitui o antigo .about-page, .product-page e .converter-page.
+   ========================================================================== */
+.page-glow {
+    --glow-purple: rgba(124, 0, 181, 0.2);
+    --glow-gold: rgba(217, 176, 63, 0.08);
+
+    position: relative;
+    overflow-x: clip;   /* "clip" (e não "hidden") para não atrapalhar o ScrollTrigger */
+    background-image:
+        radial-gradient(42rem 32rem at 100% 0%,  var(--glow-purple), transparent 70%),
+        radial-gradient(38rem 30rem at 0%   38%, var(--glow-gold),   transparent 70%),
+        radial-gradient(42rem 32rem at 100% 78%, var(--glow-purple), transparent 70%);
+}
+
+:root[data-theme="light"] .page-glow {
+    --glow-purple: rgba(124, 0, 181, 0.11);
+    --glow-gold: rgba(217, 176, 63, 0.2);
+}
+
+
+/* ==========================================================================
+   8. MOVIMENTO REDUZIDO
+   Quem ativou "reduzir movimento" no sistema vê tudo sem animações.
+   Esta regra vale para o site inteiro.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
