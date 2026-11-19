@@ -3,7 +3,7 @@ import { FaCartShopping, FaCirclePlay } from 'react-icons/fa6'
 import Reveal from '../Reveal/Reveal'
 import BrailleBackground from '../BrailleBackground/BrailleBackground'
 import VideoModal from '../VideoModal/VideoModal'
-import Product from '../../assets/ImageproductDarkMode.png'
+import Product from '../../assets/ImageProductDarkMode.png'
 import './productHero.css'
 
 export default function ProductHero() {

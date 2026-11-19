@@ -15,7 +15,6 @@ import Privacidade from './pages/PoliticaPrivacidade/PoliticaPrivacidade'
 import NavBar from './components/navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash'
-
 import NotFound from './pages/NotFound/NotFound'
 
 // Layout = a "moldura" comum: navbar em cima, conteúdo no meio, footer embaixo.
