@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa'
 import Reveal from '../Reveal/Reveal'
 import teamMembers from '../../data/teamMembers'
 import { renderizarIconeStack } from '../../utils/stacksIcons'
-import './teamDescription.css'
+import './teamdescription.css'
 
 const REDES = [
     { chave: 'linkedin', nome: 'LinkedIn', Icone: FaLinkedin },
