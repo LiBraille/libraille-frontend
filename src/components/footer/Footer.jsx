@@ -99,15 +99,13 @@ function Footer() {
             </div>
 
             <Reveal variant="fade" className="footer-bottom">
-                <p>© {new Date().getFullYear()} LiBraille. Todos os direitos reservados.</p>
+                <p>© 2026 LiBraille. Todos os direitos reservados.</p>
                 <ul className="footer-bottom-right">
                     {termosLinks.map(({ texto, to }) => (
                         <li key={texto}>
                             <Link to={to}>{texto}</Link>
                         </li>
                     ))}
-                    {/* <Link to="/politica-de-privacidade">Política de privacidade</Link>
-            <Link to="/termos-de-uso">Termos de uso</Link> */}
                 </ul>
             </Reveal>
         </footer>

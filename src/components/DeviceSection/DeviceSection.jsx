@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import Product from '../../assets/ImageproductDarkMode.png'
+import Product from '../../assets/ImageProductDarkMode.png'
 import './deviceSection.css'
 import { FaArrowRightLong } from "react-icons/fa6";
 import BrailleCell from '../BrailleCell/BrailleCell'

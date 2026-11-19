@@ -1,19 +1,24 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
+
+// Páginas
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
-import Contact from './pages/Contact/Contact'
 import Product from './pages/Product/Product'
-import Auth from './pages/Login/Auth'
+import Contact from './pages/Contact/Contact'
 import Converter from './pages/Converter/Converter'
-import NavBar from './components/navbar/Navbar'
-import Footer from './components/footer/Footer'
-import ScrollToHash from './components/ScrollToHash'
+import Auth from './pages/Login/Auth'
+import Activate from './pages/Login/Activate'
 import Termos from './pages/TermosDeUso/Termos'
 import Privacidade from './pages/PoliticaPrivacidade/PoliticaPrivacidade'
-import './App.css'
-import Activate from './pages/Login/Activate'
 
-// Estrutura das páginas comuns (com navbar e footer)
+// Componentes que aparecem em várias páginas
+import NavBar from './components/navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import ScrollToHash from './components/ScrollToHash'
+import NotFound from './pages/NotFound/NotFound'
+
+// Layout = a "moldura" comum: navbar em cima, conteúdo no meio, footer embaixo.
+// O <Outlet /> é o espaço onde a página da rota atual é mostrada.
 function Layout() {
   return (
     <>
@@ -32,17 +37,20 @@ function App() {
     <Router>
       <ScrollToHash />
       <Routes>
+        {/* Páginas COM navbar e footer */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/produto" element={<Product />} />
           <Route path="/contato" element={<Contact />} />
+          <Route path="/conversor" element={<Converter />} />
           <Route path="/termos" element={<Termos />} />
           <Route path="/privacidade" element={<Privacidade />} />
-          <Route path="/conversor" element={<Converter />} />
+          {/* O "*" significa "qualquer endereço que não existe" */}
+          <Route path="*" element={<NotFound />} />
         </Route>
 
-        {/* Sem navbar e footer */}
+        {/* Páginas SEM navbar e footer */}
         <Route path="/login" element={<Auth />} />
         <Route path="/ativar" element={<Activate />} />
       </Routes>
