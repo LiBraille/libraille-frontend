@@ -2,7 +2,11 @@ import { useId } from 'react'
 import { Link } from 'react-router-dom'
 import { FaInstagram, FaLinkedin, FaGithub, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
-import Reveal from '../Reveal/Reveal'
+<<<<<<<< HEAD:Footer.jsx
+import Reveal from './src/components/Reveal/Reveal'
+========
+import Reveal from './Reveal/Reveal'
+>>>>>>>> main:src/components/Footer.jsx
 import logo from '../../assets/logo.png'
 import './footer.css'
 

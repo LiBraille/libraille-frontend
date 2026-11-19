@@ -5,7 +5,7 @@ import logoLight from '../../assets/logo-light-mode.png'
 import moonIcon from '../../assets/icons8-lua.png'
 import sunIcon from '../../assets/icons8-sol.png'
 import './navbar.css'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../context/ThemeContext'
 
 function NavBar() {
     const { theme, setTheme } = useTheme()

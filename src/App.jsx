@@ -12,8 +12,8 @@ import Termos from './pages/TermosDeUso/Termos'
 import Privacidade from './pages/PoliticaPrivacidade/PoliticaPrivacidade'
 
 // Componentes que aparecem em várias páginas
-import NavBar from './components/navbar/Navbar'
-import Footer from './components/Footer/Footer'
+import NavBar from './components/Navbar'
+import Footer from './components/Footer'
 import ScrollToHash from './components/ScrollToHash'
 import NotFound from './pages/NotFound/NotFound'
 
