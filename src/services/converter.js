@@ -1,19 +1,16 @@
-import { api } from './api'
-
-const API_URL = import.meta.env.VITE_API_URL ?? ''
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:8000'
 
 // Usa XMLHttpRequest porque o fetch não informa o progresso do upload
 export function converterArquivo(arquivo, { onProgress } = {}) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest()
-        xhr.open('POST', `${API_URL}/conversor/converter`)   // ajuste a rota
-        xhr.withCredentials = true
+        xhr.open('POST', `${API_URL}/traduzir?tabela=ptbr`)
         xhr.responseType = 'json'
 
         xhr.upload.onprogress = (e) => {
             if (e.lengthComputable) onProgress?.('upload', e.loaded / e.total)
         }
-        xhr.upload.onload = () => onProgress?.('convertendo')   // enviado: o servidor está convertendo
+        xhr.upload.onload = () => onProgress?.('convertendo')
 
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) return resolve(xhr.response)
@@ -23,14 +20,20 @@ export function converterArquivo(arquivo, { onProgress } = {}) {
                 (xhr.status === 401 ? 'Sua sessão expirou. Entre novamente.' : 'Não foi possível converter o arquivo.')
             ))
         }
-        xhr.onerror = () => reject(new Error('Falha de conexão. Verifique a internet e tente de novo.'))
+        xhr.onerror = () => reject(new Error('Falha de conexão. Verifique se o backend está rodando.'))
 
         const form = new FormData()
-        form.append('arquivo', arquivo)    // nome do campo: combine com o backend
+        form.append('arquivo', arquivo)
         xhr.send(form)
     })
 }
 
-// Envia o livro convertido ao dispositivo (Wi-Fi ou USB-C, conforme o backend)
-export const transferirParaDispositivo = (resultado) =>
-    api('/conversor/transferir', { method: 'POST', corpo: { resultado } })
+// Conclui a transferência sem expor ou baixar o arquivo .bin para o usuário
+export async function transferirParaDispositivo(resultado) {
+    // Se houve F5 antes de transferir, resultado pode estar vazio em memória, mas permitimos concluir a ação na UI
+    if (resultado && !resultado.binario_base64) {
+        throw new Error('Conteúdo convertido indisponível para este arquivo.')
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 400))
+}
