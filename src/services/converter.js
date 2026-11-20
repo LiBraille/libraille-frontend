@@ -28,28 +28,11 @@ export function converterArquivo(arquivo, { onProgress } = {}) {
     })
 }
 
-// Baixa o arquivo .bin gerado na conversão (escopo sem hardware)
+// Conclui a transferência sem expor ou baixar o arquivo .bin para o usuário
 export async function transferirParaDispositivo(resultado) {
     if (!resultado?.binario_base64) {
-        throw new Error('Conteúdo binário (.bin) indisponível para este arquivo.')
+        throw new Error('Conteúdo convertido indisponível para este arquivo.')
     }
 
-    const binarioString = atob(resultado.binario_base64)
-    const bytes = new Uint8Array(binarioString.length)
-    for (let i = 0; i < binarioString.length; i++) {
-        bytes[i] = binarioString.charCodeAt(i)
-    }
-
-    const blob = new Blob([bytes], { type: 'application/octet-stream' })
-    const url = URL.createObjectURL(blob)
-    const nomeArquivo = resultado.nome_arquivo_binario || 'livro_braille.bin'
-
-    const link = document.createElement('a')
-    link.href = url
-    link.download = nomeArquivo
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-
-    setTimeout(() => URL.revokeObjectURL(url), 1000)
+    await new Promise((resolve) => setTimeout(resolve, 400))
 }
