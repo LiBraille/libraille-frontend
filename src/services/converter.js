@@ -30,7 +30,8 @@ export function converterArquivo(arquivo, { onProgress } = {}) {
 
 // Conclui a transferência sem expor ou baixar o arquivo .bin para o usuário
 export async function transferirParaDispositivo(resultado) {
-    if (!resultado?.binario_base64) {
+    // Se houve F5 antes de transferir, resultado pode estar vazio em memória, mas permitimos concluir a ação na UI
+    if (resultado && !resultado.binario_base64) {
         throw new Error('Conteúdo convertido indisponível para este arquivo.')
     }
 
