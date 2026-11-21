@@ -100,7 +100,6 @@
     gap: 0.9rem;
 }
 
-:root[data-theme="light"] .field__error,
 :root[data-theme="light"] .order-error { color: #b42318; }
 
 .order-address {

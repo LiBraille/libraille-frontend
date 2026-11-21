@@ -1,3 +1,6 @@
+/* ==========================================================================
+   PASSOS: "Como usar"
+   ========================================================================== */
 .steps {
     display: flex;
     flex-direction: column;
@@ -14,7 +17,9 @@
     color: var(--text-main);
 }
 
-.steps-title span { color: var(--accent-text); }
+.steps-title span {
+    color: var(--accent-text);
+}
 
 .steps-lead {
     margin-bottom: 1.5rem;
@@ -22,6 +27,7 @@
     color: var(--text-muted);
 }
 
+/* Lista: 4 colunas no computador, 2 no tablet, 1 no celular */
 .steps-list {
     --gap: 2rem;
     display: grid;
@@ -31,8 +37,16 @@
     margin-bottom: 1.5rem;
 }
 
+/* <li> animado pelo Reveal. Também serve de base para a seta */
+.step-item {
+    position: relative;
+    display: flex;
+}
+
+/* Cartão (o hover mora aqui, separado da animação de entrada) */
 .step {
     position: relative;
+    flex: 1;                       /* todos os cartões da linha ficam com a mesma altura */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,10 +101,11 @@
     color: var(--text-muted);
 }
 
-/* Setas entre os cartões (só no desktop; o texto vazio depois da barra as esconde de leitores de tela) */
+/* Setas entre os cartões (só no computador, onde há 4 colunas) */
 @media (min-width: 1001px) {
-    .step:not(:last-child)::after {
-        content: '\2192' / '';
+    .step-item:not(:last-child)::after {
+        content: '\2192';              /* reserva, para navegadores mais antigos */
+        content: '\2192' / '';         /* a barra + '' esconde a seta dos leitores de tela */
         position: absolute;
         top: 50%;
         right: calc(var(--gap) / -2);
@@ -100,15 +115,15 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .step { transition: none; }
-    .step:hover { translate: none; }
-}
-
+/* ---------- Tablet e celular ---------- */
 @media (max-width: 1000px) {
-    .steps-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .steps-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 560px) {
-    .steps-list { grid-template-columns: 1fr; }
+    .steps-list {
+        grid-template-columns: 1fr;
+    }
 }

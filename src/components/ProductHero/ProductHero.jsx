@@ -1,19 +1,11 @@
-import { useState } from 'react'
-import { FaCartShopping, FaCirclePlay } from 'react-icons/fa6'
+import { FaCartShopping } from 'react-icons/fa6'
 import Reveal from '../Reveal/Reveal'
-import BrailleBackground from '../BrailleBackground/BrailleBackground'
-import VideoModal from '../VideoModal/VideoModal'
 import Product from '../../assets/ImageProductDarkMode.png'
 import './productHero.css'
 
 export default function ProductHero() {
-    // const [videoAberto, setVideoAberto] = useState(false)
-    // const temVideo = Boolean(VIDEOS.demonstracao)
-
     return (
         <section className="product-hero" aria-labelledby="product-hero-titulo">
-            {/* <BrailleBackground /> */}
-
             <div className="product-hero__inner">
                 <div className="product-hero__text">
                     <Reveal as="h1" id="product-hero-titulo" className="product-hero__title">
@@ -26,6 +18,7 @@ export default function ProductHero() {
                         dispositivo forma cada letra em braille, com pinos que sobem sob o seu dedo.
                     </Reveal>
 
+                    {/* href="#comprar" leva até a seção que tem id="comprar", mais abaixo na página */}
                     <Reveal delay={200} className="product-hero__actions">
                         <a href="#comprar" className="btn btn--primary">
                             <FaCartShopping aria-hidden="true" />
@@ -40,6 +33,7 @@ export default function ProductHero() {
                 <Reveal as="figure" variant="scale" delay={150} className="product-hero__media">
                     <div className="product-hero__halo" aria-hidden="true" />
                     <div className="product-hero__frame">
+                        {/* Sem loading="lazy": a imagem aparece logo no topo da página */}
                         <img
                             className="product-hero__img"
                             src={Product}
@@ -48,29 +42,9 @@ export default function ProductHero() {
                             height="600"
                             decoding="async"
                         />
-
-                        {/* {temVideo && (
-                            <button
-                                type="button"
-                                className="btn btn--primary product-hero__play"
-                                onClick={() => setVideoAberto(true)}
-                            >
-                                <FaCirclePlay aria-hidden="true" />
-                                Assistir demonstração
-                            </button>
-                        )} */}
                     </div>
                 </Reveal>
             </div>
-
-            {/* {temVideo && (
-                <VideoModal
-                    aberto={videoAberto}
-                    aoFechar={() => setVideoAberto(false)}
-                    titulo="Demonstração do dispositivo LiBraille"
-                    videoId={VIDEOS.demonstracao}
-                />
-            )} */}
         </section>
     )
 }

@@ -42,7 +42,7 @@
     --bg-page: #0F172A;          /* fundo da página */
     --bg-surface: #14203d;       /* cartões e campos */
     --bg-surface-2: #1b2a4d;     /* cartões dentro de cartões */
-    --card-bg: rgba(20, 32, 61, 0.4);
+    --card-bg: #14203d66;
     --header-bg: #171c3a62;
     --menu-bg: #0F172A;
     --footer-bg: #080b24;

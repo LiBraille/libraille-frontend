@@ -18,7 +18,11 @@ function validar(tipo, v) {
     const e = {}
     if (v.nome.trim().length < 3) e.nome = 'Informe seu nome completo.'
     if (!/^\S+@\S+\.\S+$/.test(v.email)) e.email = 'Informe um e-mail válido.'
-    if (!(Number(v.quantidade) >= 1)) e.quantidade = 'A quantidade mínima é 1.'
+
+    const quantidade = Number(v.quantidade)
+    if (!Number.isInteger(quantidade) || quantidade < 1) {
+        e.quantidade = 'Informe uma quantidade inteira, a partir de 1.'
+    }
 
     if (tipo === 'compra') {
         if (v.telefone.replace(/\D/g, '').length < 10) e.telefone = 'Informe um telefone com DDD.'
@@ -168,7 +172,7 @@ function Formulario({ tipoInicial, aoFechar }) {
                         value={v.telefone} onChange={mudar} erro={erros.telefone} />
                 )}
 
-                <Campo id={id('quantidade')} name="quantidade" type="number" min="1" inputMode="numeric"
+                <Campo id={id('quantidade')} name="quantidade" type="number" min="1" step="1" inputMode="numeric"
                     label="Quantidade" value={v.quantidade} onChange={mudar} erro={erros.quantidade} />
             </div>
 
@@ -202,7 +206,7 @@ function Formulario({ tipoInicial, aoFechar }) {
                     </div>
                     <label className="order-check">
                         <input type="checkbox" name="anonimo" checked={v.anonimo} onChange={mudar} />
-                        <span>Quero doar de forma anônima</span>
+                        <span>Quero doar de forma anônima (meu nome não será informado a quem receber)</span>
                     </label>
                 </>
             )}

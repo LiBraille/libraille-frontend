@@ -14,6 +14,9 @@ const VALORES = [
     { titulo: 'Acessibilidade', descricao: 'Pensar na acessibilidade desde o início.' },
 ]
 
+// Este é o ÚNICO componente que usa GSAP/ScrollTrigger direto.
+// Os outros usam <Reveal>. Aqui precisamos de algo que o Reveal não faz:
+// a linha dourada vai enchendo conforme a pessoa rola a página (efeito "scrub").
 export default function AboutValues() {
     const timelineRef = useRef(null)
     const [ativos, setAtivos] = useState(0)
@@ -62,7 +65,7 @@ export default function AboutValues() {
                     <div className="values-fill" />
                 </div>
 
-                <ol className="values-list">
+                <ol className="values-list" role="list">
                     {VALORES.map(({ titulo, descricao }, i) => (
                         <Reveal
                             as="li"

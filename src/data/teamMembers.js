@@ -1,11 +1,10 @@
-import evandro from '../assets/evandro-foto.jpeg'
-import lucas from '../assets/lucas-foto.jpeg'
-import geovanna from '../assets/geovanna-foto.jpeg'
+import evandro from '../assets/evandro-foto.webp'
+import lucas from '../assets/lucas-foto.webp'
 import maria from '../assets/maria-foto.jpg'
-import giovanna from '../assets/giovanna-foto1.jpeg'
-import leticia from '../assets/leticia-foto.jpeg'
+import giovanna from '../assets/giovanna-foto.webp'
+import leticia from '../assets/leticia-foto.webp'
 import victor from '../assets/victor-foto.png'
-import guilherme from '../assets/guilherme-foto.jpeg'
+import guilherme from '../assets/guilherme-foto.webp'
 
 export const members = [
     {
@@ -25,7 +24,7 @@ export const members = [
         nome: 'Lucas Moreira',
         cargo: 'Scrum Master | Full-Stack',
         foto: lucas,
-        stack: ['React', 'C++', 'Python', 'postgresql'],
+        stack: ['React', 'C++', 'Python', 'PostgreSQL'],
         descricao: 'Responsável por facilitar a comunicação entre a equipe, remover obstáculos e garantir que o projeto esteja progredindo de acordo com o planejado. Além disso, atua como desenvolvedor Full-Stack, contribuindo para o desenvolvimento do projeto.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/lucasmns7/',
@@ -33,7 +32,7 @@ export const members = [
         }
     },
     {
-        id: 4,
+        id: 3,
         nome: 'Maria Eduarda',
         cargo: 'Front-End | UI/UX Design | Marketing',
         foto: maria,
@@ -45,7 +44,7 @@ export const members = [
         }
     },
     {
-        id: 5,
+        id: 4,
         nome: 'Giovanna Macedo',
         cargo: 'Front-End | UI/UX Design | Marketing',
         foto: giovanna,
@@ -57,7 +56,7 @@ export const members = [
         }
     },
     {
-        id: 6,
+        id: 5,
         nome: 'Leticia Vitória',
         cargo: 'Front-End | Vendas',
         foto: leticia,
@@ -69,7 +68,7 @@ export const members = [
         }
     },
     {
-        id: 7,
+        id: 6,
         nome: 'Victor Leonardo',
         cargo: 'Back-End | IA',
         foto: victor,
@@ -81,11 +80,11 @@ export const members = [
         }
     },
     {
-        id: 8,
+        id: 7,
         nome: 'Guilherme Miranda',
         cargo: 'Full-Stack',
         foto: guilherme,
-        stack: ['React', 'JavaScript', 'Python', 'postgresql'],
+        stack: ['React', 'JavaScript', 'Python', 'PostgreSQL'],
         descricao: 'Desenvolvedor Full-Stack com foco em criar soluções escaláveis e eficientes. Contribui para o desenvolvimento de funcionalidades e melhorias no projeto.',
         redesSociais:{
             linkedin: 'https://www.linkedin.com/in/guilhermemiranda0/',

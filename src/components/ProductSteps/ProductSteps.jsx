@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import { FaUserCheck, FaFileArrowUp, FaWifi, FaHandPointUp, FaCirclePlay } from 'react-icons/fa6'
+import { FaUserCheck, FaFileArrowUp, FaWifi, FaHandPointUp } from 'react-icons/fa6'
 import Reveal from '../Reveal/Reveal'
-// import VideoModal from '../VideoModal/VideoModal'
-// import { VIDEOS } from '../../data/productVideos'
 import './productSteps.css'
 
+// Para mudar um passo, edite esta lista: a tela se atualiza sozinha.
 const PASSOS = [
     {
         titulo: 'Ative sua conta',
@@ -29,9 +27,6 @@ const PASSOS = [
 ]
 
 export default function ProductSteps() {
-    // const [videoAberto, setVideoAberto] = useState(false)
-    // const temVideo = Boolean(VIDEOS.passoAPasso)
-
     return (
         <section id="como-usar" className="steps" aria-labelledby="steps-titulo">
             <Reveal as="h2" id="steps-titulo" className="steps-title">
@@ -44,36 +39,21 @@ export default function ProductSteps() {
             {/* role="list" mantém a semântica de lista no Safari/VoiceOver, que a perde com list-style: none */}
             <ol className="steps-list" role="list">
                 {PASSOS.map(({ titulo, texto, Icone }, i) => (
-                    <Reveal as="li" key={titulo} delay={i * 100} className="step">
-                        <span className="step-number" aria-hidden="true">{i + 1}</span>
-                        <span className="step-icon" aria-hidden="true">
-                            <Icone />
-                        </span>
-                        <h3 className="step-title">{titulo}</h3>
-                        <p className="step-text">{texto}</p>
+                    // O <li> faz a animação de entrada (Reveal).
+                    // O cartão (.step) fica DENTRO dele e cuida só do hover.
+                    // Separados, as duas animações não brigam.
+                    <Reveal as="li" key={titulo} delay={i * 100} className="step-item">
+                        <div className="step">
+                            <span className="step-number" aria-hidden="true">{i + 1}</span>
+                            <span className="step-icon" aria-hidden="true">
+                                <Icone />
+                            </span>
+                            <h3 className="step-title">{titulo}</h3>
+                            <p className="step-text">{texto}</p>
+                        </div>
                     </Reveal>
                 ))}
             </ol>
-
-            {/* {temVideo && (
-                <Reveal delay={200}>
-                    <button
-                        type="button"
-                        className="btn btn--primary"
-                        onClick={() => setVideoAberto(true)}
-                    >
-                        <FaCirclePlay aria-hidden="true" />
-                        Ver como funciona
-                    </button>
-
-                    <VideoModal
-                        aberto={videoAberto}
-                        aoFechar={() => setVideoAberto(false)}
-                        titulo="Passo a passo: como usar o LiBraille"
-                        videoId={VIDEOS.passoAPasso}
-                    />
-                </Reveal>
-            )} */}
         </section>
     )
 }
