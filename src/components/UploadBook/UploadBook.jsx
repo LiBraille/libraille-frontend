@@ -3,11 +3,16 @@ import './uploadbook.css'
 
 function UploadBook({ onArquivo, ocupado, erro }) {
   const inputRef = useRef(null)
-  const [arrastando, setArrastando] = useState(false)
+  const [arrastando, setArrastando] = useState(false)   // true enquanto há um arquivo sobre a caixa
 
   const escolher = (e) => {
     onArquivo(e.target.files[0])
     e.target.value = ''   // permite escolher o mesmo arquivo de novo
+  }
+
+  const aoArrastar = (e) => {
+    e.preventDefault()    // sem isso, o navegador não deixa soltar o arquivo aqui
+    if (!ocupado) setArrastando(true)
   }
 
   const soltar = (e) => {
@@ -23,12 +28,15 @@ function UploadBook({ onArquivo, ocupado, erro }) {
         Envie um arquivo EPUB ou TXT para converter em braille e transferir para o seu dispositivo.
       </p>
 
+      {/* data-surface="dark": caixa sempre escura, nos dois temas (como o footer e a doação) */}
       <div
         className={`upload__box ${arrastando ? 'is-drag' : ''}`}
-        onDragOver={(e) => { e.preventDefault(); setArrastando(true) }}
+        data-surface="dark"
+        onDragOver={aoArrastar}
         onDragLeave={() => setArrastando(false)}
         onDrop={soltar}
       >
+        {/* O input fica escondido; o botão abaixo é quem abre a escolha de arquivo (funciona com teclado) */}
         <input
           ref={inputRef}
           type="file"
@@ -37,7 +45,9 @@ function UploadBook({ onArquivo, ocupado, erro }) {
           hidden
           tabIndex={-1}
         />
-        <h2 className="upload__box-title">Arraste e solte o seu livro aqui</h2>
+
+        {/* <p> e não <h2>: é uma instrução, não um título de seção */}
+        <p className="upload__box-title">Arraste e solte o seu livro aqui</p>
         <p className="upload__or">ou</p>
 
         <button
@@ -55,7 +65,7 @@ function UploadBook({ onArquivo, ocupado, erro }) {
         </ul>
 
         <p className="upload__privacy">
-          Não guardamos o seu livro: ele é usado só para a conversão.
+          O site não salva o seu livro no navegador: a lista some ao recarregar a página.
         </p>
       </div>
 

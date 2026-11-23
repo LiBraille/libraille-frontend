@@ -1,33 +1,35 @@
-/* ---------- Tokens da hero (por tema) ---------- */
+/* ==========================================================================
+   HERO: primeira seção da Home
+   ========================================================================== */
+
+/* ---------- Variáveis (mudam com o tema) ---------- */
 .hero-section {
-  /* cores do fundo braille, em formato "R G B" para aceitar transparência */
+  /* Cores do fundo braille, no formato "R G B" para aceitar transparência */
   --braille-active: 217 176 63;
   --braille-idle: 253 251 247;
 
-  /* gradiente por cima da imagem */
-  --hero-overlay: linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 0.88) 0%,
-    rgba(15, 23, 42, 0.68) 50%,
-    rgba(15, 23, 42, 0.92) 100%
-  );
+  /* Camada escura por cima da foto, para o texto ficar legível */
+  --hero-overlay: linear-gradient(180deg,
+      rgba(15, 23, 42, 0.88) 0%,
+      rgba(15, 23, 42, 0.68) 50%,
+      rgba(15, 23, 42, 0.92) 100%);
 }
 
 :root[data-theme="light"] .hero-section {
-    --braille-active: 122 88 0;
-    --braille-idle: 15 23 42;
-    --hero-glow-w: 55%;
+  --braille-active: 122 88 0;
+  --braille-idle: 15 23 42;
+  --hero-glow-w: 55%;
 
-    /* 1) "brilho" creme só atrás do texto  2) véu bem leve + fade para o creme da página */
-    --hero-overlay:
-        radial-gradient(ellipse var(--hero-glow-w) 48% at 50% 50%,
-            rgba(246, 240, 227, 0.82) 0%,
-            rgba(246, 240, 227, 0.45) 55%,
-            rgba(246, 240, 227, 0) 100%),
-        linear-gradient(180deg,
-            rgba(15, 23, 42, 0.08) 0%,
-            rgba(246, 240, 227, 0) 55%,
-            rgba(246, 240, 227, 0.5) 100%);
+  /* 1) "brilho" creme só atrás do texto  2) véu leve + fade para o creme da página */
+  --hero-overlay:
+    radial-gradient(ellipse var(--hero-glow-w) 48% at 50% 50%,
+      rgba(246, 240, 227, 0.82) 0%,
+      rgba(246, 240, 227, 0.45) 55%,
+      rgba(246, 240, 227, 0) 100%),
+    linear-gradient(180deg,
+      rgba(15, 23, 42, 0.08) 0%,
+      rgba(246, 240, 227, 0) 55%,
+      rgba(246, 240, 227, 0.5) 100%);
 }
 
 /* ---------- Layout ---------- */
@@ -40,14 +42,13 @@
   padding: 2rem 1rem;
   overflow: hidden;
 
-  /* gradiente (camada de cima) + imagem (camada de baixo) */
+  /* Duas camadas: o gradiente fica por cima e a foto por baixo */
   background-image: var(--hero-overlay), url('../../assets/hero-image.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--bg-page);
 }
-
 
 .hero-content {
   position: relative;
@@ -77,71 +78,28 @@
 }
 
 .hero-paragraph {
+  max-width: 40rem;
+  margin-inline: auto;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 300;
   line-height: 1.5;
   text-align: center;
   text-wrap: balance;
-  max-width: 40rem;
-  margin-inline: auto;
 }
 
-/* ---------- Botão (agora é um <a>/<Link> estilizado) ---------- */
+/* O visual do botão vem do .btn .btn--primary (index.css) */
 .hero-button {
-  --btn-bg-1: #dbb03f;
-  --btn-bg-2: #724f02;
-  --btn-focus-ring: var(--bg-page);
-  --radii: 0.5em;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   min-width: 12rem;
-  min-height: 44px;
-  padding: 0.6em 1.4em;
   font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 500;
-  color: #FDFBF7;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  border-radius: var(--radii);
-  background-size: 280% auto;
-  background-image: linear-gradient(
-    325deg,
-    var(--btn-bg-2) 0%,
-    var(--btn-bg-1) 55%,
-    var(--btn-bg-2) 90%
-  );
-  box-shadow:
-    0 0 20px rgba(217, 176, 63, 0.45),
-    inset 4px 4px 8px rgba(189, 146, 3, 0.5),
-    inset -4px -4px 8px rgba(216, 196, 19, 0.35);
-  transition: background-position 0.8s;
-}
-
-.hero-button:hover {
-  background-position: right top;
-}
-
-.hero-button:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 3px var(--btn-focus-ring),
-    0 0 0 6px var(--btn-bg-1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-button {
-    transition: none;
-  }
 }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   :root[data-theme="light"] .hero-section {
-        --hero-glow-w: 90%;   /* no celular o texto ocupa quase toda a largura */
-    }
+    --hero-glow-w: 90%;
+    /* no celular o texto ocupa quase toda a largura */
+  }
+
   .hero-section {
     padding: 1.5rem 1rem;
   }
@@ -155,4 +113,3 @@
     max-width: 20rem;
   }
 }
-

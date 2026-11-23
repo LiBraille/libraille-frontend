@@ -33,15 +33,28 @@
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* A caixa é sempre escura: reaplica os tokens escuros dentro dela */
-.upload__box { color-scheme: dark; --text-main: #FDFBF7; --text-muted: #cfcfcf; --accent-text: #D9B03F; }
+.upload__box.is-drag {
+  border-style: solid;
+  background: var(--secondary-accent-color);
+}
 
-.upload__box.is-drag { border-style: solid; background: var(--secondary-accent-color); }
+.upload__box-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
 
-.upload__box-title { margin-bottom: 0.75rem; font-size: clamp(1.25rem, 3vw, 1.6rem); }
-.upload__or { margin-bottom: 1.25rem; font-weight: 600; color: var(--accent-text); }
+.upload__or {
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
 
-.upload__button:disabled { opacity: 0.6; cursor: wait; }
+.upload__button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
 
 .upload__formats {
   display: flex;
@@ -59,7 +72,11 @@
   border-radius: 999px;
 }
 
-.upload__privacy { margin-top: 1.25rem; font-size: 0.9rem; color: var(--text-muted); }
+.upload__privacy {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 
 .upload__error {
   max-width: 56rem;
@@ -71,6 +88,12 @@
   border-radius: 0.5rem;
 }
 
-:root[data-theme="light"] .upload__error { color: #b42318; }
+:root[data-theme="light"] .upload__error {
+  color: #b42318;
+}
 
-@media (prefers-reduced-motion: reduce) { .upload__box { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .upload__box {
+    transition: none;
+  }
+}

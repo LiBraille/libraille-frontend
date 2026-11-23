@@ -29,6 +29,14 @@
   color: var(--text-muted);
 }
 
+/* Aviso sobre apagar pelo botão físico */
+.synced-books-header .synced-books-note {
+  margin-top: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent-color);
+  color: var(--text-main);
+}
+
 /* ---------- Tabela ---------- */
 .synced-books-table-container {
   width: 100%;
@@ -83,13 +91,7 @@
 .book-status.ready,
 .book-status.transferred { color: var(--accent-text); }
 
-/* ---------- Ações ---------- */
-.book-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
+/* ---------- Ação ---------- */
 .transfer-button {
   min-height: 44px;
   padding: 0.6rem 1.25rem;
@@ -126,32 +128,9 @@
   border-radius: 0.6rem;
 }
 
-.delete-button {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  color: var(--text-muted);
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
-  border-radius: 0.6rem;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.delete-button:hover:not(:disabled) {
-  color: var(--accent-text);
-  border-color: var(--accent-color);
-}
-
-.delete-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 .synced-books-card button:focus-visible,
 .synced-books-table-container:focus-visible {
-  outline: 2px solid var(--accent-color);
+  outline: 2px solid var(--accent-text);
   outline-offset: 2px;
 }
 
@@ -172,17 +151,10 @@
   color: var(--text-main);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .transfer-button,
-  .delete-button { transition: none; }
-
-  .transfer-button:hover:not(:disabled) { translate: none; }
-}
-
 /* ---------- Mobile: a tabela rola na horizontal ---------- */
 @media (max-width: 768px) {
   .synced-books-card { padding: 1.5rem 1rem; }
-  .synced-books-table { min-width: 40rem; }
+  .synced-books-table { min-width: 34rem; }
 }
 
 @media (max-width: 480px) {

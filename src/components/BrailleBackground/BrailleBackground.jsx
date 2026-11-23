@@ -15,7 +15,7 @@ export default function BrailleBackground() {
 
     useEffect(() => {
         const canvas = canvasRef.current
-        const host = canvas.parentElement // a <section> da hero
+        const host = canvas.parentElement // o elemento que envolve o canvas (hoje, o painel do login)
         const ctx = canvas.getContext('2d')
         const reduzirMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 

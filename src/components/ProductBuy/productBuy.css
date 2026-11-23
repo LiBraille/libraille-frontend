@@ -92,7 +92,7 @@
 }
 
 .buy-link:hover {
-    color: #c09a32;
+    color: var(--text-main);
 }
 
 .buy-link:focus-visible {

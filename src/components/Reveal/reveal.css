@@ -1,3 +1,4 @@
+/* Estado inicial: invisível e deslocado */
 .reveal {
     opacity: 0;
     transition:
@@ -12,12 +13,14 @@
 .reveal--right { translate: 2.5rem 0; }
 .reveal--scale { scale: 0.92; }
 
+/* Estado final: "none" (e não "0 0") para o elemento não ficar marcado como transformado */
 .reveal.is-visible {
     opacity: 1;
-    translate: 0 0;
-    scale: 1;
+    translate: none;
+    scale: none;
 }
 
+/* Quem pediu menos movimento vê tudo direto */
 @media (prefers-reduced-motion: reduce) {
     .reveal {
         opacity: 1;

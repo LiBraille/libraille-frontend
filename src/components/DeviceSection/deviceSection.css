@@ -1,17 +1,20 @@
+/* ==========================================================================
+   SEÇÃO DO DISPOSITIVO (Home)
+   ========================================================================== */
 .device {
     padding: clamp(3rem, 8vw, 6rem) 1rem;
     overflow: hidden;
 }
 
-/*Conteúdo*/
+/* ---------- Título, texto e link ---------- */
 .device__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.25rem;
+    margin-bottom: 2.5rem;
     color: var(--text-main);
     text-align: center;
-    margin-bottom: 2.5rem;
 }
 
 .device__title {
@@ -34,13 +37,12 @@
     gap: 0.75rem;
     min-height: 44px;
     padding: 0.25rem 0;
-    font-size: clamp(1.15rem, 3vw, 1.5rem);;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
     font-weight: 700;
     color: var(--text-main);
-    text-decoration: none;
 }
 
-/* Linha que cresce no hover */
+/* Linha roxa que cresce no hover */
 .device__button::after {
     content: '';
     position: absolute;
@@ -62,23 +64,17 @@
 .device__button svg {
     width: 2rem;
     height: 2rem;
-    transition: transform 0.3s ease;
+    padding: 6px;
     background-color: var(--secondary-accent-color);
     border-radius: 50%;
-    padding: 6px;
+    transition: transform 0.3s ease;
 }
 
 .device__button:hover svg {
     transform: translateX(6px);
 }
 
-.device__button:focus-visible {
-    outline: 2px solid var(--accent-text);
-    outline-offset: 4px;
-    border-radius: 4px;
-}
-
-
+/* ---------- Cartão (imagem + cela braille) ---------- */
 .device__inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -86,14 +82,13 @@
     gap: clamp(2rem, 6vw, 5rem);
     max-width: 72rem;
     margin: 0 auto;
-    border-radius: 1.25rem;
-    border: solid 1px var(--border-subtle);
     padding: 1rem;
     background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.25rem;
     box-shadow: 0 12px 32px var(--shadow-color);
 }
 
-/* ---------- Mídia ---------- */
 .device__media {
     position: relative;
 }
@@ -117,7 +112,8 @@
     z-index: 1;
     padding: clamp(1rem, 3vw, 2rem);
     overflow: hidden;
-    animation: device-float 6s ease-in-out infinite;
+    animation: device-float 6s ease-in-out infinite;   /* flutua devagar */
+    animation: device-float 2.5s ease-in-out 2;   /* antes: 6s ... infinite */
 }
 
 .device__product {
@@ -133,19 +129,7 @@
     50%      { transform: translateY(-10px); }
 }
 
-/* Movimento reduzido*/
-@media (prefers-reduced-motion: reduce) {
-    .device__frame {
-        animation: none;
-    }
-
-    .device__button::after,
-    .device__button svg {
-        transition: none;
-    }
-}
-
-/* ---------- Tablet / Mobile ---------- */
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
     .device__inner {
         grid-template-columns: 1fr;
@@ -155,19 +139,4 @@
         max-width: 22rem;
         margin: 0 auto;
     }
-
-    .device__content {
-        align-items: center;
-        text-align: center;
-    }
-
-    .device__heading {
-        flex-direction: column;
-    }
-
-    .device__feature {
-        padding: 0.25rem 0 0.25rem 1rem;
-        text-align: left;
-    }
 }
-

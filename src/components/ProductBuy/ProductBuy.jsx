@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { FaCheck, FaCartShopping } from 'react-icons/fa6'
 import Reveal from '../Reveal/Reveal'
-import './productBuy.css'
 import OrderModal from '../OrderModal/OrderModal'
+import './productBuy.css'
 
-// Confirme esta lista com o que realmente acompanha a compra
+// CONFIRMAR com a equipe: esta lista precisa refletir o que realmente acompanha a compra
 const INCLUSOS = [
     'Dispositivo LiBraille de leitura tátil',
     'Ativação de conta com acesso ao conversor do site',
@@ -13,7 +13,9 @@ const INCLUSOS = [
 ]
 
 export default function ProductBuy() {
-     const [modal, setModal] = useState(null)
+    // modal controla qual formulário está aberto: null (fechado), 'compra' ou 'doacao'
+    const [modal, setModal] = useState(null)
+
     return (
         <section id="comprar" className="buy" aria-labelledby="buy-titulo">
             <Reveal variant="scale" className="buy-card" data-surface="dark">
@@ -49,6 +51,8 @@ export default function ProductBuy() {
                     </div>
                 </div>
             </Reveal>
+
+            {/* O modal fica fora do cartão escuro para seguir o tema escolhido pela pessoa */}
             <OrderModal
                 aberto={modal !== null}
                 aoFechar={() => setModal(null)}

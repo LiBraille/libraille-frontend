@@ -2,15 +2,16 @@ import { useId, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaEye, FaEyeSlash } from 'react-icons/fa6'
 import BrailleBackground from '../../components/BrailleBackground/BrailleBackground'
-import { useTheme } from '../../context/ThemeContext'
 import { entrar } from '../../services/auth'
+import { usePageTitle } from '../../hooks/usePageTitle'
 import emblema from '../../assets/logo.png'
 import './auth.css'
 
 export default function Auth() {
+  usePageTitle('Entrar')   // título da aba: "Entrar | LiBraille"
+
   const base = useId()
   const navigate = useNavigate()
-  const { theme } = useTheme()
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')

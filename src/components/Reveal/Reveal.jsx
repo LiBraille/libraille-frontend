@@ -1,12 +1,25 @@
-//O Reveal é um componente que permite animar a entrada de elementos na tela quando eles entram na viewport. Ele utiliza a API IntersectionObserver para detectar quando o elemento está visível e aplica classes CSS para realizar a animação. O componente aceita várias props, incluindo o tipo de elemento HTML a ser renderizado, o tipo de animação, o atraso da animação, classes adicionais e estilos inline.
-
 import { useEffect, useRef, useState } from 'react'
 import './reveal.css'
 
+// REVEAL: faz um elemento aparecer com animação quando ele entra na tela (durante o scroll).
+//
+// Exemplo:  <Reveal as="h2" variant="up" delay={100} className="titulo">Texto</Reveal>
+//
+// Props:
+//   as       → qual tag HTML desenhar (div, h2, p, li, figure...). Padrão: div
+//   variant  → como aparece: 'up' (sobe), 'left', 'right', 'scale' (cresce) ou 'fade'
+//   delay    → atraso em milissegundos (para itens de uma lista entrarem em sequência)
+//
+// Como funciona: o IntersectionObserver (recurso do navegador) avisa quando o elemento
+// aparece na tela. Aí adicionamos a classe "is-visible" e o CSS (reveal.css) faz a transição.
+//
+// Cuidado: não use direto em elementos que já tenham "transition" própria no CSS
+// (botões com hover, por exemplo). Coloque o elemento DENTRO de um <Reveal>.
+
 export default function Reveal({
     as: Tag = 'div',
-    variant = 'up',      // 'up' | 'left' | 'right' | 'scale' | 'fade'
-    delay = 0,           // ms, para escalonar itens
+    variant = 'up',
+    delay = 0,
     className = '',
     style,
     children,
@@ -19,6 +32,7 @@ export default function Reveal({
         const el = ref.current
         if (!el) return
 
+        // Navegador sem IntersectionObserver: mostra tudo de uma vez
         if (!('IntersectionObserver' in window)) {
             setVisivel(true)
             return
@@ -28,10 +42,10 @@ export default function Reveal({
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setVisivel(true)
-                    observer.disconnect() // anima só na primeira vez
+                    observer.disconnect()   // anima só na primeira vez
                 }
             },
-            { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+            { threshold: 0}
         )
         observer.observe(el)
         return () => observer.disconnect()

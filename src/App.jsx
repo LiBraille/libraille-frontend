@@ -16,6 +16,7 @@ import NavBar from './components/NavBar/Navbar'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash'
 import NotFound from './pages/NotFound/NotFound'
+import BackToTop from './components/BackToTop/BackToTop'
 
 // Layout = a "moldura" comum: navbar em cima, conteúdo no meio, footer embaixo.
 // O <Outlet /> é o espaço onde a página da rota atual é mostrada.
@@ -28,6 +29,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <BackToTop />
     </>
   )
 }

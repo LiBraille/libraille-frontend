@@ -9,11 +9,11 @@ const faqs = [
   },
   {
     question: 'Como faço a aquisição do dispositivo?',
-    answer: 'Você pode adquirir o LiBraille através do nosso site oficial, onde disponibilizamos informações sobre preços, planos e opções de compra.',
+    answer: 'Faça o pedido pelo formulário na página do produto. A equipe entra em contato por e-mail com os próximos passos e, depois, você recebe um código para ativar a sua conta.',
   },
   {
     question: 'Como faço a conversão dos arquivos para o formato braille?',
-    answer: 'O LiBraille utiliza um software de conversão integrado que transforma arquivos digitais em braille, garantindo que o conteúdo seja acessível para leitores com deficiência visual.',
+    answer: 'Com a conta ativada, abra o Conversor, escolha um arquivo TXT ou EPUB e aguarde a conversão. O arquivo é enviado ao dispositivo por Wi-Fi ou cabo USB-C, e o site avisa com um som quando terminar.',
   },
   {
     question: 'O LiBraille é compatível com todos os tipos de arquivos?',

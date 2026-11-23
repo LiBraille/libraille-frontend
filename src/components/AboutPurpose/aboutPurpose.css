@@ -96,7 +96,7 @@
     display: block;
     width: 100%;
     height: auto;
-    animation: purpose-float 6s ease-in-out infinite;
+    animation: purpose-float 2.5s ease-in-out 2;   /* antes: 6s ... infinite */
 }
 
 .art-gold   { fill: var(--accent-color); }
@@ -107,7 +107,7 @@
 .art-sparkle {
     transform-box: fill-box;
     transform-origin: center;
-    animation: purpose-twinkle 3s ease-in-out infinite;
+    animation: purpose-twinkle 2.5s ease-in-out 2;   /* antes: 3s ... infinite */
 }
 
 @keyframes purpose-float {
