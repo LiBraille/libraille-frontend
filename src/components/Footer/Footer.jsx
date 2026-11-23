@@ -47,10 +47,6 @@ function Footer() {
                             <span>projeto.libraille@gmail.com</span>
                         </a>
                         <div className="contact-item">
-                            <FaPhoneAlt className="contact-icon" aria-hidden="true" />
-                            <span>(11) 99999-9999</span>
-                        </div>
-                        <div className="contact-item">
                             <FaMapMarkerAlt className="contact-icon" aria-hidden="true" />
                             <span>São Paulo - SP</span>
                         </div>
