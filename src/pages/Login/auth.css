@@ -1,7 +1,8 @@
 .auth {
   display: grid;
+  position: relative;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  min-height: 100dvh;
+  min-height: 100vh;
   background: var(--bg-page);
   color: var(--text-main);
 }
@@ -40,11 +41,6 @@
 }
 
 .auth-back:hover { background: rgba(253, 251, 247, 0.16); }
-
-.auth-back:focus-visible {
-  outline: 3px solid var(--accent-color);
-  outline-offset: 3px;
-}
 
 .auth-emblem {
   position: relative;

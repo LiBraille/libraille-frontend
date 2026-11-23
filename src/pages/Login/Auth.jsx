@@ -51,14 +51,17 @@ export default function Auth() {
 
   return (
     <main className="auth">
+      {/* O botão "Voltar" fica FORA do painel de fundo: no celular o formulário
+      cobre o fundo, e um botão que estivesse dentro dele não receberia o toque.
+      data-surface="dark": o botão sempre usa as cores escuras, nos dois temas. */}
+      <Link to="/" className="auth-back" data-surface="dark">
+        <FaArrowLeft aria-hidden="true" />
+        Voltar ao site
+      </Link>
+
       {/* Painel de marca: sempre escuro, nos dois temas */}
       <aside className="auth-brand" data-surface="dark">
         <BrailleBackground />
-
-        <Link to="/" className="auth-back">
-          <FaArrowLeft aria-hidden="true" />
-          Voltar ao site
-        </Link>
 
         <img className="auth-emblem" src={emblema} alt="" />
       </aside>
