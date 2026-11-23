@@ -1,4 +1,4 @@
-.braille-cell-section{
+.braille-cell-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,11 +139,12 @@
 }
 
 .braille-cell__action:focus-visible {
-    outline: 2px solid var(--accent-text);   
+    outline: 2px solid var(--accent-text);
     outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .braille-dot__pin,
     .braille-cell__action {
         transition: none;

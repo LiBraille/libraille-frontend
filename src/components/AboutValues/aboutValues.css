@@ -140,6 +140,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .values-dot,
     .values-card {
         transition: none;
@@ -161,7 +162,8 @@
     }
 
     .values-dot {
-        left: -1.75rem;      /* alinha com a linha, que está fora do padding */
+        left: -1.75rem;
+        /* alinha com a linha, que está fora do padding */
     }
 
     .values-item {

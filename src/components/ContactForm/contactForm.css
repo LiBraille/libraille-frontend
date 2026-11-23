@@ -83,7 +83,9 @@
   text-wrap: balance;
 }
 
-.contact-info h1 span { color: var(--accent-text); }
+.contact-info h1 span {
+  color: var(--accent-text);
+}
 
 .contact-description {
   max-width: 28rem;
@@ -136,7 +138,9 @@
   text-underline-offset: 0.2em;
 }
 
-.contact-detail a:hover { color: var(--text-main); }
+.contact-detail a:hover {
+  color: var(--text-main);
+}
 
 /* ---------- Coluna do formulário ---------- */
 .contact-form-container {
@@ -154,7 +158,9 @@
   color: var(--text-main);
 }
 
-.form-heading p { color: var(--text-muted); }
+.form-heading p {
+  color: var(--text-muted);
+}
 
 /* Os campos (.field) vêm do index.css */
 .contact-form {
@@ -175,13 +181,22 @@
 }
 
 @keyframes contactAppear {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ---------- Tablet e celular ---------- */
 @media (max-width: 850px) {
-  .contact-form-card { grid-template-columns: 1fr; }
+  .contact-form-card {
+    grid-template-columns: 1fr;
+  }
 
   .contact-info {
     border-right: none;
@@ -190,5 +205,7 @@
 }
 
 @media (max-width: 480px) {
-  .contact-button { width: 100%; }
+  .contact-button {
+    width: 100%;
+  }
 }

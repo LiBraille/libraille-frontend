@@ -81,8 +81,15 @@
     transform: translate(-50%, -50%);
 }
 
-.faq-icon::before { width: 14px; height: 2px; }
-.faq-icon::after  { width: 2px; height: 14px; }
+.faq-icon::before {
+    width: 14px;
+    height: 2px;
+}
+
+.faq-icon::after {
+    width: 2px;
+    height: 14px;
+}
 
 .faq-item.is-open .faq-icon {
     transform: rotate(45deg);
@@ -120,6 +127,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .faq-answer-wrapper,
     .faq-icon,
     .faq-question-btn {
