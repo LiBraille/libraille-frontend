@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import logoDark from '../../assets/logo-dark-mode.png'
-import logoLight from '../../assets/logo-light-mode.png' 
+import logoLight from '../../assets/logo-light-mode.png'
 import moonIcon from '../../assets/icons8-lua.png'
 import sunIcon from '../../assets/icons8-sol.png'
 import './navbar.css'
@@ -75,7 +75,7 @@ function NavBar() {
                                 <img src={sunIcon} alt="" />
                             </button>
                         </div>
-                        <Link to="/login" id="login-register">Login</Link>
+                        <Link to="/login" className="btn btn--primary">Login</Link>
                     </div>
                 </div>
             </nav>

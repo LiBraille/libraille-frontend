@@ -9,12 +9,10 @@
   --braille-idle: 253 251 247;
 
   /* Camada escura por cima da foto, para o texto ficar legível */
-  --hero-overlay: linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 0.88) 0%,
-    rgba(15, 23, 42, 0.68) 50%,
-    rgba(15, 23, 42, 0.92) 100%
-  );
+  --hero-overlay: linear-gradient(180deg,
+      rgba(15, 23, 42, 0.88) 0%,
+      rgba(15, 23, 42, 0.68) 50%,
+      rgba(15, 23, 42, 0.92) 100%);
 }
 
 :root[data-theme="light"] .hero-section {
@@ -98,7 +96,8 @@
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   :root[data-theme="light"] .hero-section {
-    --hero-glow-w: 90%;   /* no celular o texto ocupa quase toda a largura */
+    --hero-glow-w: 90%;
+    /* no celular o texto ocupa quase toda a largura */
   }
 
   .hero-section {

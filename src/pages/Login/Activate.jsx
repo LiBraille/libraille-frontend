@@ -2,8 +2,8 @@ import { useId, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaEye, FaEyeSlash, FaCheck } from 'react-icons/fa6'
 import BrailleBackground from '../../components/BrailleBackground/BrailleBackground'
-import { useTheme } from '../../context/ThemeContext'
 import { ativarConta } from '../../services/auth'
+import { usePageTitle } from '../../hooks/usePageTitle'
 import emblema from '../../assets/logo.png'
 import './auth.css'
 
@@ -51,9 +51,10 @@ function CampoSenha({ id, label, valor, aoMudar, erro, mostrar, aoAlternar, auto
 }
 
 export default function Activate() {
+   usePageTitle('Ativar conta')   // título da aba: "Ativar conta | LiBraille"
+
   const base = useId()
   const navigate = useNavigate()
-  const { theme } = useTheme()
 
   const [valores, setValores] = useState({ email: '', codigo: '', senha: '', confirmar: '' })
   const [mostrar, setMostrar] = useState({ senha: false, confirmar: false })

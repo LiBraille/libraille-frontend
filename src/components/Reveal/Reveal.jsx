@@ -45,7 +45,7 @@ export default function Reveal({
                     observer.disconnect()   // anima só na primeira vez
                 }
             },
-            { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+            { threshold: 0}
         )
         observer.observe(el)
         return () => observer.disconnect()

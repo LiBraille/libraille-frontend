@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import './notFound.css'
+import { usePageTitle } from '../../hooks/usePageTitle'
 
 export default function NotFound() {
+  usePageTitle("Página não encontrada")
+  
   return (
     <section className="not-found">
       <h1>Página não encontrada</h1>

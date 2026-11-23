@@ -1,9 +1,12 @@
-import ContactForm from "../../components/ContactForm/Contactform";
+import ContactForm from '../../components/ContactForm/Contactform'
+import { usePageTitle } from '../../hooks/usePageTitle'
 
 export default function Contact() {
+  usePageTitle('Contato')
+
   return (
-    <section className="contact-page">
-      <ContactForm/>
-    </section>
-  );
+    <div className="page-glow">
+      <ContactForm />
+    </div>
+  )
 }
