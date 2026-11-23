@@ -1,7 +1,8 @@
 .auth {
   display: grid;
+  position: relative;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  min-height: 100dvh;
+  min-height: 100vh;
   background: var(--bg-page);
   color: var(--text-main);
 }
@@ -39,11 +40,8 @@
   transition: background-color 0.2s ease;
 }
 
-.auth-back:hover { background: rgba(253, 251, 247, 0.16); }
-
-.auth-back:focus-visible {
-  outline: 3px solid var(--accent-color);
-  outline-offset: 3px;
+.auth-back:hover {
+  background: rgba(253, 251, 247, 0.16);
 }
 
 .auth-emblem {
@@ -100,11 +98,18 @@
   margin-top: 0.5rem;
 }
 
-:root[data-theme="light"] .auth-error { color: #b42318; }
+:root[data-theme="light"] .auth-error {
+  color: #b42318;
+}
 
 /* Senha com botão de mostrar/ocultar */
-.auth-password { position: relative; }
-.auth-password input { padding-right: 3.25rem; }
+.auth-password {
+  position: relative;
+}
+
+.auth-password input {
+  padding-right: 3.25rem;
+}
 
 .auth-eye {
   position: absolute;
@@ -123,7 +128,9 @@
   cursor: pointer;
 }
 
-.auth-eye:hover { color: var(--accent-text); }
+.auth-eye:hover {
+  color: var(--accent-text);
+}
 
 .auth-eye:focus-visible {
   outline: 2px solid var(--accent-text);
@@ -138,8 +145,14 @@
   border-radius: 0.5rem;
 }
 
-.auth-submit { width: 100%; }
-.auth-submit:disabled { opacity: 0.6; cursor: wait; }
+.auth-submit {
+  width: 100%;
+}
+
+.auth-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
 
 .auth-help {
   font-size: 0.95rem;
@@ -161,7 +174,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .auth-back { transition: none; }
+  .auth-back {
+    transition: none;
+  }
 }
 
 /* ---------- Mobile: o painel de marca vira uma faixa no topo ---------- */
@@ -184,7 +199,9 @@
     display: block;
   }
 
-  .auth-emblem { display: none; }
+  .auth-emblem {
+    display: none;
+  }
 
   /* Botão voltar continua visível, no topo */
   .auth-back {
@@ -202,7 +219,8 @@
     grid-column: 1;
     align-items: center;
     justify-items: center;
-    padding: 5rem 1rem 2rem;   /* espaço em cima para o botão Voltar */
+    padding: 5rem 1rem 2rem;
+    /* espaço em cima para o botão Voltar */
   }
 
   .auth-card {

@@ -98,11 +98,9 @@
     position: absolute;
     inset: -10%;
     z-index: 0;
-    background: radial-gradient(
-        circle at 50% 50%,
-        color-mix(in srgb, var(--accent-color) 35%, transparent) 0%,
-        transparent 65%
-    );
+    background: radial-gradient(circle at 50% 50%,
+            color-mix(in srgb, var(--accent-color) 35%, transparent) 0%,
+            transparent 65%);
     filter: blur(20px);
     pointer-events: none;
 }
@@ -112,8 +110,10 @@
     z-index: 1;
     padding: clamp(1rem, 3vw, 2rem);
     overflow: hidden;
-    animation: device-float 6s ease-in-out infinite;   /* flutua devagar */
-    animation: device-float 2.5s ease-in-out 2;   /* antes: 6s ... infinite */
+    animation: device-float 6s ease-in-out infinite;
+    /* flutua devagar */
+    animation: device-float 2.5s ease-in-out 2;
+    /* antes: 6s ... infinite */
 }
 
 .device__product {
@@ -125,8 +125,15 @@
 }
 
 @keyframes device-float {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* ---------- Mobile ---------- */

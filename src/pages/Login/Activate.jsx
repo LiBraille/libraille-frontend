@@ -96,13 +96,13 @@ export default function Activate() {
 
   return (
     <main className="auth">
-      <aside className="auth-brand" data-surface="dark">
-        <BrailleBackground />
-
         <Link to="/" className="auth-back">
           <FaArrowLeft aria-hidden="true" />
           Voltar ao site
         </Link>
+      <aside className="auth-brand" data-surface="dark">
+        <BrailleBackground />
+
 
         <img className="auth-emblem" src={emblema} alt="" />
       </aside>
