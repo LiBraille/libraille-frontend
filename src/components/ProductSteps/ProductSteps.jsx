@@ -1,4 +1,4 @@
-import { FaUserCheck, FaFileArrowUp, FaWifi, FaHandPointUp } from 'react-icons/fa6'
+import { FaUserCheck, FaFileArrowUp, FaUsb , FaHandPointUp } from 'react-icons/fa6'
 import Reveal from '../Reveal/Reveal'
 import './productSteps.css'
 
@@ -16,8 +16,8 @@ const PASSOS = [
     },
     {
         titulo: 'Transfira para o dispositivo',
-        texto: 'O arquivo é enviado por Wi-Fi ou cabo USB-C. Quando terminar, o site emite um som avisando que a transferência foi concluída.',
-        Icone: FaWifi,
+        texto: 'O arquivo é enviado por cabo USB. Quando terminar, o site emite um som avisando que a transferência foi concluída.',
+        Icone: FaUsb ,
     },
     {
         titulo: 'Leia com o dedo',
