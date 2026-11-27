@@ -9,7 +9,7 @@ const INCLUSOS = [
     'Dispositivo LiBraille de leitura tátil',
     'Ativação de conta com acesso ao conversor do site',
     'Leitura de arquivos TXT e EPUB',
-    'Conexão por Wi-Fi ou USB-C',
+    'Conexão por cabo USB para transferência de livros',
 ]
 
 export default function ProductBuy() {

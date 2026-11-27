@@ -5,21 +5,23 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Product from './pages/Product/Product'
 import Contact from './pages/Contact/Contact'
+import Manual from './pages/Manual/Manual'
 import Converter from './pages/Converter/Converter'
 import Auth from './pages/Login/Auth'
 import Activate from './pages/Login/Activate'
 import Termos from './pages/TermosDeUso/Termos'
 import Privacidade from './pages/PoliticaPrivacidade/PoliticaPrivacidade'
-
-// Componentes que aparecem em várias páginas
-import NavBar from './components/NavBar/Navbar'
-import Footer from './components/Footer/Footer'
-import ScrollToHash from './components/ScrollToHash'
 import NotFound from './pages/NotFound/NotFound'
-import BackToTop from './components/BackToTop/BackToTop'
 
-// Layout = a "moldura" comum: navbar em cima, conteúdo no meio, footer embaixo.
-// O <Outlet /> é o espaço onde a página da rota atual é mostrada.
+// Componentes comuns
+import NavBar from './components/navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import BackToTop from './components/BackToTop/BackToTop'
+import ScrollToHash from './components/ScrollToHash'
+import RotaProtegida from './components/RotaProtegida/RotaProtegida'
+
+// Layout = moldura comum: navbar em cima, página no meio, rodapé embaixo.
+// O <Outlet /> é o espaço onde a página da rota atual aparece.
 function Layout() {
   return (
     <>
@@ -39,20 +41,25 @@ function App() {
     <Router>
       <ScrollToHash />
       <Routes>
-        {/* Páginas COM navbar e footer */}
+        {/* Páginas COM navbar e rodapé */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/produto" element={<Product />} />
           <Route path="/contato" element={<Contact />} />
-          <Route path="/conversor" element={<Converter />} />
           <Route path="/termos" element={<Termos />} />
           <Route path="/privacidade" element={<Privacidade />} />
-          {/* O "*" significa "qualquer endereço que não existe" */}
+
+          {/* Só abrem depois do login */}
+          <Route element={<RotaProtegida />}>
+            <Route path="/manual" element={<Manual />} />
+            <Route path="/conversor" element={<Converter />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Route>
 
-        {/* Páginas SEM navbar e footer */}
+        {/* Páginas SEM navbar e rodapé */}
         <Route path="/login" element={<Auth />} />
         <Route path="/ativar" element={<Activate />} />
       </Routes>

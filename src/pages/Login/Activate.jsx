@@ -2,7 +2,7 @@ import { useId, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaEye, FaEyeSlash, FaCheck } from 'react-icons/fa6'
 import BrailleBackground from '../../components/BrailleBackground/BrailleBackground'
-import { ativarConta } from '../../services/auth'
+import { ativarConta, MODO_DEMO, CODIGO_DEMO } from '../../services/auth'
 import { usePageTitle } from '../../hooks/usePageTitle'
 import emblema from '../../assets/logo.png'
 import './auth.css'
@@ -51,7 +51,7 @@ function CampoSenha({ id, label, valor, aoMudar, erro, mostrar, aoAlternar, auto
 }
 
 export default function Activate() {
-   usePageTitle('Ativar conta')   // título da aba: "Ativar conta | LiBraille"
+  usePageTitle('Ativar conta')   // título da aba: "Ativar conta | LiBraille"
 
   const base = useId()
   const navigate = useNavigate()
@@ -96,10 +96,10 @@ export default function Activate() {
 
   return (
     <main className="auth">
-        <Link to="/" className="auth-back">
-          <FaArrowLeft aria-hidden="true" />
-          Voltar ao site
-        </Link>
+      <Link to="/" className="auth-back">
+        <FaArrowLeft aria-hidden="true" />
+        Voltar ao site
+      </Link>
       <aside className="auth-brand" data-surface="dark">
         <BrailleBackground />
 
@@ -133,6 +133,12 @@ export default function Activate() {
                 Digite o e-mail da compra e o código de ativação que enviamos para você.
                 Depois, crie a sua senha.
               </p>
+              {MODO_DEMO && (
+                <div className="auth-demo">
+                  <p><strong>Modo demonstração.</strong> Use o código <code>{CODIGO_DEMO}</code>.</p>
+                  <p>A ativação é simulada e não cria uma conta. Depois, entre com a conta de teste da tela de login.</p>
+                </div>
+              )}
 
               <form className="auth-form" onSubmit={enviar} noValidate>
                 <div className="field">

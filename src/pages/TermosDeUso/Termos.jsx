@@ -43,7 +43,7 @@ function Termos() {
         </li>
       </ul>
       <p>
-        O envio do conteúdo convertido ao dispositivo (por Wi-Fi ou cabo USB-C) está em
+        O envio do conteúdo convertido ao dispositivo (por cabo USB-C) está em
         desenvolvimento e pode não estar disponível nesta fase do projeto.
       </p>
 

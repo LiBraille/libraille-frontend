@@ -179,6 +179,31 @@
   }
 }
 
+/* ---------- Aviso do modo demonstração ---------- */
+.auth-demo {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: var(--bg-surface-2);
+  border: 1px dashed var(--accent-text);
+  border-radius: 0.75rem;
+}
+
+.auth-demo strong { color: var(--text-main); }
+
+.auth-demo code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--text-main);
+  overflow-wrap: anywhere;
+}
+
+.auth-demo__btn {
+  justify-self: start;
+  margin-top: 0.25rem;
+}
+
 /* ---------- Mobile: o painel de marca vira uma faixa no topo ---------- */
 @media (max-width: 900px) {
   .auth {
