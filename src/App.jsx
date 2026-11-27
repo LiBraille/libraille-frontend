@@ -14,7 +14,7 @@ import Privacidade from './pages/PoliticaPrivacidade/PoliticaPrivacidade'
 import NotFound from './pages/NotFound/NotFound'
 
 // Componentes comuns
-import NavBar from './components/navbar/Navbar'
+import NavBar from './components/NavBar/Navbar'
 import Footer from './components/Footer/Footer'
 import BackToTop from './components/BackToTop/BackToTop'
 import ScrollToHash from './components/ScrollToHash'
