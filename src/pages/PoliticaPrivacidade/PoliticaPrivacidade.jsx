@@ -86,9 +86,7 @@ function Politica() {
         </li>
         <li>
           <strong>Sessão de login:</strong> quando houver login, um cookie mantém você
-          conectado. Ele é essencial e funciona só no nosso site.{' '}
-          <Pendente>confirmar com o backend; nesta fase de demonstração o conversor não usa
-          login</Pendente>
+          conectado. Ele é essencial e funciona só no nosso site.
         </li>
         <li>
           <strong>Publicidade:</strong> não usamos cookies de publicidade nem rastreamento
