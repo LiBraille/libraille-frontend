@@ -1,4 +1,4 @@
-import { FaUserCheck, FaFileArrowUp, FaUsb , FaHandPointUp } from 'react-icons/fa6'
+import { FaUserCheck, FaFileArrowUp, FaUsb, FaHandPointUp } from 'react-icons/fa6'
 import Reveal from '../Reveal/Reveal'
 import './productSteps.css'
 
@@ -15,13 +15,13 @@ const PASSOS = [
         Icone: FaFileArrowUp,
     },
     {
-        titulo: 'Transfira para o dispositivo',
-        texto: 'O arquivo é enviado por cabo USB. Quando terminar, o site emite um som avisando que a transferência foi concluída.',
-        Icone: FaUsb ,
+        titulo: 'Transfira pelo cabo USB',
+        texto: 'Conecte o dispositivo ao computador com um cabo USB e envie o livro convertido. Quando terminar, o site emite um som avisando que a transferência foi concluída.',
+        Icone: FaUsb,
     },
     {
         titulo: 'Leia com o dedo',
-        texto: 'Apoie o dedo indicador no topo do dispositivo. Os pinos sobem pelos orifícios e formam cada letra em braille.',
+        texto: 'Apoie o dedo indicador no topo do dispositivo. Os pinos sobem pelos orifícios e formam um caractere por vez, no ritmo automático ou no seu ritmo, com os botões.',
         Icone: FaHandPointUp,
     },
 ]

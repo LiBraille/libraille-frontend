@@ -43,17 +43,17 @@ function Termos() {
         </li>
       </ul>
       <p>
-        O envio do conteúdo convertido ao dispositivo (por Wi-Fi ou cabo USB-C) está em
+        O envio do conteúdo convertido ao dispositivo (por cabo USB-C) está em
         desenvolvimento e pode não estar disponível nesta fase do projeto.
       </p>
 
       <h2>2. Acesso ao conversor e conta</h2>
       <ul>
-        <li>
+        {/* <li>
           <strong>Fase de demonstração:</strong> nesta fase, o conversor pode ser usado sem
           login. Esta regra poderá mudar: no futuro, o acesso deverá ser restrito a quem
           adquirir o dispositivo.
-        </li>
+        </li> */}
         <li>
           <strong>Ativação por código:</strong> não há cadastro aberto. Quando a conta for
           exigida, o código de ativação será enviado ao e-mail informado no pedido, e você
@@ -123,9 +123,8 @@ function Termos() {
       <h2>5. Uso do dispositivo</h2>
       <p>
         Os livros transferidos ficam armazenados no próprio dispositivo. Para apagar um
-        livro do aparelho, segure o botão físico dele por alguns segundos. O site não apaga
-        livros do dispositivo; a lista exibida na página é apenas a da sua sessão.{' '}
-        <Pendente>tempo exato e funcionamento do botão físico</Pendente>
+        livro do aparelho, segure o botão físico dele por 10 segundos. O site não apaga
+        livros do dispositivo; a lista exibida na página é apenas a da sua sessão.
       </p>
 
       <h2>6. Propriedade intelectual</h2>

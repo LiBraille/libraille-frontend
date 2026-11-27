@@ -1,17 +1,20 @@
 import { useId, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaEye, FaEyeSlash } from 'react-icons/fa6'
 import BrailleBackground from '../../components/BrailleBackground/BrailleBackground'
-import { entrar } from '../../services/auth'
+import { useAuth } from '../../context/AuthContext'
+import { entrar, MODO_DEMO, CONTA_DEMO } from '../../services/auth'
 import { usePageTitle } from '../../hooks/usePageTitle'
 import emblema from '../../assets/logo.png'
 import './auth.css'
 
 export default function Auth() {
-  usePageTitle('Entrar')   // título da aba: "Entrar | LiBraille"
+  usePageTitle('Entrar')
 
   const base = useId()
   const navigate = useNavigate()
+  const location = useLocation()
+  const { registrarEntrada } = useAuth()
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
@@ -22,6 +25,14 @@ export default function Auth() {
 
   const emailId = `${base}-email`
   const senhaId = `${base}-senha`
+
+  // Atalho para a demonstração: preenche a conta de teste
+  const preencherDemo = () => {
+    setEmail(CONTA_DEMO.email)
+    setSenha(CONTA_DEMO.senha)
+    setErros({})
+    setErroEnvio('')
+  }
 
   const enviar = async (e) => {
     e.preventDefault()
@@ -41,7 +52,9 @@ export default function Auth() {
     setEnviando(true)
     try {
       await entrar({ email: email.trim(), senha })
-      navigate('/conversor')   // ajuste para a rota do conversor
+      registrarEntrada()
+      // Volta para a página que a pessoa queria abrir; se não houver, vai ao Manual
+      navigate(location.state?.de ?? '/manual', { replace: true })
     } catch (err) {
       setErroEnvio(err.message)
     } finally {
@@ -51,9 +64,8 @@ export default function Auth() {
 
   return (
     <main className="auth">
-      {/* O botão "Voltar" fica FORA do painel de fundo: no celular o formulário
-      cobre o fundo, e um botão que estivesse dentro dele não receberia o toque.
-      data-surface="dark": o botão sempre usa as cores escuras, nos dois temas. */}
+      {/* O botão Voltar fica FORA do painel escuro: no celular o formulário cobre o fundo,
+          e um botão dentro dele não receberia o toque. */}
       <Link to="/" className="auth-back" data-surface="dark">
         <FaArrowLeft aria-hidden="true" />
         Voltar ao site
@@ -62,18 +74,28 @@ export default function Auth() {
       {/* Painel de marca: sempre escuro, nos dois temas */}
       <aside className="auth-brand" data-surface="dark">
         <BrailleBackground />
-
         <img className="auth-emblem" src={emblema} alt="" />
       </aside>
 
       <section className="auth-panel" aria-labelledby="auth-titulo">
         <div className="auth-card">
-
           <h1 id="auth-titulo" className="auth-title">Acesse sua conta</h1>
           <p className="auth-lead">
             Entre com o e-mail da compra e a sua senha. Ainda não ativou a conta?{' '}
             <Link to="/ativar">Use seu código de ativação</Link>.
           </p>
+
+          {/* Só aparece no modo demonstração */}
+          {MODO_DEMO && (
+            <div className="auth-demo">
+              <p><strong>Modo demonstração.</strong> Use a conta de teste:</p>
+              <p>E-mail: <code>{CONTA_DEMO.email}</code></p>
+              <p>Senha: <code>{CONTA_DEMO.senha}</code></p>
+              <button type="button" className="btn btn--ghost auth-demo__btn" onClick={preencherDemo}>
+                Preencher automaticamente
+              </button>
+            </div>
+          )}
 
           <form className="auth-form" onSubmit={enviar} noValidate>
             <div className="field">

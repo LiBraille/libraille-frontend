@@ -86,9 +86,7 @@ function Politica() {
         </li>
         <li>
           <strong>Sessão de login:</strong> quando houver login, um cookie mantém você
-          conectado. Ele é essencial e funciona só no nosso site.{' '}
-          <Pendente>confirmar com o backend; nesta fase de demonstração o conversor não usa
-          login</Pendente>
+          conectado. Ele é essencial e funciona só no nosso site.
         </li>
         <li>
           <strong>Publicidade:</strong> não usamos cookies de publicidade nem rastreamento
@@ -120,7 +118,7 @@ function Politica() {
           backend está hospedado e qual serviço envia e-mails</Pendente>
         </li>
         <li>
-          <strong>Fontes de letra:</strong> o site carrega as fontes Roboto e Poppins do
+          <strong>Fontes de letra:</strong> o site carrega a fontes Roboto do
           Google Fonts. Ao abrir uma página, o seu navegador contata servidores do Google, e
           o seu endereço IP pode ser registrado por eles.
         </li>

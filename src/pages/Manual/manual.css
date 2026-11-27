@@ -1,0 +1,159 @@
+.manual {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vw, 4rem) 1.5rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.manual-header { margin-bottom: 2rem; }
+
+.manual h1 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.15;
+  color: var(--text-main);
+}
+
+.manual h1 span { color: var(--accent-text); }
+
+.manual-lead { font-size: clamp(1.05rem, 2.2vw, 1.25rem); }
+
+.manual-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.manual-index a,
+.manual a:not(.btn) {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.manual section { margin-top: 2.5rem; }
+
+.manual h2 {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.manual h3 {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 1.15rem;
+  color: var(--text-main);
+}
+
+.manual p { margin-bottom: 1rem; }
+.manual strong { color: var(--text-main); }
+
+/* Passos numerados */
+.manual-steps {
+  display: grid;
+  gap: 0.9rem;
+  counter-reset: passo;
+}
+
+.manual-steps li {
+  position: relative;
+  padding-left: 3rem;
+  counter-increment: passo;
+}
+
+.manual-steps li::before {
+  content: counter(passo);
+  position: absolute;
+  top: 0.1rem;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background: var(--secondary-accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+}
+
+/* Aviso */
+.manual-note {
+  padding: 0.9rem 1rem;
+  color: var(--text-main);
+  background: var(--card-bg);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0.5rem;
+}
+
+/* Cartões dos botões */
+.manual-buttons {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.manual-button {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+}
+
+.manual-button h3 { margin-top: 0; }
+.manual-button p { margin-bottom: 0.5rem; }
+
+.manual-button__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: var(--text-main);
+  background: var(--secondary-accent-color);
+  border-radius: 50%;
+}
+
+.manual-gestures {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.manual-gestures li::marker { color: var(--accent-text); }
+
+/* Final */
+.manual-footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.manual-footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Marcador de pendência: remova todos antes de apresentar */
+.manual-todo {
+  padding: 0.05em 0.35em;
+  font-weight: 600;
+  color: #0F172A;
+  background: #fde68a;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 480px) {
+  .manual-button { flex-direction: column; }
+  .manual-footer__actions .btn { width: 100%; max-width: 20rem; }
+}

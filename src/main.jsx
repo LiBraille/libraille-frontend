@@ -2,14 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import { ThemeProvider } from './context/ThemeContext'
+import { AuthProvider } from './context/AuthContext'
 import './index.css'
 
-// O ThemeProvider envolve o site inteiro: assim qualquer componente
-// pode saber se o tema é claro ou escuro (com o hook useTheme).
+// Os "providers" envolvem o site inteiro: tema e sessão ficam disponíveis em qualquer componente.
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ThemeProvider>
   </StrictMode>
 )

@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import logoDark from '../../assets/logo-dark-mode.png'
 import logoLight from '../../assets/logo-light-mode.png'
 import moonIcon from '../../assets/icons8-lua.png'
 import sunIcon from '../../assets/icons8-sol.png'
 import './navbar.css'
 import { useTheme } from '../../context/ThemeContext'
+import { useAuth } from '../../context/AuthContext'
 
 function NavBar() {
     const { theme, setTheme } = useTheme()
+    const { logado, sair } = useAuth()
+    const navigate = useNavigate()
     const logo = theme === 'dark' ? logoDark : logoLight
     const [menuAberto, setMenuAberto] = useState(false)
     const location = useLocation()
@@ -33,12 +36,16 @@ function NavBar() {
         return () => document.body.classList.remove('menu-open')
     }, [menuAberto])
 
+    const aoSair = () => {
+        sair()
+        navigate('/')
+    }
+
     return (
         <header id="main-header">
             <nav id="navbar" aria-label="Navegação principal">
                 <Link to="/" className="logo-link">
-                    {/* alt já descreve a imagem; aria-label no img é redundante */}
-                    <img src={logo} alt="Libraille - página inicial" id="logo" />
+                    <img src={logo} alt="LiBraille - página inicial" id="logo" />
                 </Link>
 
                 <button
@@ -63,7 +70,9 @@ function NavBar() {
                         <li><NavLink to="/sobre" className="nav-link">Sobre</NavLink></li>
                         <li><NavLink to="/produto" className="nav-link">Produto</NavLink></li>
                         <li><NavLink to="/contato" className="nav-link">Contato</NavLink></li>
-                        <li><NavLink to="/conversor" className="nav-link">Conversor</NavLink></li>
+                        {/* Só para quem entrou */}
+                        {logado && <li><NavLink to="/manual" className="nav-link">Manual</NavLink></li>}
+                        {logado && <li><NavLink to="/conversor" className="nav-link">Conversor</NavLink></li>}
                     </ul>
 
                     <div className="nav-buttons">
@@ -75,7 +84,12 @@ function NavBar() {
                                 <img src={sunIcon} alt="" />
                             </button>
                         </div>
-                        <Link to="/login" className="btn btn--primary">Login</Link>
+
+                        {logado ? (
+                            <button type="button" className="btn btn--ghost" onClick={aoSair}>Sair</button>
+                        ) : (
+                            <Link to="/login" className="btn btn--primary">Login</Link>
+                        )}
                     </div>
                 </div>
             </nav>
