@@ -1,6 +1,6 @@
 .synced-books-section {
   width: 100%;
-  max-width: 56rem;
+  max-width: 930px;
   margin: 0 auto;
   padding: 2rem 1rem 3rem;
   color: var(--text-main);
@@ -9,7 +9,7 @@
 .synced-books-card {
   width: 100%;
   padding: 2rem;
-  background: var(--card-bg);
+  background: var(--cta-bg);
   border: 1px solid var(--border-subtle);
   border-radius: 1.5rem;
   box-shadow: 0 12px 32px var(--shadow-color);
