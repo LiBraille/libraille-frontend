@@ -120,7 +120,7 @@ function Politica() {
           backend está hospedado e qual serviço envia e-mails</Pendente>
         </li>
         <li>
-          <strong>Fontes de letra:</strong> o site carrega as fontes Roboto e Poppins do
+          <strong>Fontes de letra:</strong> o site carrega a fontes Roboto do
           Google Fonts. Ao abrir uma página, o seu navegador contata servidores do Google, e
           o seu endereço IP pode ser registrado por eles.
         </li>
