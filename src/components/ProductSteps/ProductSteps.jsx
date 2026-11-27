@@ -15,8 +15,8 @@ const PASSOS = [
         Icone: FaFileArrowUp,
     },
     {
-        titulo: 'Transfira pelo cabo USB',
-        texto: 'Conecte o dispositivo ao computador com um cabo USB e envie o livro convertido. Quando terminar, o site emite um som avisando que a transferência foi concluída.',
+        titulo: 'Transfira pelo cabo USB-C',
+        texto: 'Conecte o dispositivo ao computador com um cabo USB-C e envie o livro convertido. Quando terminar, o site emite um som avisando que a transferência foi concluída.',
         Icone: FaUsb,
     },
     {

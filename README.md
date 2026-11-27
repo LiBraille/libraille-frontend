@@ -20,7 +20,7 @@ libraille-frontend/
 │   │
 │   ├── services/                # Comunicação externa
 │   │   ├── api.js               # Chamadas Axios/Fetch para o backend FastAPI (porta 8000)
-│   │   └── webSerial.js         # Envio dos bytes via cabo USB para o ESP32-C3
+│   │   └── webSerial.js         # Envio dos bytes via cabo USB-C para o ESP32-C3
 │   │
 │   ├── utils/                   # Funções auxiliares
 │   │   └── brailleUtils.js      # Decodificador de byte (0..63) para estado dos 6 pontos

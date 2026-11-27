@@ -51,8 +51,8 @@ export default function Manual() {
               toca um som e aparece o aviso em texto: Pronto para transferir.
             </li>
             <li>
-              <strong>Conecte o dispositivo ao computador com um cabo USB.</strong>{' '}
-              <Pendente>navegador compatível com a transferência por USB (por exemplo, Chrome ou
+              <strong>Conecte o dispositivo ao computador com um cabo USB-C.</strong>{' '}
+              <Pendente>navegador compatível com a transferência por USB-C (por exemplo, Chrome ou
               Edge) e se o cabo também alimenta o aparelho</Pendente>
             </li>
             <li>
