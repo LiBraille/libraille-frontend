@@ -81,6 +81,12 @@
   color: var(--text-muted);
 }
 
+.control-tato {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-subtle);
+}
+
 @media (max-width: 900px) {
   .controls-list { grid-template-columns: 1fr; max-width: 28rem; }
 }

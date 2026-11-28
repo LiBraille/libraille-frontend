@@ -18,7 +18,7 @@ export default function ProductControls() {
       </Reveal>
 
       <ul className="controls-list" role="list">
-        {BOTOES.map(({ id, nome, resumo, gestos }, i) => {
+        {BOTOES.map(({ id, nome, tato, resumo, gestos }, i) => {
           const Icone = ICONES[id]
           return (
             // O li faz a animação de entrada; a div é o cartão (mesmo padrão dos passos)
@@ -27,6 +27,7 @@ export default function ProductControls() {
                 <span className="control-icon" aria-hidden="true"><Icone /></span>
                 <h3 className="control-name">{nome}</h3>
                 <p className="control-text">{resumo}</p>
+                <p className="control-tato">{tato}</p>
                 {gestos.length > 0 && (
                   <ul className="control-gestures">
                     {gestos.map(({ quando, efeito }) => (

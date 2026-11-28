@@ -1,6 +1,10 @@
 import { useEffect, useId, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { FaXmark, FaCheck } from 'react-icons/fa6'
 import { enviarPedido } from '../../services/orders'
+import { MODO_DEMO } from '../../services/config'
+import { CODIGO_DEMO } from '../../services/auth'
+import { buscarEnderecoPorCep, buscarCepPorEndereco, formatarCep } from '../../services/cep'
 import './orderModal.css'
 
 const TIPOS = [
@@ -10,7 +14,7 @@ const TIPOS = [
 
 const VAZIO = {
     nome: '', email: '', telefone: '', quantidade: '1',
-    cep: '', rua: '', numero: '', complemento: '', cidade: '', estado: '',
+    cep: '', rua: '', numero: '', complemento: '', bairro: '', cidade: '', estado: '',
     anonimo: false, mensagem: '',
 }
 
@@ -35,6 +39,7 @@ function validar(tipo, v) {
     return e
 }
 
+// Junta label, campo e mensagem de erro
 function Campo({ id, label, erro, opcional, className = '', ...props }) {
     return (
         <div className={`field ${className}`}>
@@ -53,6 +58,78 @@ function Campo({ id, label, erro, opcional, className = '', ...props }) {
     )
 }
 
+// "Não sei meu CEP": procura o CEP pelo estado, cidade e rua.
+// <details> é um elemento do HTML que abre e fecha sozinho, e já funciona com teclado.
+function BuscaCep({ aoEscolher }) {
+    const base = useId()
+    const [campos, setCampos] = useState({ estado: '', cidade: '', rua: '' })
+    const [resultados, setResultados] = useState([])
+    const [aviso, setAviso] = useState('')
+    const [buscando, setBuscando] = useState(false)
+
+    const mudar = (e) => setCampos((c) => ({ ...c, [e.target.name]: e.target.value }))
+
+    const buscar = async () => {
+        setBuscando(true)
+        setAviso('')
+        setResultados([])
+        try {
+            const lista = await buscarCepPorEndereco(campos)
+            setResultados(lista)
+            setAviso(
+                lista.length
+                    ? `${lista.length} endereço(s) encontrado(s). Escolha o seu.`
+                    : 'Nenhum endereço encontrado. Confira a cidade e a rua.'
+            )
+        } catch (err) {
+            setAviso(err.message)
+        } finally {
+            setBuscando(false)
+        }
+    }
+
+    // Enter nestes campos faz a busca (e não envia o pedido inteiro)
+    const aoTeclar = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            buscar()
+        }
+    }
+
+    return (
+        <details className="cep-busca">
+            <summary>Não sei meu CEP</summary>
+
+            <div className="cep-busca__campos" onKeyDown={aoTeclar}>
+                <Campo id={`${base}-uf`} name="estado" label="UF" maxLength={2}
+                    value={campos.estado} onChange={mudar} />
+                <Campo id={`${base}-cidade`} name="cidade" label="Cidade"
+                    value={campos.cidade} onChange={mudar} />
+                <Campo id={`${base}-rua`} name="rua" label="Rua (parte do nome)" className="is-wide"
+                    value={campos.rua} onChange={mudar} />
+            </div>
+
+            <button type="button" className="btn btn--ghost" onClick={buscar} disabled={buscando}>
+                {buscando ? 'Buscando…' : 'Buscar CEP'}
+            </button>
+
+            <p className="order-cep-status" role="status">{aviso}</p>
+
+            {resultados.length > 0 && (
+                <ul className="cep-busca__resultados" role="list">
+                    {resultados.map((r) => (
+                        <li key={`${r.cep}-${r.rua}`}>
+                            <button type="button" className="cep-busca__item" onClick={() => aoEscolher(r)}>
+                                {r.rua}{r.bairro ? `, ${r.bairro}` : ''} ({r.cidade}/{r.estado}) · CEP {r.cep}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </details>
+    )
+}
+
 function Formulario({ tipoInicial, aoFechar }) {
     const base = useId()
     const [tipo, setTipo] = useState(tipoInicial)
@@ -61,6 +138,8 @@ function Formulario({ tipoInicial, aoFechar }) {
     const [enviando, setEnviando] = useState(false)
     const [erroEnvio, setErroEnvio] = useState('')
     const [pedido, setPedido] = useState(null)   // preenchido quando dá certo
+    const [buscandoCep, setBuscandoCep] = useState(false)
+    const [avisoCep, setAvisoCep] = useState(null)   // { tipo: 'ok' ou 'erro', texto }
     const sucessoRef = useRef(null)
 
     const id = (campo) => `${base}-${campo}`
@@ -72,6 +151,51 @@ function Formulario({ tipoInicial, aoFechar }) {
     const mudar = (e) => {
         const { name, type, checked, value } = e.target
         setV((atual) => ({ ...atual, [name]: type === 'checkbox' ? checked : value }))
+    }
+
+    // Consulta o CEP e preenche rua, bairro, cidade e UF (número e complemento a pessoa digita)
+    const consultarCep = async (cep) => {
+        setBuscandoCep(true)
+        try {
+            const end = await buscarEnderecoPorCep(cep)
+            if (!end) {
+                setAvisoCep({ tipo: 'erro', texto: 'CEP não encontrado. Confira o número ou preencha o endereço à mão.' })
+                return
+            }
+            setV((a) => ({
+                ...a,
+                rua: end.rua || a.rua,
+                bairro: end.bairro || a.bairro,
+                cidade: end.cidade,
+                estado: end.estado,
+            }))
+            setAvisoCep({ tipo: 'ok', texto: 'Endereço preenchido. Confira os dados e informe o número.' })
+        } catch (err) {
+            setAvisoCep({ tipo: 'erro', texto: err.message })
+        } finally {
+            setBuscandoCep(false)
+        }
+    }
+
+    // Formata o CEP enquanto digita e consulta quando chega a 8 números
+    const mudarCep = (e) => {
+        const cep = formatarCep(e.target.value)
+        setV((a) => ({ ...a, cep }))
+        setAvisoCep(null)
+        if (cep.replace(/\D/g, '').length === 8) consultarCep(cep)
+    }
+
+    // Escolheu um resultado da busca "Não sei meu CEP"
+    const escolherEndereco = (end) => {
+        setV((a) => ({
+            ...a,
+            cep: formatarCep(end.cep),
+            rua: end.rua || '',
+            bairro: end.bairro || '',
+            cidade: end.cidade,
+            estado: end.estado,
+        }))
+        setAvisoCep({ tipo: 'ok', texto: 'Endereço preenchido. Confira os dados e informe o número.' })
     }
 
     const trocarTipo = (novo) => {
@@ -104,8 +228,8 @@ function Formulario({ tipoInicial, aoFechar }) {
                         telefone: v.telefone,
                         endereco: {
                             cep: v.cep, rua: v.rua, numero: v.numero,
-                            complemento: v.complemento, cidade: v.cidade,
-                            estado: v.estado.toUpperCase(),
+                            complemento: v.complemento, bairro: v.bairro,
+                            cidade: v.cidade, estado: v.estado.toUpperCase(),
                         },
                     }
                     : { anonimo: v.anonimo, mensagem: v.mensagem.trim() }),
@@ -124,12 +248,30 @@ function Formulario({ tipoInicial, aoFechar }) {
             <div className="order-success" ref={sucessoRef} tabIndex={-1} role="status">
                 <span className="order-success__icon" aria-hidden="true"><FaCheck /></span>
                 <h2>{compra ? 'Pedido recebido!' : 'Obrigado pela doação!'}</h2>
-                <p>
-                    {compra
-                        ? 'Enviamos os próximos passos para o seu e-mail, incluindo a ativação da conta.'
-                        : 'Entraremos em contato por e-mail para combinar os detalhes da doação.'}
-                </p>
+
+                {pedido.demo ? (
+                    <p>
+                        Este pedido foi <strong>simulado</strong> (modo demonstração): nenhum dado
+                        foi enviado ou guardado, e nenhum e-mail foi disparado.
+                    </p>
+                ) : (
+                    <p>
+                        {compra
+                            ? 'Enviamos os próximos passos para o seu e-mail, incluindo a ativação da conta.'
+                            : 'Entraremos em contato por e-mail para combinar os detalhes da doação.'}
+                    </p>
+                )}
+
                 {pedido.id && <p className="order-success__id">Código do pedido: {pedido.id}</p>}
+
+                {pedido.demo && (
+                    <p>
+                        Para testar o resto do site,{' '}
+                        <Link to="/ativar" onClick={aoFechar}>ative a conta de teste</Link> com o
+                        código {CODIGO_DEMO}.
+                    </p>
+                )}
+
                 <button type="button" className="btn btn--primary" onClick={aoFechar}>Fechar</button>
             </div>
         )
@@ -138,6 +280,14 @@ function Formulario({ tipoInicial, aoFechar }) {
     /* ---------- Formulário ---------- */
     return (
         <form className="order-form" onSubmit={enviar} noValidate>
+            {MODO_DEMO && (
+                <p className="order-demo" role="note">
+                    <strong>Modo demonstração.</strong> O pedido é simulado: nenhum dado do
+                    formulário é enviado ou guardado. Só o CEP é consultado em um serviço público
+                    de endereços.
+                </p>
+            )}
+
             <fieldset className="order-type">
                 <legend className="sr-only">Tipo de pedido</legend>
                 {TIPOS.map(({ valor, rotulo }) => (
@@ -179,16 +329,30 @@ function Formulario({ tipoInicial, aoFechar }) {
             {compra ? (
                 <fieldset className="order-address">
                     <legend>Endereço de entrega</legend>
+
+                    <Campo id={id('cep')} name="cep" inputMode="numeric" label="CEP"
+                        autoComplete="postal-code" maxLength={9}
+                        value={v.cep} onChange={mudarCep} erro={erros.cep} />
+
+                    {/* Avisos da consulta de CEP: o leitor de tela anuncia */}
+                    <p
+                        className={`order-cep-status ${avisoCep?.tipo === 'erro' ? 'is-error' : ''}`}
+                        role="status"
+                    >
+                        {buscandoCep ? 'Buscando endereço…' : avisoCep?.texto}
+                    </p>
+
+                    <BuscaCep aoEscolher={escolherEndereco} />
+
                     <div className="order-grid">
-                        <Campo id={id('cep')} name="cep" inputMode="numeric" label="CEP"
-                            autoComplete="postal-code" maxLength={9}
-                            value={v.cep} onChange={mudar} erro={erros.cep} />
                         <Campo id={id('rua')} name="rua" label="Rua" autoComplete="address-line1"
                             value={v.rua} onChange={mudar} erro={erros.rua} className="is-wide" />
                         <Campo id={id('numero')} name="numero" label="Número"
                             value={v.numero} onChange={mudar} erro={erros.numero} />
                         <Campo id={id('complemento')} name="complemento" label="Complemento" opcional
                             autoComplete="address-line2" value={v.complemento} onChange={mudar} />
+                        <Campo id={id('bairro')} name="bairro" label="Bairro" opcional
+                            value={v.bairro} onChange={mudar} />
                         <Campo id={id('cidade')} name="cidade" label="Cidade"
                             autoComplete="address-level2" value={v.cidade} onChange={mudar} erro={erros.cidade} />
                         <Campo id={id('estado')} name="estado" label="UF" maxLength={2}
