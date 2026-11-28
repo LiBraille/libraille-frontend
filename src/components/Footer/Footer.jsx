@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaInstagram, FaLinkedin, FaGithub, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 import Reveal from '../Reveal/Reveal'
+import { useAuth } from '../../context/AuthContext'
 import logo from '../../assets/logo.png'
 import './footer.css'
 
@@ -12,18 +13,6 @@ const redes_sociais = [
     { nome: 'Instagram', url: 'https://www.instagram.com/projeto.libraille/', Icone: FaInstagram },
 ]
 
-const colunas = [
-    { titulo: 'Produto', links: [{ texto: 'Como funciona', to: '/produto' }] },
-    { titulo: 'Empresa', links: [{ texto: 'Sobre nós', to: '/sobre' }] },
-    {
-        titulo: 'Suporte',
-        links: [
-            { texto: 'FAQ', to: '/#faq' },
-            { texto: 'Contato', to: '/contato' },
-        ],
-    },
-]
-
 const termosLinks = [
     { texto: 'Política de privacidade', to: '/privacidade' },
     { texto: 'Termos de uso', to: '/termos' },
@@ -31,6 +20,39 @@ const termosLinks = [
 
 function Footer() {
     const baseId = useId()
+    const { logado } = useAuth()
+
+    // As colunas dependem do login: Manual e Conversor só existem para quem entrou
+    const colunas = [
+        {
+            titulo: 'Produto',
+            links: [
+                { texto: 'Como funciona', to: '/produto' },
+                { texto: 'Controles do dispositivo', to: '/produto#controles' },
+                { texto: 'Comprar ou doar', to: '/produto#comprar' },
+            ],
+        },
+        {
+            titulo: 'Conta',
+            links: logado
+                ? [
+                    { texto: 'Manual de uso', to: '/manual' },
+                    { texto: 'Conversor', to: '/conversor' },
+                ]
+                : [
+                    { texto: 'Entrar', to: '/login' },
+                    { texto: 'Ativar conta', to: '/ativar' },
+                ],
+        },
+        { titulo: 'Empresa', links: [{ texto: 'Sobre nós', to: '/sobre' }] },
+        {
+            titulo: 'Suporte',
+            links: [
+                { texto: 'FAQ', to: '/#faq' },
+                { texto: 'Contato', to: '/contato' },
+            ],
+        },
+    ]
 
     return (
         <footer className="footer-content" data-surface="dark">
@@ -108,4 +130,4 @@ function Footer() {
     )
 }
 
-export default Footer;
+export default Footer

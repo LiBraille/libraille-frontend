@@ -31,7 +31,7 @@ export default function Manual() {
               <li><a href="#dispositivo">Conhecendo o dispositivo</a></li>
               <li><a href="#botoes">Os três botões</a></li>
               <li><a href="#modos">Modos de leitura</a></li>
-              <li><a href="#apagar">Apagar um livro do dispositivo</a></li>
+              <li><a href="#apagar">Apagar o livro do dispositivo</a></li>
             </ul>
           </nav>
         </header>
@@ -39,6 +39,10 @@ export default function Manual() {
         <section id="converter" aria-labelledby="converter-titulo">
           <h2 id="converter-titulo">1. Converter e enviar o livro</h2>
           <ol className="manual-steps" role="list">
+            <li>
+              <strong>Use o Chrome ou o Edge, no computador.</strong> A transferência por cabo
+              não funciona em outros navegadores.
+            </li>
             <li>
               <strong>Abra o Conversor</strong> no menu do site (ele aparece depois do login).
             </li>
@@ -51,22 +55,19 @@ export default function Manual() {
               toca um som e aparece o aviso em texto: Pronto para transferir.
             </li>
             <li>
-              <strong>Conecte o dispositivo ao computador com um cabo USB.</strong>{' '}
-              <Pendente>navegador compatível com a transferência por USB (por exemplo, Chrome ou
-              Edge) e se o cabo também alimenta o aparelho</Pendente>
+              <strong>Conecte o dispositivo ao computador com um cabo USB-C que transmita dados.</strong>{' '}
+              Atenção: alguns cabos de carregador só dão energia e não servem para enviar o livro.
             </li>
             <li>
               <strong>Clique em Transferir</strong> no livro pronto. O site avisa com som e com
-              texto quando a transferência terminar.
-            </li>
-            <li>
-              <strong>Pronto para ler.</strong> Siga para as próximas partes deste manual.
+              texto quando a transferência terminar.{' '}
+              <Pendente>se o livro novo substitui o que já estava no aparelho</Pendente>
             </li>
           </ol>
           <p className="manual-note">
             Atenção: a lista de livros do Conversor vale só para a sessão. Se você recarregar ou
-            sair da página, a lista é apagada. Isso não apaga o que já foi transferido para o
-            dispositivo.
+            sair da página, a lista é apagada. Isso não apaga o livro que já foi transferido
+            para o dispositivo.
           </p>
         </section>
 
@@ -81,25 +82,34 @@ export default function Manual() {
             Para ler, apoie a ponta do <strong>dedo indicador</strong> sobre a célula e deixe o
             dedo parado. Quem muda de caractere é o aparelho, não a sua mão.
           </p>
+          <p>
+            Na parte baixa da frente, em linha, ficam <strong>três botões</strong>. O aparelho
+            guarda <strong>um livro por vez</strong> e, ao ser ligado, começa{' '}
+            <strong>pausado</strong>.
+          </p>
+          <p>
+            O cabo USB-C também alimenta o aparelho. Nesta versão, para ler sem o computador,
+            ligue-o a uma fonte de carregador com o cabo. A ideia é que a versão final funcione
+            com bateria interna.
+          </p>
         </section>
 
         <section id="botoes" aria-labelledby="botoes-titulo">
           <h2 id="botoes-titulo">3. Os três botões</h2>
           <p>
-            O dispositivo tem três botões: <strong>avançar</strong>, <strong>retroceder</strong>{' '}
-            e <strong>pausar</strong>.{' '}
-            <Pendente>posição de cada botão no aparelho, para localizá-los pelo tato (por
-            exemplo, esquerda, meio e direita)</Pendente>
+            Estão listados da esquerda para a direita. Você os reconhece pelo tato: os dois das
+            pontas têm uma seta em relevo, e o do meio é totalmente liso.
           </p>
 
           <ul className="manual-buttons" role="list">
-            {BOTOES.map(({ id, nome, resumo, gestos }) => {
+            {BOTOES.map(({ id, nome, tato, resumo, gestos }) => {
               const Icone = ICONES[id]
               return (
                 <li key={id} className="manual-button">
                   <span className="manual-button__icon" aria-hidden="true"><Icone /></span>
                   <div>
                     <h3>{nome}</h3>
+                    <p><em>{tato}</em></p>
                     <p>{resumo}</p>
                     {gestos.length > 0 && (
                       <ul className="manual-gestures">
@@ -120,34 +130,41 @@ export default function Manual() {
         <section id="modos" aria-labelledby="modos-titulo">
           <h2 id="modos-titulo">4. Modos de leitura</h2>
 
-          <h3>Automático</h3>
+          <h3>Pausado (leitura manual)</h3>
           <p>
-            A célula troca de caractere sozinha, no ritmo escolhido. Para mudar o ritmo, clique
-            três vezes rapidamente no botão Pausar.{' '}
-            <Pendente>quantos níveis de velocidade existem e o que acontece depois do último</Pendente>
+            É como o aparelho começa. A célula fica parada, e você decide quando passar de um
+            caractere para outro: use <strong>Avançar</strong> para o próximo e{' '}
+            <strong>Retroceder</strong> para o anterior, no seu tempo.
           </p>
 
-          <h3>Manual</h3>
+          <h3>Automático</h3>
           <p>
-            Você decide quando passar de um caractere para outro: use <strong>Avançar</strong>{' '}
-            para o próximo e <strong>Retroceder</strong> para o anterior, no seu tempo.{' '}
-            <Pendente>como alternar entre o modo automático e o manual</Pendente>
+            Dê <strong>um clique</strong> no botão do meio (o liso). A célula passa a trocar de
+            caractere sozinha. Para parar, clique de novo no botão do meio: o aparelho volta ao
+            modo pausado.
+          </p>
+          <p>
+            Para ler mais depressa, dê <strong>três cliques rápidos</strong> no botão do meio, que
+            aumentam a velocidade.{' '}
+            <Pendente>quantos níveis de velocidade existem e o que acontece depois do último</Pendente>
           </p>
         </section>
 
         <section id="apagar" aria-labelledby="apagar-titulo">
-          <h2 id="apagar-titulo">5. Apagar um livro do dispositivo</h2>
+          <h2 id="apagar-titulo">5. Apagar o livro do dispositivo</h2>
           <p>
-            Para apagar o arquivo do dispositivo, <strong>mantenha o botão Pausar pressionado por
-            10 segundos</strong>.
+            Para apagar o livro, <strong>mantenha o botão do meio (o liso) pressionado por 10
+            segundos</strong>. Se você soltar antes, nada acontece.
+          </p>
+          <p>
+            Como o aparelho guarda um livro por vez, isso apaga o livro que estava gravado. Ao
+            terminar, os pinos sobem e descem, depois de alguns segundos.{' '}
+            <Pendente>confirmar que o aparelho faz esse movimento dos pinos ao apagar</Pendente>
           </p>
           <p className="manual-note">
-            Cuidado: depois de apagar, para ler o livro de novo será preciso converter e transferir
-            outra vez. O site não apaga livros do dispositivo: só o botão físico faz isso.
-          </p>
-          <p>
-            <Pendente>o que acontece se soltar o botão antes dos 10 segundos; se o aparelho avisa
-            quando apagou (por exemplo, com vibração); e se apaga só o livro atual ou todos</Pendente>
+            Cuidado: depois de apagar, para ler o livro de novo será preciso converter e
+            transferir outra vez. O site não apaga livros do dispositivo: só o botão físico faz
+            isso.
           </p>
         </section>
 

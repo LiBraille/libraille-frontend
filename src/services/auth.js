@@ -1,10 +1,7 @@
 import { api } from './api'
 
-// MODO DEMONSTRAÇÃO (Demo Day)
-// true  = login e ativação são simulados e NÃO falam com o back-end.
-// false = usa o back-end de verdade (rotas /auth/...).
-// Para o login real, mude para false.
-export const MODO_DEMO = true
+import { MODO_DEMO } from './config'
+export { MODO_DEMO }   // as telas continuam importando daqui
 
 // Conta e código de teste. NÃO use uma senha real aqui:
 // qualquer pessoa consegue ler este arquivo pelo navegador.

@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: 'Como faço a conversão dos arquivos para o formato braille?',
-    answer: 'Com a conta ativada, entre no site, abra o Conversor, escolha um arquivo TXT ou EPUB e aguarde. O livro é transferido ao dispositivo por cabo USB, e o site avisa com um som quando terminar.',
+    answer: 'Com a conta ativada, entre no site, abra o Conversor, escolha um arquivo TXT ou EPUB e aguarde. O livro é transferido ao dispositivo por cabo USB-C, e o site avisa com um som quando terminar.',
   },
   {
     question: 'O LiBraille é compatível com todos os tipos de arquivos?',
